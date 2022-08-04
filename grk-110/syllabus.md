@@ -1,3 +1,10 @@
+---
+layout: default
+title: Syllabus
+parent: GRK 110 (Fall 2022)
+---
+
+
 # GRK 110 &nbsp; Introduction to Ancient Greek I
 
 ### Course info
