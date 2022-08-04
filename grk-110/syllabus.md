@@ -50,7 +50,7 @@ _Makeups_ &nbsp; &nbsp;When it comes to making-up missed assignments, I am under
 
 _Academic integrity_ &nbsp; &nbsp;I do not expect problems with cheating: you all know better. If there is a problem, the consequences will be appropriately severe. To quote from Furman’s policies: “All forms of academic misconduct including cheating, plagiarism, misrepresentation, and unacceptable collaboration are violations of Furman’s academic integrity standard.” For more information, talk to me or visit furman.edu/integrity.
 
-_Accessibility_ &nbsp; &nbsp;Any student who needs academic accommodations should be in contact with Accessibility Resources (soar). After meeting with them, contact me during office hours or at class so we can make arrangements.
+_Accessibility_ &nbsp; &nbsp;Any student who needs academic accommodations should be in contact with Accessibility Resources ([SOAR](https://www.furman.edu/accessibility/current-student-resources/)). After meeting with them, contact me during office hours or at class so we can make arrangements.
 
 ## Communication
 My contact information appears at the top of this syllabus along with my office hours. Office hours are not for crises only — you can and should talk to me for lots of different reasons. I am here to help you. And if office hours aren’t available for you because of a scheduling conflict, we can schedule a specific time. Here is a non-exhaustive list of reasons for us to talk:
