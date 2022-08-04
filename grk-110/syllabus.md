@@ -24,10 +24,10 @@ This course is designed to teach the fundamentals of Greek vocabulary, wordforms
 Each day in class is spent incrementally adding a new grammatical/syntactical topic or reviewing topics already learned. Each ‘Lesson’ in the textbook makes up the content of approximately a day’s work, though often we will combine Lessons.
 
 Our goals in this course:
-- [ ] Thoroughly internalize the Greek alphabet and its sounds
-- [ ] Learn and recognize the most common forms of nouns, adjectives, verbs, etc.
-- [ ] Build a basic vocabulary of the most frequently occurring words
-- [ ] Begin to gain the reading skills necessary to read an inflected language
+1. Thoroughly internalize the Greek alphabet and its sounds
+1. Learn and recognize the most common forms of nouns, adjectives, verbs, etc.
+1. Build a basic vocabulary of the most frequently occurring words
+1. Begin to gain the reading skills necessary to read an inflected language
 
 ## Expectations and evaluation
 In class, we’ll work our way through each day’s new grammar and practice with simple exercises. You will be responsible for learning the small list of new words that comes with each Lesson. When we are all together, you should definitely ask whatever questions occur to you — there is no other way to improve! 
