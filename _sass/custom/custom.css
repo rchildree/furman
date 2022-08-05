@@ -9,6 +9,10 @@ a,.icon {color: #096ADA !important;}
  background:#096ADA !important
 }
 
+.search-input:focus+.search-label .search-icon {
+ color:#096ADA !important
+}
+
 .nav-list .nav-list-item .nav-list-link:hover,.nav-list .nav-list-item .nav-list-link.active {
  background-image:none !important;
  background-color: #b8e3fd !important;
