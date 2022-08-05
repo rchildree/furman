@@ -19,21 +19,27 @@ Office hours: Furman Hall 128, TR 9:30 (or just email or ask!)
 Reading and interpretation of writings by classical Latin authors. New vocabulary, review of basic grammar and introduction to new grammar, guidance in translation and comprehension of moderately difficult Latin.
 
 ## Purpose, method, goals
-@@
+The purpose of this course is to increase your ability to read Latin quickly and with understanding. We will attack this target by two methods:  
+1. Extensive reading of Latin texts: our goal is quantity, to see a lot of Latin (and more importantly to re-see grammatical structures and vocabulary until they become very familiar)
+2. Focused analyses of specific parts of the text: our goal is quality of explication, to be extremely precise about how the language is constructing meaning and according to what rules.
 
 @@
 
 Our goals in this course:
-1. @@
+1. Get practice and experience reading extended Latin texts
+2. Review and solidify understanding of Latin syntax
+3. Accurately analyze and discuss features of Latin grammar and syntax
 
 ## Expectations and evaluation
-@@
+
 
 The course grade will be determined from:
 
 | Assignment | Percentage |
 |:-------------|------------------:|
-| Homework and preparation | 40%
+| Homework and preparation | 40% |
+| Part 1 test: HART | 30% |
+| Part 2 test: IL | 30% |
 
 ## Course policies
 **Attendance**{: .text-purple-200} &nbsp; &nbsp;Our course depends on contributions from everyone: when any one person is absent, the richness of our conversation is lessened. Likewise, it is impossible to retell or recreate the full thread of a class’s discussion. A great deal of what is important in this class will come from our shared class time; our interaction is vital to full understanding, and so it is also vital to your success. In short: be in class unless a legitimate concern prevents you from doing so.
