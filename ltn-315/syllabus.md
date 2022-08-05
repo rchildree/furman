@@ -5,7 +5,7 @@ parent: LTN 315 (Fall 2022)
 ---
 
 
-# GRK 110 &nbsp; Introduction to Ancient Greek I
+# LTN 315 &nbsp; Research and Translation Methods (Seneca, *De Brevitate Vitae*)
 
 ### Course info
 Furman Hall 107  
@@ -19,7 +19,7 @@ Office hours: Furman Hall 128, TR 9:30 (or just email or ask!)
 Close readings of Latin texts, focusing on advanced understanding of syntax and style, and approaches to translation.
 
 ## Purpose, method, goals
-@@
+In this course we will read Seneca’s *De Brevitate Vitae* with an eye towards 
 
 @@
 
