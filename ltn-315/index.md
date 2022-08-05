@@ -5,4 +5,4 @@ has_children: true
 ---
 
 # LTN 315 Translation & Research Methods
-## Seneca, *De Brevitate Vitae*
+### Seneca, *De Brevitate Vitae*
