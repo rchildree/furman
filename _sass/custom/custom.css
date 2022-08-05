@@ -1,5 +1,5 @@
-/* html {font-size:16px !important}
-body {line-height: 1.25 !important} */
+// html {font-size:16px !important}
+// body {line-height: 1.25 !important}
 
 .side-bar {background-color: #DDF4FF !important;}
 a,.icon {color: #096ADA !important;}
@@ -44,3 +44,5 @@ a:not([class]):hover {
 }
 
 .site-footer {display: none;}
+
+.sc {font-feature-settings: "smcp","c2sc";}
