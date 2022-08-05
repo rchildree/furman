@@ -26,5 +26,5 @@ a:not([class]):hover {
 }
 
 .main-content .anchor-heading svg {
-  color: #096ADA;
+  color: #096ADA !important;
 }
