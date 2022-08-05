@@ -8,8 +8,8 @@ parent: LTN 315 (Fall 2022)
 # LTN 315 &nbsp; Research and Translation Methods (Seneca, *De Brevitate Vitae*)
 
 ### Course info
-Furman Hall 107  
-MTRF 10:30–11:20
+Furman Hall 127  
+TR 11:30–12:45
 
 ### Professor info
 Randall Childree ([randall.childree@furman.edu](mailto:randall.childree@furman.edu))  
@@ -19,12 +19,11 @@ Office hours: Furman Hall 128, TR 9:30 (or just email or ask!)
 Close readings of Latin texts, focusing on advanced understanding of syntax and style, and approaches to translation.
 
 ## Purpose, method, goals
-In this course we will read Seneca’s *De Brevitate Vitae* with an eye towards 
-
-@@
-
-Our goals in this course:
-1. @@
+In this course we will read Seneca’s *De Brevitate Vitae* with an eye towards these goals:
+1. Improving our Latin reading skills
+2. Accurately tracing the argument of a philosophical text
+3. Using a scholarly commentary appropriately to understand the text better
+4. Discovering researchable questions
 
 ## Expectations and evaluation
 @@
