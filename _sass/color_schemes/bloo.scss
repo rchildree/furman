@@ -1,2 +1,21 @@
 .side-bar {background-color: #DDF4FF !important;}
 a {color: #096ADA !important;}
+
+.nav-list .nav-list-item .nav-list-link:hover,.nav-list .nav-list-item .nav-list-link.active {
+ background-image:#b8e3fd !important
+}
+.site-title:hover {
+ background-image:#b8e3fd !important
+}
+
+.site-button:hover {
+ background-image:#b8e3fd !important
+}
+
+.nav-list .nav-list-item .nav-list-expander:hover {
+ background-image:#b8e3fd !important
+}
+
+a:not([class]):hover {
+ background-image:#096ADA !important;
+}

@@ -23,7 +23,7 @@ The purpose of this course is to increase your ability to read Latin quickly and
 1. Extensive reading of Latin texts: our goal is quantity, to see a lot of Latin (and more importantly to re-see grammatical structures and vocabulary until they become very familiar)
 2. Focused analyses of specific parts of the text: our goal is quality of explication, to be extremely precise about how the language is constructing meaning and according to what rules.
 
-We will begin with one of the most widely-read books of late antiquity a (?)romance titled [*Historia Apollonii Regis Tyri*](https://www.inusum.com/historia-apollonii-regis-tyri). Near the end of the semester, we will switch to another text that was more popular than its current reputation allows, the [*Ilias Latina*](https://www.inusum.com/ilias-latina).
+We will begin with one of the most widely-read books of late antiquity, a (?)romance titled [*Historia Apollonii Regis Tyri*](https://www.inusum.com/historia-apollonii-regis-tyri). Near the end of the semester, we will switch to another text that was more popular than its current reputation allows, the [*Ilias Latina*](https://www.inusum.com/ilias-latina).
 
 These tactics should help us achieve these goals:
 1. Get practice and experience reading extended Latin texts
