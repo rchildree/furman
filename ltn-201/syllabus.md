@@ -1,47 +1,39 @@
 ---
 layout: default
 title: Syllabus
-parent: GRK 110 (Fall 2022)
+parent: LTN 201 (Fall 2022)
 ---
 
 
-# GRK 110 &nbsp; Introduction to Ancient Greek I
+# LTN 201 &nbsp; Intermediate Latin
 
 ### Course info
-Furman Hall 107  
-MTRF 10:30–11:20
+Johns Hall 105  
+MWF 1:30–2:20
 
 ### Professor info
 Randall Childree ([randall.childree@furman.edu](mailto:randall.childree@furman.edu))  
 Office hours: Furman Hall 128, TR 9:30 (or just email or ask!)
 
 ## Overview
-Introduction to the fundamentals of ancient Greek. Topics include: pronunciation, basic vocabulary, grammar and syntax, practice in reading. Material is adapted from classical texts and cultivates an appreciation of Greek literature and culture.
+@@
 
 ## Purpose, method, goals
-This course is designed to teach the fundamentals of Greek vocabulary, wordforms, and syntax. Combined with GRK 120, it introduces the student to all the Greek necessary to begin reading authentic ancient Greek texts like Homer’s _Iliad_ or _Odyssey_, Herodotus’s _Histories_, Greek Tragedy, Plato, and more.
+@@
 
-Each day in class is spent incrementally adding a new grammatical/syntactical topic or reviewing topics already learned. Each ‘Lesson’ in the textbook makes up the content of approximately a day’s work, though often we will combine Lessons.
+@@
 
 Our goals in this course:
-1. Thoroughly internalize the Greek alphabet and its sounds
-1. Learn and recognize the most common forms of nouns, adjectives, verbs, etc.
-1. Build a basic vocabulary of the most frequently occurring words
-1. Begin to gain the reading skills necessary to read an inflected language
+1. @@
 
 ## Expectations and evaluation
-In class, we’ll work our way through each day’s new grammar and practice with simple exercises. You will be responsible for learning the small list of new words that comes with each Lesson. When we are all together, you should definitely ask whatever questions occur to you — there is no other way to improve! 
+@@
 
 The course grade will be determined from:
 
 | Assignment | Percentage |
 |:-------------|------------------:|
 | Homework and preparation | 40%
-| Test after Lesson 15 | 10%
-| Test after Lesson 21 | 10%
-| Test after Lesson 25 | 10%
-| Test after Lesson 30 | 10%
-| Final after Lesson 44 | 20%
 
 ## Course policies
 _Attendance_{: .text-purple-200} &nbsp; &nbsp;Our course depends on contributions from everyone: when any one person is absent, the richness of our conversation is lessened. Likewise, it is impossible to retell or recreate the full thread of a class’s discussion. A great deal of what is important in this class will come from our shared class time; our interaction is vital to full understanding, and so it is also vital to your success. In short: be in class unless a legitimate concern prevents you from doing so.
