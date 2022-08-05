@@ -30,9 +30,11 @@ In this course we will read Seneca’s *De Brevitate Vitae* with an eye towards 
 
 The course grade will be determined from:
 
-| Assignment | Percentage |
-|:-------------|------------------:|
-| Homework and preparation | 40%
+| Assignment                | Percentage |
+|:--------------------------|-----------:|
+| Homework and preparation  | 40%        |
+| Research question topics  | 20%        |
+| Polished translations     | 20%        |
 
 ## Course policies
 **Attendance** &nbsp; &nbsp;Our course depends on contributions from everyone: when any one person is absent, the richness of our conversation is lessened. Likewise, it is impossible to retell or recreate the full thread of a class’s discussion. A great deal of what is important in this class will come from our shared class time; our interaction is vital to full understanding, and so it is also vital to your success. In short: be in class unless a legitimate concern prevents you from doing so.
