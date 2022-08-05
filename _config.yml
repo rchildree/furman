@@ -1,6 +1,6 @@
 title: "Teaching"
-url: https://rchildree.github.io
-baseurl: /furman
+url: "https://rchildree.github.io"
+baseurl: "/furman"
 remote_theme: just-the-docs/just-the-docs
 logo: "images/logo.png"
 color_scheme: bloo
