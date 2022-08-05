@@ -18,6 +18,10 @@ Office hours: Furman Hall 128, TR 9:30 (or just email or ask!)
 ## Overview
 Close readings of Latin texts, focusing on advanced understanding of syntax and style, and approaches to translation.
 
+## Texts
+- R. Childree, ed. [*De Brevitate Vitae*](https://www.inusum.com/seneca/de-brevitate-vitae) (reading text)
+- G.D. Williams, ed., *De Otio, De Brevitate Vitae* (commentary)
+
 ## Purpose, method, goals
 In this course we will read Seneca’s *De Brevitate Vitae* with an eye towards these goals:
 1. Improving our Latin reading skills
@@ -25,12 +29,16 @@ In this course we will read Seneca’s *De Brevitate Vitae* with an eye towards 
 3. Using a scholarly commentary appropriately to understand the text better
 4. Discovering researchable questions
 
+To these ends, we will:
+1. Read together in class daily
+2. Prepare using Williams’ commentary
+3. Discuss specific issues of translation into English (as a means of understanding Latin style)
+4. Write out proper translations of specific sections of the text
+5. Summarize Seneca’s argument for specific sections of the text
+6. Discover and discuss the possibilities of research questions
 
-
-## Expectations and evaluation
-@@
-
-The course grade will be determined from:
+## Evaluation
+The course grade will be determined from these assignments:
 
 | Assignment                 | Percentage |
 |:---------------------------|-----------:|
