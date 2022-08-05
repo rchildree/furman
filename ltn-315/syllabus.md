@@ -19,8 +19,8 @@ Office hours: Furman Hall 128, TR 9:30 (or just email or ask!)
 Close readings of Latin texts, focusing on advanced understanding of syntax and style, and approaches to translation.
 
 ## Texts
-- R. Childree, ed. [*De Brevitate Vitae*](https://www.inusum.com/seneca/de-brevitate-vitae) (reading text)
-- G.D. Williams, ed., *De Otio, De Brevitate Vitae* (commentary)
+- R. Childree, ed. [Seneca, *De Brevitate Vitae*](https://www.inusum.com/seneca/de-brevitate-vitae) (reading text)
+- G.D. Williams, ed., *Seneca: De Otio, De Brevitate Vitae* (commentary)
 
 ## Purpose, method, goals
 In this course we will read Seneca’s *De Brevitate Vitae* with an eye towards these goals:
