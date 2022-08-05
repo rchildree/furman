@@ -2,6 +2,7 @@
 layout: default
 title: Syllabus
 parent: GRK 110 (Fall 2022)
+nav_order: 1
 ---
 
 

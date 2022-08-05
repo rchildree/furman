@@ -2,6 +2,7 @@
 layout: default
 title: Syllabus
 parent: LTN 315 (Fall 2022)
+nav_order: 1
 ---
 
 
