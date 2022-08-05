@@ -16,7 +16,7 @@ Randall Childree ([randall.childree@furman.edu](mailto:randall.childree@furman.e
 Office hours: Furman Hall 128, TR 9:30 (or just email or ask!)
 
 ## Overview
-@@
+Reading and interpretation of writings by classical Latin authors. New vocabulary, review of basic grammar and introduction to new grammar, guidance in translation and comprehension of moderately difficult Latin.
 
 ## Purpose, method, goals
 @@

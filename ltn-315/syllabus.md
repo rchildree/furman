@@ -16,7 +16,7 @@ Randall Childree ([randall.childree@furman.edu](mailto:randall.childree@furman.e
 Office hours: Furman Hall 128, TR 9:30 (or just email or ask!)
 
 ## Overview
-@@
+Close readings of Latin texts, focusing on advanced understanding of syntax and style, and approaches to translation.
 
 ## Purpose, method, goals
 @@
