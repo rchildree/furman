@@ -8,6 +8,8 @@ nav_order: 1
 
 # GRK 110 &nbsp; Introduction to Ancient Greek I
 
+![Header](grk110.png)
+
 ### Course info
 Furman Hall 107  
 MTRF 10:30–11:20
