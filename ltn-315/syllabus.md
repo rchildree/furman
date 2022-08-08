@@ -8,8 +8,6 @@ nav_order: 1
 
 # LTN 315 &nbsp; Research and Translation Methods (Seneca, *De Brevitate Vitae*)
 
-![Seneca](seneca.png)
-
 ### Course info
 Furman Hall 127  
 TR 11:30–12:45
