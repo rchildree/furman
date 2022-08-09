@@ -12,7 +12,6 @@ Check here for due dates!
 {:.testing .mtrf}
 |Date|Day|Assignment|
 |:-|:-:|:-|
-| 8/22 | M | Convocation|
 | 8/23 | T | FDOC|
 | 8/25 | R | |
 | 8/26 | F | |
