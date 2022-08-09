@@ -46,3 +46,5 @@ a:not([class]):hover {
 .site-footer {display: none;}
 
 .sc {font-feature-settings: "smcp","c2sc";}
+
+.testing:nth-of-type(tr){background-color: #DDF4FF;}
