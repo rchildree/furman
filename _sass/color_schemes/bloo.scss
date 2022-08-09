@@ -60,15 +60,15 @@ a:not([class]):hover {
 	min-width:min-content !important;}
 .testing thead th:nth-child(1), thead th:nth-child(2)
 	{width: 6ch !important;}
-.mwf tr:nth-child(6n+2),
-.mwf tr:nth-child(6n+3),
-.mwf tr:nth-child(6n+4)
+.mwf tr:nth-child(6n+4),
+.mwf tr:nth-child(6n+5),
+.mwf tr:nth-child(6n+6)
 	{background-color: #ddf4ff74 !important;}
-.tr tr:nth-child(4n+2),
-.tr tr:nth-child(4n+3)
+.tr tr:nth-child(4n+3),
+.tr tr:nth-child(4n+4)
 	{background-color: #ddf4ff74 !important;}
-.mtrf tr:nth-child(8n+2),
-.mtrf tr:nth-child(8n+3),
-.mtrf tr:nth-child(8n+4),
-.mtrf tr:nth-child(8n+5)
+.mtrf tr:nth-child(8n+5),
+.mtrf tr:nth-child(8n+6),
+.mtrf tr:nth-child(8n+7),
+.mtrf tr:nth-child(8n+8)
 	{background-color: #ddf4ff74 !important;}
