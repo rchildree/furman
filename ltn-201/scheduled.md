@@ -12,7 +12,7 @@ Check here for due dates!
 {:.testing .mwf}
 |Date|Day|Assignment|
 |:-|:-:|:-|
-| 8/24 | W | |
+| 8/24 | W | FDOC{:.color} |
 | 8/26 | F | |
 | 8/29 | M | |
 | 8/31 | W | |
