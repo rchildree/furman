@@ -47,4 +47,4 @@ a:not([class]):hover {
 
 .sc {font-feature-settings: "smcp","c2sc";}
 
-.testing tr:nth-child(even){background-color: #DDF4FF;}
+.testing tr:nth-child(even){background-color: #DDF4FF !important}
