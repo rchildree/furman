@@ -47,4 +47,13 @@ a:not([class]):hover {
 
 .sc {font-feature-settings: "smcp","c2sc";}
 
-.testing tr:nth-child(even){background-color: #DDF4FF !important}
+/* Table redo */
+.table-wrapper
+	{border-radius:10px !important}
+table
+	{border-collapse: collapse !important;
+	border:1px solid }
+td
+	{background-color: unset !important;}
+.testing tr:nth-child(even)
+	{background-color: #ebedee !important;}
