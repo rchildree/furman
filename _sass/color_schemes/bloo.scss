@@ -59,4 +59,4 @@ a:not([class]):hover {
 .testing tr:nth-child(even)
 	{background-color: #ddf4ff74 !important;}
 .testing thead th:nth-child(1), thead th:nth-child(2)
-	{width: max-content;}
+	{width: max-content !important;}
