@@ -54,8 +54,10 @@ a:not([class]):hover {
 	{border-collapse: collapse !important;
 	border-radius:10px !important;
 	border:1px solid #ecedee !important;}
-.testing td
-	{background-color: unset !important;}
+.testing th, .testing td
+	{background-color: unset !important;
+	border-left:unset !important;
+	min-width:max-content !important;}
 .testing tr:nth-child(even)
 	{background-color: #ddf4ff74 !important;}
 .testing thead th:nth-child(1), thead th:nth-child(2)
