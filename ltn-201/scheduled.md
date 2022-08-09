@@ -12,7 +12,6 @@ Check here for due dates!
 {:.testing .mwf}
 |Date|Day|Assignment|
 |:-|:-:|:-|
-| 8/22 | M | Convocation|
 | 8/24 | W | |
 | 8/26 | F | |
 | 8/29 | M | |
