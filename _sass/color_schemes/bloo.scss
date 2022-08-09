@@ -50,11 +50,13 @@ a:not([class]):hover {
 /* Table redo */
 .table-wrapper
 	{border-radius:unset !important}
-table
+.testing
 	{border-collapse: collapse !important;
 	border-radius:10px !important;
 	border:1px solid #ecedee !important;}
-td
+.testing td
 	{background-color: unset !important;}
 .testing tr:nth-child(even)
 	{background-color: #e6ebef !important;}
+.testing thead th:nth-child(1), thead th:nth-child(2)
+	{width: max-content;}
