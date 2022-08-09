@@ -49,11 +49,12 @@ a:not([class]):hover {
 
 /* Table redo */
 .table-wrapper
-	{border-radius:10px !important}
+	{border-radius:unset !important}
 table
 	{border-collapse: collapse !important;
-	border:1px solid }
+	border-radius:10px !important;
+	border:1px solid #ecedee !important;}
 td
 	{background-color: unset !important;}
 .testing tr:nth-child(even)
-	{background-color: #ebedee !important;}
+	{background-color: #e6ebef !important;}
