@@ -9,8 +9,9 @@ nav_order: 2
 
 Check here for due dates!
 
+{:.testing}
 |Date|Day|Assignment|
-|-|-|-|
+|:-|:-:|:-|
 | 8/22 | M | Convocation|
 | 8/23 | T | FDOC|
 | 8/25 | R | |

@@ -10,7 +10,7 @@ nav_order: 2
 Check here for due dates!
 
 |Date|Day|Assignment|
-|-|-|-|
+|:-|:-:|:-|
 | 8/23 | T | FDOC|
 | 8/25 | R | |
 | 8/30 | T | |
