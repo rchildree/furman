@@ -58,7 +58,11 @@ a:not([class]):hover {
 	{background-color: unset !important;
 	border-left:unset !important;
 	min-width:min-content !important;}
-.testing tr:nth-child(even)
-	{background-color: #ddf4ff74 !important;}
 .testing thead th:nth-child(1), thead th:nth-child(2)
 	{width: 6ch !important;}
+.testing .mwf tr:nth-child(6n+2),tr:nth-child(6n+3),tr:nth-child(6n+4)
+	{background-color: #ddf4ff74 !important;}
+.testing .tr tr:nth-child(4n+2),tr:nth-child(4n+3)
+	{background-color: #ddf4ff74 !important;}
+.testing .mtrf tr:nth-child(8n+2),tr:nth-child(8n+3),tr:nth-child(8n+4),tr:nth-child(8n+5)
+	{background-color: #ddf4ff74 !important;}

@@ -9,6 +9,7 @@ nav_order: 2
 
 Check here for due dates!
 
+{:.testing .tr}
 |Date|Day|Assignment|
 |:-|:-:|:-|
 | 8/22 | M | Convocation|
@@ -60,4 +61,3 @@ Check here for due dates!
 | 12/7 | W | |
 | 12/9 | F | |
 | 12/?? | ? | Final |
-{:.testing}

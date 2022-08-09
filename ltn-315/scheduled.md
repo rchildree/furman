@@ -9,6 +9,7 @@ nav_order: 2
 
 Check here for due dates!
 
+{:.testing .mwf}
 |Date|Day|Assignment|
 |:-|:-:|:-|
 | 8/23 | T | FDOC|

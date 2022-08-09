@@ -9,7 +9,7 @@ nav_order: 2
 
 Check here for due dates!
 
-{:.testing}
+{:.testing .mtrf}
 |Date|Day|Assignment|
 |:-|:-:|:-|
 | 8/22 | M | Convocation|
