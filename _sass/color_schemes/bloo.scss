@@ -1,10 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@font-face {
+ font-family: 'Source Sans';
+ src: url('/fonts/SourceSans3-VariableFont_wght.ttf') format('ttf');
+}
+@font-face {
+ font-family: 'Source Sans';
+ src: url('/fonts/SourceSans3-Italic-VariableFont_wght.ttf') format('ttf');
+ font-style: italic;
+}
 
 // html {font-size:16px !important}
 // body {line-height: 1.25 !important}
 
 * {
-font-family: 'Source Sans 3',system-ui,-apple-system,blinkmacsystemfont,"Segoe UI",roboto,"Helvetica Neue",arial,sans-serif !important;
+font-family: 'Source Sans',system-ui,-apple-system,blinkmacsystemfont,"Segoe UI",roboto,"Helvetica Neue",arial,sans-serif !important;
 font-feature-settings:'ss05' !important;
 }
 
