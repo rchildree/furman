@@ -34,8 +34,10 @@
     src: url('/furman/fonts/Neohellenic-Regular.otf') format('opentype');
 }
 
-@media (min-width: 31.25rem) { 
-	html {font-size:18px !important}
+@layer {
+ html {
+  font-size:18px !important
+ }
 }
 
 body {font-family: 'Source Serif Pro' !important}
