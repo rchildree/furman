@@ -8,7 +8,7 @@ nav_order: 1
 
 # GRK 110 &nbsp; Introduction to Ancient Greek I
 
-> συντιθέναι δεῖ τὸν βίον κατὰ μίαν πρᾶξιν  
+> *συντιθέναι δεῖ τὸν βίον κατὰ μίαν πρᾶξιν*{:.grk}  
 > You have to build your life one action at a time  
 > 
 > — Marcus Aurelius, _Meditations_ 8.32
