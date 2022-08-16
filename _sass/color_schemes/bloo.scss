@@ -29,6 +29,11 @@
     font-weight: 600;
     font-style: italic;
 }
+@font-face {
+    font-family: 'Neohellenic';
+    src: url('/furman/fonts/Neohellenic-Regular.otf') format('opentype');
+}
+
 
 // html {font-size:16px !important}
 // body {line-height: 1.25 !important}
@@ -38,6 +43,8 @@ body {font-family: 'Source Serif Pro' !important}
 $root-font-sisze: 17px !important;
 $body-text-color: #000 !important;
 $content-line-height: 1.4 !important;
+
+h1, h2, h3, h4, h5, h6, #toctitle {font-weight: 600 !important;}
 
 .site-header {border-bottom:none !important;}
 
@@ -87,6 +94,10 @@ a:not([class]):hover {
 
 .sc {font-feature-settings: "smcp","c2sc";}
 .color {color:#096ADA}
+.grk {
+  font-family: 'Neohellenic';
+  font-size: larger;
+}
 
 /* Table redo */
 .table-wrapper
