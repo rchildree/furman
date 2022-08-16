@@ -1,3 +1,35 @@
+@font-face {
+    font-family: 'Source Serif Pro';
+    src: url('/furman/fonts/SourceSerifPro-Regular.otf') format('otf');
+}
+@font-face {
+    font-family: 'Source Serif Pro';
+    src: url('/furman/fonts/SourceSerifPro-Italic.otf') format('otf');
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Source Serif Pro';
+    src: url('/furman/fonts/SourceSerifPro-Bold.otf') format('otf');
+    font-weight: bold;
+}
+@font-face {
+    font-family: 'Source Serif Pro';
+    src: url('/furman/fonts/SourceSerifPro-BoldIt.otf') format('otf');
+    font-weight: bold;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Source Serif Pro';
+    src: url('/furman/fonts/SourceSerifPro-Semibold.otf') format('otf');
+    font-weight: 600;
+}
+@font-face {
+    font-family: 'Source Serif Pro';
+    src: url('/furman/fonts/SourceSerifPro-SemiboldIt.otf') format('otf');
+    font-weight: 600;
+    font-style: italic;
+}
+
 // html {font-size:16px !important}
 // body {line-height: 1.25 !important}
 
