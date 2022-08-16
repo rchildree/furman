@@ -95,8 +95,10 @@ a:not([class]):hover {
 .sc {font-feature-settings: "smcp","c2sc";}
 .color {color:#096ADA}
 .grk {
-  font-family: 'Neohellenic';
-  font-size: larger;
+  font-family: 'Neohellenic' !important;
+  font-weight: normal !important;
+  font-style: normal !important;
+  font-size: larger !important;
 }
 
 /* Table redo */
