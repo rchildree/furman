@@ -40,7 +40,7 @@
 
 body {font-family: 'Source Serif Pro' !important}
 
-$root-font-sisze: 17px !important;
+$root-font-size: 18px !important;
 $body-text-color: #000 !important;
 $content-line-height: 1.4 !important;
 
@@ -88,6 +88,13 @@ a:not([class]):hover {
 
 .main-content .anchor-heading svg {
   color: #096ADA !important;
+}
+
+blockquote {
+  border-left: 4px solid #DDF4FF;
+  padding: 0 25px;
+  margin-left: unset;
+  font-size: smaller;
 }
 
 .site-footer {display: none;}
