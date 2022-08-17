@@ -57,12 +57,17 @@ $font-size-10: $font-size-10 * $font-factor;
 $font-size-10-sm: $font-size-10-sm * $font-factor;
 
 
-body {font-family: 'Source Serif Pro' !important}
+body {
+	font-family: 'Source Serif Pro' !important;
+	font-feature-settings:"pnum","onum";
+}
 
 $body-text-color: #000 !important;
 $content-line-height: 1.4 !important;
 
-h1, h2, h3, h4, h5, h6, #toctitle {font-weight: 600 !important;}
+h1, h2, h3, h4, h5, h6, #toctitle {
+	font-weight: 600 !important;
+	font-feature-settings:"pnum","lnum";}
 
 .site-header {border-bottom:none !important;}
 
