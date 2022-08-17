@@ -1,10 +1,10 @@
 ---
 layout: default
-title: Schedule updates
+title: Schedule
 parent: LTN 201 (Fall 2022)
-nav_order: 2
----
+nav_order: "2"
 
+---
 # Scheduled assignments
 
 Check here for due dates!
@@ -59,4 +59,4 @@ Check here for due dates!
 | 12/5 | M | |
 | 12/7 | W | |
 | 12/9 | F | |
-| 12/?? | ? | Final |
+| 12/13 | T | Final, Noon |
