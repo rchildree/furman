@@ -1,10 +1,10 @@
 ---
 layout: default
-title: Schedule updates
+title: Schedule
 parent: LTN 315 (Fall 2022)
-nav_order: 2
----
+nav_order: "2"
 
+---
 # Scheduled assignments
 
 Check here for due dates!
@@ -42,5 +42,5 @@ Check here for due dates!
 | 11/24 | R | Thanksgiving|
 | 11/29 | T | |
 | 12/1 | R | |
-| 12/6 | T | LDOC|
-| ??? | ? | Final
+| 12/6 | T | LDOC |
+| 12/8 | R | Final @ Noon |
