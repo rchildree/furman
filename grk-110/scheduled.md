@@ -1,10 +1,10 @@
 ---
 layout: default
-title: Schedule updates
+title: Schedule
 parent: GRK 110 (Fall 2022)
-nav_order: 2
----
+nav_order: "2"
 
+---
 # Scheduled assignments
 
 Check here for due dates!
@@ -72,7 +72,5 @@ Check here for due dates!
 | 12/1 | R | |
 | 12/2 | F | |
 | 12/5 | M | |
-| 12/6 | T | LDOC|
-| 12/8 | R | Final exams begin|
-| 12/9 | F | |
-| 12/?? | ? | Final |
+| 12/6 | T | LDOC |
+| 12/12 | M | Final, 8:30 AM |
