@@ -12,9 +12,9 @@ Check here for due dates!
 {:.testing .mtrf}
 |Date|Day|Assignment|
 |:-|:-:|:-|
-| 8/23 | T | Beginning: the alphabet|
-| 8/25 | R | |
-| 8/26 | F | |
+| 8/23 | T | Beginning: the alphabet |
+| 8/25 | R | Writing Greek |
+| 8/26 | F | Typing Greek. Using dictionaries.|
 | 8/29 | M | |
 | 8/30 | T | |
 | 9/1 | R | |
