@@ -1,4 +1,24 @@
 @font-face {
+    font-family: 'Commish';
+    src: url('/furman/fonts/Commissioner-Regular.otf') format('opentype');
+}
+@font-face {
+    font-family: 'Commish';
+    src: url('/furman/fonts/Commissioner-Italic.otf') format('opentype');
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Commish';
+    src: url('/furman/fonts/Commissioner-Bold.otf') format('opentype');
+    font-weight: bold;
+}
+@font-face {
+    font-family: 'Commish';
+    src: url('/furman/fonts/Commissioner-BoldItalic.otf') format('opentype');
+    font-weight: bold;
+    font-style: italic;
+}
+@font-face {
     font-family: 'Source Serif Pro';
     src: url('/furman/fonts/SourceSerifPro-Regular.otf') format('opentype');
 }
@@ -41,7 +61,7 @@
 // 	html {font-size:16px;
 // }
 
-$font-factor: 1.125;
+// $font-factor: 1.125;
 
 $font-size-1: $font-size-1 * $font-factor;
 $font-size-1-sm: $font-size-1-sm * $font-factor;
@@ -58,7 +78,7 @@ $font-size-10-sm: $font-size-10-sm * $font-factor;
 
 
 body {
-	font-family: 'Source Serif Pro' !important;
+	font-family: 'Commish' !important;
 	font-feature-settings:"pnum","onum";
 }
 
