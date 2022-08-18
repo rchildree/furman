@@ -1,5 +1,4 @@
 // @import url("https://indestructibletype.com/fonts/Jost.css");
-@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,200;0,400;0,600;0,800;1,200;1,400;1,600;1,800&display=swap');
 @font-face {
     font-family: 'Commish';
     src: url('/furman/fonts/CommissionerLoud-Regular.otf') format('opentype');
@@ -20,37 +19,37 @@
     font-weight: bold;
     font-style: italic;
 }
-@font-face {
-    font-family: 'Source Serif Pro';
-    src: url('/furman/fonts/SourceSerifPro-Regular.otf') format('opentype');
-}
-@font-face {
-    font-family: 'Source Serif Pro';
-    src: url('/furman/fonts/SourceSerifPro-It.otf') format('opentype');
-    font-style: italic;
-}
-@font-face {
-    font-family: 'Source Serif Pro';
-    src: url('/furman/fonts/SourceSerifPro-Bold.otf') format('opentype');
-    font-weight: bold;
-}
-@font-face {
-    font-family: 'Source Serif Pro';
-    src: url('/furman/fonts/SourceSerifPro-BoldIt.otf') format('opentype');
-    font-weight: bold;
-    font-style: italic;
-}
-@font-face {
-    font-family: 'Source Serif Pro';
-    src: url('/furman/fonts/SourceSerifPro-Semibold.otf') format('opentype');
-    font-weight: 600;
-}
-@font-face {
-    font-family: 'Source Serif Pro';
-    src: url('/furman/fonts/SourceSerifPro-SemiboldIt.otf') format('opentype');
-    font-weight: 600;
-    font-style: italic;
-}
+// @font-face {
+//     font-family: 'Source Serif Pro';
+//     src: url('/furman/fonts/SourceSerifPro-Regular.otf') format('opentype');
+// }
+// @font-face {
+//     font-family: 'Source Serif Pro';
+//     src: url('/furman/fonts/SourceSerifPro-It.otf') format('opentype');
+//     font-style: italic;
+// }
+// @font-face {
+//     font-family: 'Source Serif Pro';
+//     src: url('/furman/fonts/SourceSerifPro-Bold.otf') format('opentype');
+//     font-weight: bold;
+// }
+// @font-face {
+//     font-family: 'Source Serif Pro';
+//     src: url('/furman/fonts/SourceSerifPro-BoldIt.otf') format('opentype');
+//     font-weight: bold;
+//     font-style: italic;
+// }
+// @font-face {
+//     font-family: 'Source Serif Pro';
+//     src: url('/furman/fonts/SourceSerifPro-Semibold.otf') format('opentype');
+//     font-weight: 600;
+// }
+// @font-face {
+//     font-family: 'Source Serif Pro';
+//     src: url('/furman/fonts/SourceSerifPro-SemiboldIt.otf') format('opentype');
+//     font-weight: 600;
+//     font-style: italic;
+// }
 @font-face {
     font-family: 'Neohellenic';
     src: url('/furman/fonts/Neohellenic-Regular.otf') format('opentype');
@@ -80,7 +79,7 @@
 
 
 body {
-	font-family: 'Libre Franklin' !important;
+	font-family: 'Commish' !important;
 	font-feature-settings:"pnum","onum";
 }
 
