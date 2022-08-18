@@ -12,11 +12,11 @@ Check here for due dates!
 {:.testing .mtrf}
 |Date|Day|Assignment|
 |:-|:-:|:-|
-| 8/23 | T | Beginning: the alphabet. Writing Greek |
-| 8/25 | R | Pronouncing Greek |
-| 8/26 | F | Typing Greek. Using dictionaries.|
-| 8/29 | M | |
-| 8/30 | T | |
+| 8/23 | T | **L1–5**{:.color} Beginning: the alphabet. Writing Greek |
+| 8/25 | R | **L1–5**{:.color} Pronouncing Greek |
+| 8/26 | F | **L1–5**{:.color} Typing Greek. Using dictionaries.|
+| 8/29 | M | **L6**{:.color} Grammatical case, aka The Only Concept You Absolutely Have to Get |
+| 8/30 | T | **L7**{:.color} The alpha-declension |
 | 9/1 | R | |
 | 9/2 | F | |
 | 9/5 | M | Labor Day|
