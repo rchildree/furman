@@ -1,6 +1,5 @@
 // @import url("https://indestructibletype.com/fonts/Jost.css");
-@import url(http://fonts.googleapis.com/earlyaccess/nunitovfbeta.css);
-
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap');
 @font-face {
     font-family: 'Commish';
     src: url('/furman/fonts/CommissionerLoud-Regular.otf') format('opentype');
@@ -81,7 +80,7 @@
 
 
 body {
-	font-family: 'Nunito VF Beta' !important;
+	font-family: 'Nunito Sans' !important;
 	font-feature-settings:"pnum","onum";
 }
 
