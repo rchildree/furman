@@ -1,4 +1,5 @@
-@import url("https://indestructibletype.com/fonts/Jost.css");
+// @import url("https://indestructibletype.com/fonts/Jost.css");
+@import url(http://fonts.googleapis.com/earlyaccess/nunitovfbeta.css);
 
 @font-face {
     font-family: 'Commish';
@@ -80,7 +81,7 @@
 
 
 body {
-	font-family: 'Jost' !important;
+	font-family: 'Nunito VF Beta' !important;
 	font-feature-settings:"pnum","onum";
 }
 
