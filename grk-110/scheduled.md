@@ -12,7 +12,7 @@ Check here for due dates!
 {:.testing .mtrf}
 |Date|Day|Assignment|
 |:-|:-:|:-|
-| 8/23 | T | FDOC|
+| 8/23 | T | Beginning: the alphabet|
 | 8/25 | R | |
 | 8/26 | F | |
 | 8/29 | M | |
