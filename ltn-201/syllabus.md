@@ -45,8 +45,8 @@ The course grade will be determined from:
 | Assignment | Percentage |
 | :--- | ---: |
 | Preparation and analyses | 40% |
-| Part 1 test: Historia Apollonii Regis Tyri | 30% |
-| Part 2 test: Ilias Latina | 30% |
+| Part 1 test: *Historia Apollonii Regis Tyri* | 30% |
+| Part 2 test: *Ilias Latina* | 30% |
 
 ## Course policies
 
