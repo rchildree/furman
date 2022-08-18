@@ -1,3 +1,5 @@
+@import url("https://indestructibletype.com/fonts/Jost.css");
+
 @font-face {
     font-family: 'Commish';
     src: url('/furman/fonts/CommissionerLoud-Regular.otf') format('opentype');
@@ -78,7 +80,7 @@
 
 
 body {
-	font-family: 'Commish' !important;
+	font-family: 'Jost' !important;
 	font-feature-settings:"pnum","onum";
 }
 
