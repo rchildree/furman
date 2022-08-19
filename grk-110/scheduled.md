@@ -16,16 +16,16 @@ Check here for due dates!
 | 8/25 | R | **L1–5**{:.color} Pronouncing Greek |
 | 8/26 | F | **L1–5**{:.color} Typing Greek. Using dictionaries.|
 | 8/29 | M | **L6**{:.color} Grammatical case, aka The Only Concept You Absolutely Have to Get |
-| 8/30 | T | **L7**{:.color} The *α*{.:grk}-declension |
-| 9/1 | R | **L8**{:.color} The *α*{.:grk}-declension |
-| 9/2 | F | **L9**{:.color} The *α*{.:grk}-declension |
+| 8/30 | T | **L7**{:.color} The *α*{:.grk}-declension |
+| 9/1 | R | **L8**{:.color} The *α*{:.grk}-declension |
+| 9/2 | F | **L9**{:.color} The *α*{:.grk}-declension |
 | 9/5 | M | Labor Day|
-| 9/6 | T | **L10**{:.color} *εἰμί*{.:grk} "to be" |
-| 9/8 | R | **L11**{:.color} The *ο*{.:grk}-declension  |
-| 9/9 | F | **L12**{:.color} The *ο*{.:grk}-declension   |
-| 9/12 | M | **L13**{:.color} The *ο*{.:grk}-declension. *-ος -η -ον*{.:grk} adjectives|
+| 9/6 | T | **L10**{:.color} *εἰμί*{:.grk} "to be" |
+| 9/8 | R | **L11**{:.color} The *ο*{:.grk}-declension  |
+| 9/9 | F | **L12**{:.color} The *ο*{:.grk}-declension   |
+| 9/12 | M | **L13**{:.color} The *ο*{:.grk}-declension. *-ος -η -ον*{:.grk} adjectives|
 | 9/13 | T | **L14**{:.color} Pronouns |
-| 9/15 | R | **L15**{:.color} *ὁ ἡ τό*{:.grk} and *ὅδε ἥδε τόδε*{.:grk} |
+| 9/15 | R | **L15**{:.color} *ὁ ἡ τό*{:.grk} and *ὅδε ἥδε τόδε*{:.grk} |
 | 9/16 | F | **Exam 1** |
 | 9/19 | M | |
 | 9/20 | T | |
