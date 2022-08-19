@@ -2,7 +2,7 @@
 layout: default
 title: Resources, Links
 parent: LTN 315 (Fall 2022)
-nav_order: "2"
+nav_order: "3"
 ---
 # Resources and Links
 
