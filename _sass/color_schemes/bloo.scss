@@ -157,6 +157,7 @@ blockquote {
 /* Table redo */
 .table-wrapper
 	{border-radius:unset !important}
+th, td {vertical-align:top;}
 .testing
 	{border-collapse: collapse !important;
 	border-radius:10px !important;
