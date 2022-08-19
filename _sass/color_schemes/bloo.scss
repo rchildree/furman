@@ -143,6 +143,10 @@ blockquote {
   font-size: smaller;
 }
 
+.main-content ul>li::before {
+ content:"‣" !important;
+}
+
 .site-footer {display: none;}
 
 .sc {font-feature-settings: "smcp","c2sc";}
