@@ -2,11 +2,10 @@
 layout: default
 title: Syllabus
 parent: GRK 110 (Fall 2022)
-nav_order: 1
+nav_order: "1"
+
 ---
-
-
-# GRK 110 &nbsp; Introduction to Ancient Greek I
+# GRK 110 &nbsp; Introduction to Ancient Greek&nbsp;I
 
 > *συντιθέναι δεῖ τὸν βίον κατὰ μίαν πρᾶξιν*{:.grk}  
 > You have to build your life one action at a time  
