@@ -32,7 +32,7 @@ $content-line-height: 1.4 !important;
 h1, h2, h3, h4, h5, h6, #toctitle {
 	font-weight: 600 !important;
 	font-feature-settings:"pnum","lnum";}
-em, strong {
+b, strong {
 	font-family:system-ui,-apple-system,blinkmacsystemfont,"Segoe UI",roboto,"Helvetica Neue",arial,sans-serif;
 	font-size:80%;
 }
