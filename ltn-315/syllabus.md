@@ -16,6 +16,12 @@ TR 11:30–12:45
 Randall Childree ([randall.childree@furman.edu](mailto:randall.childree@furman.edu))  
 Office hours: Furman Hall 128, TR 9:30 (or just email or ask!)
 
+> *quaedam tempora ēripiuntur nōbīs, quaedam subdūcuntur, quaedam effluunt: turpissima tamen est iactūra...*  
+> Some amount of time is ripped away from us, some is stolen, some slips away: but to throw it away is obscene
+>   
+> — Seneca, *Ep.* 1.1
+
+
 ## Overview
 Close readings of Latin texts, focusing on advanced understanding of syntax and style, and approaches to translation.
 
