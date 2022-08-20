@@ -5,7 +5,7 @@
     src: url('/furman/fonts/Neohellenic-Regular.otf') format('opentype');
 }
 
-$font-factor: 1.25;
+$font-factor: 1.35;
 
 $font-size-1: $font-size-1 * $font-factor;
 $font-size-1-sm: $font-size-1-sm * $font-factor;
@@ -15,7 +15,7 @@ $font-size-4: $font-size-4 * $font-factor;
 $font-size-5: $font-size-5 * $font-factor;
 $font-size-6: $font-size-6 * $font-factor;
 $font-size-7: $font-size-7 * $font-factor;
-// $font-size-8: $font-size-8 * $font-factor;
+$font-size-8: $font-size-8
 $font-size-9: $font-size-9 * $font-factor;
 $font-size-10: $font-size-10 * $font-factor;
 $font-size-10-sm: $font-size-10-sm * $font-factor;
@@ -27,7 +27,7 @@ body {
 }
 
 $body-text-color: #000 !important;
-$content-line-height: 1.4 !important;
+$content-line-height: 1.2 !important;
 
 h1, h2, h3, h4, h5, h6, #toctitle {
 	font-weight: 600 !important;
@@ -98,7 +98,7 @@ blockquote {
   font-family: 'Neohellenic' !important;
   font-weight: normal !important;
   font-style: normal !important;
-  font-size: 125% !important;
+//   font-size: 125% !important;
   line-height: .825;
 }
 
