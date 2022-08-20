@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,200;0,400;0,600;0,700;1,200;1,400;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,300;1,8..60,400;1,8..60,500;1,8..60,600;1,8..60,700&display=swap');
 @font-face {
     font-family: 'Neohellenic';
     src: url('/furman/fonts/Neohellenic-Regular.otf') format('opentype');
@@ -21,7 +21,7 @@ $font-size-10-sm: $font-size-10-sm * $font-factor;
 
 
 body {
-	font-family: 'Source Serif Pro' !important;
+	font-family: 'Source Serif 4' !important;
 	font-feature-settings:"pnum","onum";
 }
 
@@ -31,6 +31,7 @@ $content-line-height: 1.35 !important;
 h1, h2, h3, h4, h5, h6, #toctitle {
 	font-weight: 600 !important;
 	font-feature-settings:"pnum","lnum";}
+h1 {font-weight:400 !important;}
 
 .site-header {border-bottom:none !important;}
 
