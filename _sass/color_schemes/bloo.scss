@@ -6,16 +6,17 @@
 }
 
 $font-factor: 1.35;
+$font-factor-little: 1;
 
 $font-size-1: $font-size-1 * $font-factor;
 $font-size-1-sm: $font-size-1-sm * $font-factor;
 $font-size-2: $font-size-2 * $font-factor;
 $font-size-3: $font-size-3 * $font-factor;
 $font-size-4: $font-size-4 * $font-factor;
-$font-size-5: 16px !important;
-$font-size-6: 18px !important;
+$font-size-5: $font-size-5 * $font-factor-little;
+$font-size-6: $font-size-6 * $font-factor-little;
 $font-size-7: $font-size-7 * $font-factor;
-$font-size-8: 24px !important;
+$font-size-8: $font-size-8 * $font-factor-little;
 $font-size-9: $font-size-9 * $font-factor;
 $font-size-10: $font-size-10 * $font-factor;
 $font-size-10-sm: $font-size-10-sm * $font-factor;
