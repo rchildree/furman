@@ -19,7 +19,7 @@ Check here for due dates!
 | 8/30 | T | **L7**{:.color} The *α*{:.grk}-declension |
 | 9/1 | R | **L8**{:.color} The *α*{:.grk}-declension |
 | 9/2 | F | **L9**{:.color} The *α*{:.grk}-declension |
-| 9/5 | M | Labor Day|
+| 9/5 | M | *Labor Day. No class* |
 | 9/6 | T | **L10**{:.color} *εἰμί*{:.grk} "to be" |
 | 9/8 | R | **L11**{:.color} The *ο*{:.grk}-declension  |
 | 9/9 | F | **L12**{:.color} The *ο*{:.grk}-declension   |
