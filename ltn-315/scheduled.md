@@ -12,8 +12,8 @@ Check here for due dates!
 {:.testing .tr}
 |Date|Day|Assignment|
 |:-|:-:|:-|
-| 8/23 | T | FDOC|
-| 8/25 | R | |
+| 8/23 | T | Introductions. Seneca, Silver Latin, Stoicism.|
+| 8/25 | R | _Brev_. 1|
 | 8/30 | T | |
 | 9/1 | R | |
 | 9/6 | T | |
