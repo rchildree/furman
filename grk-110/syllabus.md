@@ -45,11 +45,11 @@ The course grade will be determined from:
 
 | Assignment | Percentage |
 |:-------------|------------------:|
-| Homework and preparation | 40%
-| Test after Lesson 15 | 10%
-| Test after Lesson 21 | 10%
-| Test after Lesson 25 | 10%
-| Test after Lesson 30 | 10%
+| Homework and preparation | 20%
+| Test after Lesson 15 | 15%
+| Test after Lesson 21 | 15%
+| Test after Lesson 25 | 15%
+| Test after Lesson 30 | 15%
 | Final after Lesson 44 | 20%
 
 ## Course policies
