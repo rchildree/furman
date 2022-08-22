@@ -10,11 +10,10 @@ nav_order: "2"
 Check here for due dates!
 
 {:.testing .tr}
-
 | Date | Day | Assignment |
 | :--- | :---: | :--- |
 | 8/23 | T | Introductions. Seneca, Silver Latin, Stoicism. |
-| 8/25 | R | Brev. 1 |
+| 8/25 | R | *Brev*. 1 |
 | 8/30 | T |  |
 | 9/1 | R |  |
 | 9/6 | T |  |
