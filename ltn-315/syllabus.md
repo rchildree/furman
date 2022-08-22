@@ -55,9 +55,10 @@ The course grade will be determined from these assignments:
 
 | Assignment | Percentage |
 | :--- | ---: |
-| Preparation and summaries | 40% |
-| Research question topics | 20% |
-| Polished translations | 20% |
+| Preparation | 40% |
+| Summaries | 20% |
+| Research topics | 20% |
+| Translations and revisions | 20% |
 
 ## Course policies
 
