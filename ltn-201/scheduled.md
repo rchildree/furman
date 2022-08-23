@@ -12,8 +12,8 @@ Check here for due dates!
 {:.testing .mwf}
 | Date | Day | Assignment |
 | :--- | :---: | :--- |
-| 8/24 | W | FDOC |
-| 8/26 | F |  |
+| 8/24 | W | Let's go: *HART* 1 |
+| 8/26 | F | *HART* 3 |
 | 8/29 | M |  |
 | 8/31 | W |  |
 | 9/2 | F |  |
