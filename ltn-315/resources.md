@@ -7,6 +7,9 @@ nav_order: "3"
 ---
 # Resources and Links
 
+In Usum text
+* [Seneca, _De Brevitate Vitae_](https://www.inusum.com/seneca/de-brevitate-vitae)
+
 Seneca: background
 * [R. Tarrant, "Seeing Seneca Whole?" in _Seeing Seneca Whole: Perspectives on Philosophy, Poetry and Politics_. K. Volk and G.D. Williams, eds. (2006) 1-18]()
 * [J. Ker, "Seneca, Man of Many Genres" in _Seeing Seneca Whole: Perspectives on Philosophy, Poetry and Politics_. K. Volk and G.D. Williams, eds. (2006) 19-42]()
