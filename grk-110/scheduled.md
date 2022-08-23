@@ -12,7 +12,7 @@ Check here for due dates!
 {:.testing .mtrf}
 | Date | Day | Assignment |
 | :--- | :---: | :--- |
-| 8/23 | T | **L1–5**{:.color} Beginning: the alphabet. Writing Greek<br>Read "Ancient Greek Literature" on Wikipedia |
+| 8/23 | T | **L1–5**{:.color} Beginning: the alphabet. Writing Greek<br>*Read "Ancient Greek Literature" on Wikipedia* |
 | 8/25 | R | **L1–5**{:.color} Pronouncing Greek |
 | 8/26 | F | **L1–5**{:.color} Typing Greek. Using dictionaries. |
 | 8/29 | M | **L6**{:.color} Grammatical case, aka *The Only Concept You Absolutely Have to Get*{:.sc} |
