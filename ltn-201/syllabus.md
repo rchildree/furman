@@ -51,13 +51,17 @@ The course grade will be determined from:
 
 ## Course policies
 
-**Attendance**    Our course depends on contributions from everyone: when any one person is absent, the richness of our conversation is lessened. Likewise, it is impossible to retell or recreate the full thread of a class’s discussion. A great deal of what is important in this class will come from our shared class time; our interaction is vital to full understanding, and so it is also vital to your success. In short: be in class unless a legitimate concern prevents you from doing so.
+###### Attendance
+Our course depends on contributions from everyone: when any one person is absent, the richness of our conversation is lessened. Likewise, it is impossible to retell or recreate the full thread of a class’s discussion. A great deal of what is important in this class will come from our shared class time; our interaction is vital to full understanding, and so it is also vital to your success. In short: be in class unless a legitimate concern prevents you from doing so.
 
-**Makeups**    When it comes to making-up missed assignments, I am understanding but not indulgent. Be in contact with me as early as you can. You should expect to make up work you have missed immediately upon returning to class unless there are extenuating circumstances. In any case, finding out what you’ve missed and arranging to make it up is your responsibility.
+###### Makeups
+When it comes to making-up missed assignments, I am understanding but not indulgent. Be in contact with me as early as you can. You should expect to make up work you have missed immediately upon returning to class unless there are extenuating circumstances. In any case, finding out what you’ve missed and arranging to make it up is your responsibility.
 
-**Academic integrity**    I do not expect problems with cheating: you all know better. If there is a problem, the consequences will be appropriately severe. To quote from Furman’s policies: “All forms of academic misconduct including cheating, plagiarism, misrepresentation, and unacceptable collaboration are violations of Furman’s academic integrity standard.” For more information, talk to me or visit furman.edu/integrity.
+###### Academic integrity
+I do not expect problems with cheating: you all know better. If there is a problem, the consequences will be appropriately severe. To quote from Furman’s policies: “All forms of academic misconduct including cheating, plagiarism, misrepresentation, and unacceptable collaboration are violations of Furman’s academic integrity standard.” For more information, talk to me or visit furman.edu/integrity.
 
-**Accessibility**    Any student who needs academic accommodations should be in contact with Accessibility Resources ([SOAR](https://www.furman.edu/accessibility/current-student-resources/)). After meeting with them, contact me during office hours or at class so we can make arrangements.
+###### Accessibility
+Any student who needs academic accommodations should be in contact with Accessibility Resources ([SOAR](https://www.furman.edu/accessibility/current-student-resources/)). After meeting with them, contact me during office hours or at class so we can make arrangements.
 
 ## Communication
 
