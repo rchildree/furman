@@ -29,7 +29,7 @@ Close readings of Latin texts, focusing on advanced understanding of syntax and 
 ## Texts
 
 * R. Childree, ed. [Seneca, _De Brevitate Vitae_](https://www.inusum.com/seneca/de-brevitate-vitae) (reading text)
-* G.D. Williams, ed., _Seneca: De Otio, De Brevitate Vitae_ (commentary)
+* G.D. Williams, ed., [_Seneca: De Otio, De Brevitate Vitae_](https://www.amazon.com/Seneca-Brevitate-Vitae-Cambridge-Classics/dp/0521588065) (commentary)
 
 ## Purpose, method, goals
 
