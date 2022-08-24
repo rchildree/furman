@@ -30,6 +30,10 @@ Introduction to the fundamentals of ancient Greek. Topics include: pronunciation
 ## Purpose, method, goals
 This course is designed to teach the fundamentals of Greek vocabulary, wordforms, and syntax. Combined with GRK 120, it introduces the student to all the Greek necessary to begin reading authentic ancient Greek texts like Homer’s _Iliad_ or _Odyssey_, Herodotus’s _Histories_, Greek Tragedy, Plato, and more.
 
+Our textbook is available in the campus bookstore or from Amazon etc.:  
+[R. Schroder (2005) *A Reading Course in Homeric Greek: Book One*](https://www.amazon.com/Reading-Course-Homeric-Greek-revised/dp/1585101753/). ISBN 9781585101757.  
+(There is another book in the bookstore that is suggested; you may choose not to buy it if you like.)
+
 Each day in class is spent incrementally adding a new grammatical/syntactical topic or reviewing topics already learned. Each ‘Lesson’ in the textbook makes up the content of approximately a day’s work, though often we will combine Lessons.
 
 Our goals in this course:

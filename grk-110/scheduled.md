@@ -13,7 +13,7 @@ Check here for due dates!
 | Date | Day | Assignment |
 | :--- | :---: | :--- |
 | 8/23 | T | **L1–5**{:.color} Beginning: the alphabet. Writing Greek<br>*Read "Ancient Greek Literature" on Wikipedia* |
-| 8/25 | R | **L1–5**{:.color} Pronouncing Greek |
+| 8/25 | R | **L1–5**{:.color} Pronouncing Greek<br>[Pronunciation practice](http://atticgreek.org/pronunc/practiceUnit3.html) |
 | 8/26 | F | **L1–5**{:.color} Typing Greek. Using dictionaries. |
 | 8/29 | M | **L6**{:.color} Grammatical case, aka *The Only Concept You Absolutely Have to Get*{:.sc} |
 | 8/30 | T | **L7**{:.color} The *α*{:.grk}-declension |
