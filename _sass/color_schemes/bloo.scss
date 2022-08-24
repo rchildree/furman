@@ -32,10 +32,6 @@ h1, h2, h3, h4, h5, h6, #toctitle {
 	font-weight: 600 !important;
 	font-feature-settings:"pnum","lnum";}
 h1 {font-weight:400 !important;}
-h6 {display: inline !important;padding-right:2rem !important}
-h6 + p {display: inline !important;}
-h6 + p::after {content:"" !important;display:block}
-
 
 .site-header {border-bottom:none !important;}
 
