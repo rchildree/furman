@@ -14,7 +14,7 @@ Check here for due dates!
 | :--- | :---: | :--- |
 | 8/23 | T | **L1–5**{:.color} Beginning: the alphabet. Writing Greek<br>*Read "Ancient Greek Literature" on Wikipedia* |
 | 8/25 | R | **L1–5**{:.color} Pronouncing Greek<br>[Pronunciation practice](http://atticgreek.org/pronunc/practiceUnit3.html) |
-| 8/26 | F | **L1–5**{:.color} Typing Greek. Using dictionaries. |
+| 8/26 | F | **L1–5**{:.color} Typing Greek. Using dictionaries<br>[A simple system for typing ancient Greek](https://www.typegreek.com/alphabet.key/) (make sure you note how to type breathing marks and accents too.) |
 | 8/29 | M | **L6**{:.color} Grammatical case, aka *The Only Concept You Absolutely Have to Get*{:.sc} |
 | 8/30 | T | **L7**{:.color} The *α*{:.grk}-declension |
 | 9/1 | R | **L8**{:.color} The *α*{:.grk}-declension |
