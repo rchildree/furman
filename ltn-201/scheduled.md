@@ -13,8 +13,8 @@ Check here for due dates!
 | Date | Day | Assignment |
 | :--- | :---: | :--- |
 | 8/24 | W | Let's go: *HART* 1 |
-| 8/26 | F | *HART* 3 |
-| 8/29 | M |  |
+| 8/26 | F | *HART* 1 |
+| 8/29 | M | *HART* 3 |
 | 8/31 | W |  |
 | 9/2 | F |  |
 | 9/5 | M | Labor Day |
