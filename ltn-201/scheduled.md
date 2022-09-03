@@ -15,11 +15,11 @@ Check here for due dates!
 | 8/24 | W | Let's go: *HART* 1 |
 | 8/26 | F | *HART* 1 |
 | 8/29 | M | *HART* 3 |
-| 8/31 | W |  |
-| 9/2 | F |  |
+| 8/31 | W | *HART* 3 |
+| 9/2 | F | *HART* 4 |
 | 9/5 | M | Labor Day |
-| 9/7 | W |  |
-| 9/9 | F |  |
+| 9/7 | W | *HART* 5. **Analysis 1 due**{:.color} |
+| 9/9 | F | *HART* 6 |
 | 9/12 | M |  |
 | 9/14 | W |  |
 | 9/16 | F |  |
