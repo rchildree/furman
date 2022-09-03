@@ -16,7 +16,7 @@ Check here for due dates!
 | 8/25 | R | *Brev*. 1 |
 | 8/30 | T | *Brev*. 2 |
 | 9/1 | R | *Brev*. 3 *Translation*{:.color} |
-| 9/6 | T |  |
+| 9/6 | T | *Brev*. 3 |
 | 9/8 | R |  |
 | 9/13 | T |  |
 | 9/15 | R |  |
