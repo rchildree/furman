@@ -23,11 +23,11 @@ Check here for due dates!
 | 9/6 | T | **L10**{:.color} *εἰμί*{:.grk} "to be" |
 | 9/8 | R | **L11**{:.color} The *ο*{:.grk}-declension |
 | 9/9 | F | **L12**{:.color} The *ο*{:.grk}-declension |
-| 9/12 | M | **L13**{:.color} The *ο*{:.grk}-declension. *-ος -η -ον*{:.grk} adjectives |
-| 9/13 | T | **L14**{:.color} Pronouns |
-| 9/15 | R | **L15**{:.color} *ὁ ἡ τό*{:.grk} and *ὅδε ἥδε τόδε*{:.grk} |
-| 9/16 | F | Exam 1 |
-| 9/19 | M |  |
+| 9/12 | M | **L13**{:.color} The *ο*{:.grk}-declension |
+| 9/13 | T | **L13**{:.color} *-ος -η -ον*{:.grk} adjectives |
+| 9/15 | R | **L14**{:.color} Pronouns |
+| 9/16 | F | **L15**{:.color} *ὁ ἡ τό*{:.grk} and *ὅδε ἥδε τόδε*{:.grk} |
+| 9/19 | M | Exam 1 |
 | 9/20 | T |  |
 | 9/22 | R |  |
 | 9/23 | F |  |
