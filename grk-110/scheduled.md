@@ -28,15 +28,15 @@ Check here for due dates!
 | 9/15 | R | **L14**{:.color} Pronouns |
 | 9/16 | F | **L15**{:.color} *ὁ ἡ τό*{:.grk} and *ὅδε ἥδε τόδε*{:.grk} |
 | 9/19 | M | Exam 1 |
-| 9/20 | T |  |
-| 9/22 | R |  |
-| 9/23 | F |  |
-| 9/26 | M |  |
-| 9/27 | T |  |
-| 9/29 | R |  |
-| 9/30 | F |  |
-| 10/3 | M |  |
-| 10/4 | T |  |
+| 9/20 | T | **L16**{:.color} How Greek verbs work |
+| 9/22 | R | **L17**{:.color} Present-system indicatives |
+| 9/23 | F | **L17**{:.color} Cont'd |
+| 9/26 | M | **L18**{:.color} Present-system subjunctives |
+| 9/27 | T | **L19**{:.color} Present-system optatives |
+| 9/29 | R | **L20**{:.color} Present-system imperatives, infinitives, and participles |
+| 9/30 | F | **L20**{:.color} Cont'd |
+| 10/3 | M | **L21**{:.color} Review |
+| 10/4 | T | Exam 2 |
 | 10/6 | R |  |
 | 10/7 | F |  |
 | 10/10 | M | Fall Break |
