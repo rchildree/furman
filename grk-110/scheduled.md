@@ -31,14 +31,14 @@ Check here for due dates!
 | 9/20 | T | **L16**{:.color} How Greek verbs work |
 | 9/22 | R | **L17**{:.color} Present-system indicatives |
 | 9/23 | F | **L17**{:.color} Cont'd |
-| 9/26 | M | **L18**{:.color} Present-system subjunctives |
-| 9/27 | T | **L19**{:.color} Present-system optatives |
-| 9/29 | R | **L20**{:.color} Present-system imperatives, infinitives, and participles |
-| 9/30 | F | **L20**{:.color} Cont'd |
-| 10/3 | M | **L21**{:.color} Review |
-| 10/4 | T | Exam 2 |
-| 10/6 | R |  |
-| 10/7 | F |  |
+| 9/26 | M |  |
+| 9/27 | T | **L17**{:.color} Cont'd |
+| 9/29 | R | **L18**{:.color} Present-system subjunctives |
+| 9/30 | F | **L19**{:.color} Present-system optatives |
+| 10/3 | M | **L20**{:.color} Present-system imperatives, infinitives, and participles |
+| 10/4 | T | **L20**{:.color} Cont'd |
+| 10/6 | R | **L21**{:.color} Review |
+| 10/7 | F | Exam 2 |
 | 10/10 | M | Fall Break |
 | 10/11 | T | Fall Break |
 | 10/13 | R |  |
