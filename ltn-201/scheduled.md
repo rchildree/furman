@@ -20,21 +20,21 @@ Check here for due dates!
 | 9/5 | M | Labor Day |
 | 9/7 | W | *HART* 5. **Analysis 1 due**{:.color} |
 | 9/9 | F | *HART* 5 |
-| 9/12 | M | *HART* 5-6 |
+| 9/12 | M | *HART* 6 |
 | 9/14 | W | *HART* 6-7 |
-| 9/16 | F | *HART* 7-8 |
-| 9/19 | M |  |
-| 9/21 | W |  |
-| 9/23 | F |  |
+| 9/16 | F | *HART* 7 |
+| 9/19 | M | *HART* 7 |
+| 9/21 | W | *HART* 8 |
+| 9/23 | F | *HART* 8 |
 | 9/26 | M |  |
-| 9/28 | W |  |
-| 9/30 | F |  |
-| 10/3 | M |  |
-| 10/5 | W |  |
-| 10/7 | F |  |
+| 9/28 | W | *HART* 9 |
+| 9/30 | F | *HART* 10 |
+| 10/3 | M | **Analysis 3 due**{:.color}  |
+| 10/5 | W | *HART* 11 |
+| 10/7 | F | *HART* 12 |
 | 10/10 | M | Fall Break |
-| 10/12 | W |  |
-| 10/14 | F | Mid-term grades due |
+| 10/12 | W | *HART* 13 |
+| 10/14 | F | Mid-term |
 | 10/17 | M |  |
 | 10/19 | W |  |
 | 10/21 | F |  |
