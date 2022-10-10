@@ -34,7 +34,7 @@ Check here for due dates!
 | 10/7 | F | *HART* 12 |
 | 10/10 | M | Fall Break |
 | 10/12 | W | *HART* 13 |
-| 10/14 | F | Mid-term |
+| 10/14 | F |  |
 | 10/17 | M |  |
 | 10/19 | W |  |
 | 10/21 | F |  |
