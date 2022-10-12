@@ -6,6 +6,10 @@ parent: LTN 201 (Fall 2022)
 ---
 # Resources
 
+-  ![bofx](/furman/images/box.svg) [Historia Apollonii in English](https://furman.box.com/s/4qjxsq1brl6c06sc4kwnt4620l944kqw)
+
+----
+
 -  ![bofx](/furman/images/box.svg) [Case uses](https://furman.box.com/s/phce1k1el9c23kczjn3q2g26fd0gcuz1)<br>
 - [Syntax of the cases](https://www.thelatinlibrary.com/bennett.html#sect166)
 
