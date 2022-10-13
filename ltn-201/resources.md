@@ -6,7 +6,7 @@ parent: LTN 201 (Fall 2022)
 ---
 # Resources
 
--  ![bofx](/furman/images/box.svg) [Historia Apollonii in English](https://furman.box.com/s/4qjxsq1brl6c06sc4kwnt4620l944kqw)
+-  ![bofx](/furman/images/box.svg) [Historia Apollonii in English](https://furman.box.com/s/zejo5erjlr4wgznl982wouiwnlqs9edw)
 
 ----
 
