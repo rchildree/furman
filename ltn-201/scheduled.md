@@ -40,23 +40,23 @@ Check here for due dates!
 | 10/21 | F | *HART* in English |
 | 10/24 | M | *HART* 18-19 |
 | 10/26 | W | *HART* 19-20 |
-| 10/28 | F | *HART* 25-26 |
-| 10/31 | M | *HART* 31-32 |
-| 11/2 | W | *HART* 49-51 |
-| 11/4 | F | *HART* 49-51 |
-| 11/7 | M | *HART* **Final**{:.color} |
-| 11/9 | W |  |
-| 11/11 | F |  |
-| 11/14 | M |  |
-| 11/16 | W |  |
-| 11/18 | F |  |
-| 11/21 | M |  |
+| 10/28 | F | *HART* 25 |
+| 10/31 | M | *HART* 26 |
+| 11/2 | W | *HART* 31 |
+| 11/4 | F | *HART* 32 |
+| 11/7 | M | *HART* 49 |
+| 11/9 | W | *HART* 50 |
+| 11/11 | F | *HART* 51 |
+| 11/14 | M | *HART* **Exam**{:.color} |
+| 11/16 | W | *Ilias Latina* |
+| 11/18 | F | *Ilias Latina* |
+| 11/21 | M | *Ilias Latina* |
 | 11/23 | W | Thanksgiving |
 | 11/25 | F | Thanksgiving |
-| 11/28 | M |  |
-| 11/30 | W |  |
-| 12/2 | F |  |
-| 12/5 | M |  |
-| 12/7 | W |  |
-| 12/9 | F |  |
-| 12/13 | T | Final, Noon |
+| 11/28 | M | *Ilias Latina* |
+| 11/30 | W | *Ilias Latina* |
+| 12/2 | F | *Ilias Latina* |
+| 12/5 | M | *Ilias Latina* |
+| 12/7 | W | *Ilias Latina* |
+| 12/9 | F | *Ilias Latina* |
+| 12/13 | T | *Ilias Latina* **Exam**{:.color}, Noon |
