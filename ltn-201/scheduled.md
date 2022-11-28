@@ -48,7 +48,7 @@ Check here for due dates!
 | 11/9 | W | *HART* 50 |
 | 11/11 | F | *HART* 51 |
 | 11/14 | M | *HART* **Exam**{:.color} |
-| 11/16 | W | *Ilias Latina* |
+| 11/16 | W | *Ilias Latina* 1, 2, 6, 10, 18, 22, 24 |
 | 11/18 | F | *Ilias Latina* |
 | 11/21 | M | *Ilias Latina* |
 | 11/23 | W | Thanksgiving |
