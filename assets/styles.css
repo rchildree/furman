@@ -16,6 +16,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Jost";
+  src: url("fonts/jost-latin-wght-normal.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
 :root {
   color-scheme: light;
   --paper: #fdfdfd;
@@ -29,7 +37,7 @@
   --accent-glow: rgba(93, 18, 71, 0.14);
   --review: #f3f4f6;
   --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
-  --sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --sans: "Jost", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --nav-h: 3.25rem;
   font-size: 17px;
 }
@@ -183,14 +191,6 @@ h1, h2, h3, h4 {
 
 .content {
   padding-top: 1.6rem;
-}
-
-.page-title {
-  margin-bottom: 1.4rem;
-  color: var(--ink);
-  font-size: 1.25rem;
-  font-style: italic;
-  font-weight: 450;
 }
 
 .notice {

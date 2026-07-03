@@ -301,7 +301,6 @@
     var built = buildWeeks(course, schedule);
     var cur = currentWeek(built.weeks);
     var html = headerHTML(course) + navHTML() + '<main class="content">';
-    html += '<p class="page-title">Schedule</p>';
     if (built.extraTopics.length) {
       html += '<div class="warn"><strong>' + built.extraTopics.length +
         " topic(s) beyond the last class meeting:</strong> " +
@@ -362,11 +361,10 @@
     APP.innerHTML = html;
   }
 
-  function renderMarkdownPage(course, file, title) {
+  function renderMarkdownPage(course, file) {
     return fetchText(file).then(function (text) {
       APP.innerHTML = headerHTML(course) + navHTML() +
-        '<main class="content"><p class="page-title">' + esc(title) + '</p>' +
-        '<div class="prose">' + md(text) + "</div></main>" + footerHTML(course);
+        '<main class="content"><div class="prose">' + md(text) + "</div></main>" + footerHTML(course);
     });
   }
 
@@ -406,8 +404,8 @@
 
   fetchYaml("course.yaml").then(function (course) {
     document.title = (course.code ? course.code + " — " : "") + (course.title || "Syllabus");
-    if (PAGE === "info") return renderMarkdownPage(course, "info.md", "Course information");
-    if (PAGE === "policies") return renderMarkdownPage(course, "policies.md", "Policies");
+    if (PAGE === "info") return renderMarkdownPage(course, "info.md");
+    if (PAGE === "policies") return renderMarkdownPage(course, "policies.md");
     return fetchYaml("schedule.yaml").then(function (schedule) {
       schedule = schedule || {};
       if (PAGE === "schedule") renderSchedule(course, schedule);
