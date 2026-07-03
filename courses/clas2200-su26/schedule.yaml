@@ -1,0 +1,123 @@
+# Schedule for CLAS 2200 — Summer 2026
+#
+# One entry per class meeting, IN ORDER. The site assigns dates automatically
+# (entry 1 = first meeting, entry 2 = second, ...), so you can insert or move
+# entries freely — dates reflow on the site. The date comments below were
+# written when this file was generated; they are editing aids, and may go
+# stale if you shuffle entries. The rendered site is always correct.
+#
+# A plain string is a normal day. For a bigger day (exam, project due in
+# class, etc.) use a block:
+#
+#   - title: "Exam 1"
+#     exam: true
+#     notes: |
+#       Covers weeks 1-3. Bring a blue book.
+#     links:
+#       - text: Study guide
+#         url: https://example.com/guide
+
+topics:
+  # ── Week 1 ──────────────────────────────
+  - Introduction — what is epic, and why start a war over it?   # Mon 2026-06-01
+  - Oral poetry and the Homeric question                        # Tue 2026-06-02
+  - "*Iliad* 1: the rage of Achilles"                           # Wed 2026-06-03
+  - "*Iliad* 2–3: the catalogue of ships; Paris and Menelaus"   # Thu 2026-06-04
+  # ── Week 2 ──────────────────────────────
+  - "*Iliad* 4–6: Diomedes; Hector and Andromache"              # Mon 2026-06-08
+  - "*Iliad* 7–9: the embassy to Achilles"                      # Tue 2026-06-09
+  - "*Iliad* 10–12: night raid; the wall"                       # Wed 2026-06-10
+  - "*Iliad* 13–15: the battle at the ships"                    # Thu 2026-06-11
+  # ── Week 3 ──────────────────────────────
+  - "*Iliad* 16: Patroclus"                                     # Mon 2026-06-15
+  - "*Iliad* 17–19: the shield of Achilles"                     # Tue 2026-06-16
+  - "*Iliad* 20–22: the death of Hector"                        # Wed 2026-06-17
+  - title: "Exam 1"                                             # Thu 2026-06-18
+    exam: true
+    notes: |
+      Covers the *Iliad* and lecture material from weeks 1–3.
+      Passage identifications and two short essays. Bring a blue book.
+    links:
+      - text: Study guide
+        url: https://example.com/clas2200/exam1-guide
+  # ── Week 4 ──────────────────────────────
+  - "*Iliad* 23–24: Priam and Achilles; funeral games"          # Mon 2026-06-22
+  - "*Odyssey* 1–2: Telemachus and the suitors"                 # Tue 2026-06-23
+  - "*Odyssey* 3–4: Nestor and Menelaus remember"               # Wed 2026-06-24
+  - "*Odyssey* 5–6: Calypso; Nausicaa"                          # Thu 2026-06-25
+  # ── Week 5 ──────────────────────────────
+  - "*Odyssey* 7–8: the Phaeacians; Demodocus sings"            # Mon 2026-06-29
+  - title: "*Odyssey* 9–10: the Cyclops and Circe"              # Tue 2026-06-30
+    notes: |
+      Discussion day — come with one passage marked where Odysseus's
+      cleverness makes things *worse*.
+    links:
+      - text: Discussion questions
+        url: https://example.com/clas2200/od9-10
+  - "*Odyssey* 11–12: the underworld; Scylla and Charybdis"     # Wed 2026-07-01
+  #   (no class Thu 2026-07-02 — Independence Day break)
+  # ── Week 6 ──────────────────────────────
+  - "*Odyssey* 13–14: Ithaca at last; the loyal swineherd"      # Mon 2026-07-06
+  - "*Odyssey* 15–16: father and son"                           # Tue 2026-07-07
+  - "*Odyssey* 17–18: the beggar in the hall"                   # Wed 2026-07-08
+  - "*Odyssey* 19–20: the scar; omens"                          # Thu 2026-07-09
+  # ── Week 7 ──────────────────────────────
+  - "*Odyssey* 21–22: the bow; the slaughter of the suitors"    # Mon 2026-07-13
+  - "*Odyssey* 23–24: recognition and reunion"                  # Tue 2026-07-14
+  - title: "Exam 2"                                             # Wed 2026-07-15
+    exam: true
+    notes: |
+      Covers the *Odyssey*. Same format as Exam 1: identifications
+      and two short essays. Bring a blue book.
+    links:
+      - text: Study guide
+        url: https://example.com/clas2200/exam2-guide
+  - "Rome looks at Troy: Virgil, Augustus, and the *Aeneid*"    # Thu 2026-07-16
+  # ── Week 8 ──────────────────────────────
+  - "*Aeneid* 1: a storm, a queen, a destiny"                   # Mon 2026-07-20
+  - "*Aeneid* 2: the fall of Troy"                              # Tue 2026-07-21
+  - "*Aeneid* 3–4: Dido"                                        # Wed 2026-07-22
+  - "*Aeneid* 5–6: the golden bough; the underworld"            # Thu 2026-07-23
+  # ── Week 9 ──────────────────────────────
+  - "*Aeneid* 7–8: war in Latium; the shield of Aeneas"         # Mon 2026-07-27
+  - "*Aeneid* 9–10: Nisus and Euryalus; Pallas"                 # Tue 2026-07-28
+  - "*Aeneid* 11: Camilla"                                      # Wed 2026-07-29
+  - "*Aeneid* 12: the death of Turnus — and how to end an epic" # Thu 2026-07-30
+  # ── Week 10 ──────────────────────────────
+  - "The afterlife of epic: Ovid to Omeros"                     # Mon 2026-08-03
+  - Presentations, day 1                                        # Tue 2026-08-04
+  - Presentations, day 2                                        # Wed 2026-08-05
+  - title: "Final exam"                                         # Thu 2026-08-06
+    exam: true
+    notes: |
+      Cumulative, with emphasis on the *Aeneid*. Held in our regular
+      classroom at the regular time.
+
+# Assignments and other due dates. Each needs a title and a due date;
+# notes and link are optional. Example:
+#
+#   - title: Essay 1
+#     due: 2026-06-18
+#     notes: Submit on Canvas by 11:59pm.
+#     link: https://example.com/essay1
+assignments:
+  - title: Reading response 1
+    due: 2026-06-10
+    notes: One page on a single scene from *Iliad* 1–9. Canvas, 11:59pm.
+  - title: Essay 1
+    due: 2026-06-24
+    notes: 4–5 pages on the *Iliad*. Canvas, 11:59pm.
+    link: https://example.com/clas2200/essay1
+  - title: Reading response 2
+    due: 2026-07-08
+    notes: One page on Odysseus's storytelling in *Odyssey* 9–12.
+  - title: Essay 2 draft
+    due: 2026-07-14
+    notes: Full draft for peer review — bring two printed copies to class too.
+  - title: Essay 2
+    due: 2026-07-28
+    notes: 5–6 pages comparing a Homeric scene with its Virgilian echo.
+    link: https://example.com/clas2200/essay2
+  - title: Presentation slides
+    due: 2026-08-03
+    notes: Upload to the shared folder by 9:00am so we can run straight through.

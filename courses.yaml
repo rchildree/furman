@@ -1,0 +1,6 @@
+# Course manifest. To archive (hide) a course, change its status to: archived
+title: "Courses — Dr. Randall Childree"
+tagline: "Syllabi, schedules, and policies for current courses."
+courses:
+  - slug: clas2200-su26
+    status: current

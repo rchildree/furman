@@ -1,0 +1,714 @@
+/* Syllabusser — mobile-first. Palette + type from syllabus-templater. */
+
+@font-face {
+  font-family: "Source Serif 4";
+  src: url("fonts/source-serif-4-latin-wght-normal.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Source Serif 4";
+  src: url("fonts/source-serif-4-latin-wght-italic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 200 900;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light;
+  --paper: #fdfdfd;
+  --surface: #ffffff;
+  --ink: #202124;
+  --muted: #6b7280;
+  --rule: #d1d5db;
+  --accent: #5d1247;
+  --accent-strong: #421033;
+  --accent-soft: #f4e6ea;
+  --accent-glow: rgba(93, 18, 71, 0.14);
+  --review: #f3f4f6;
+  --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --nav-h: 3.25rem;
+  font-size: 17px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-padding-top: calc(var(--nav-h) + 1rem);
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+}
+
+.wrap {
+  width: min(100%, 44rem);
+  margin: 0 auto;
+  padding: 0 1rem 20svh;
+}
+
+a {
+  color: var(--accent);
+  text-decoration-color: var(--accent-glow);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--accent-strong);
+  text-decoration-color: currentColor;
+}
+
+h1, h2, h3, h4, p {
+  margin-top: 0;
+}
+
+h1, h2, h3, h4 {
+  line-height: 1.2;
+}
+
+/* ---------- header ---------- */
+
+.site-header {
+  padding: 1.5rem 0 1rem;
+}
+
+.site-header .home-link {
+  display: inline-block;
+  margin-bottom: 0.9rem;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.site-header .home-link:hover {
+  color: var(--accent);
+}
+
+.course-code {
+  margin: 0 0 0.15rem;
+  color: var(--accent);
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.course-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.7rem;
+  font-weight: 650;
+  text-wrap: balance;
+}
+
+.course-meta {
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.course-meta .sep {
+  margin: 0 0.45em;
+  color: var(--rule);
+}
+
+/* ---------- nav ---------- */
+
+.page-nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  gap: 0.35rem;
+  align-items: center;
+  min-height: var(--nav-h);
+  margin: 0 -1rem;
+  padding: 0.4rem 1rem;
+  overflow-x: auto;
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--sans);
+  scrollbar-width: none;
+}
+
+.page-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.page-nav a {
+  flex: 0 0 auto;
+  padding: 0.5rem 0.85rem;
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.page-nav a:hover,
+.page-nav a:focus-visible {
+  color: var(--accent);
+  background: var(--accent-soft);
+  outline: none;
+}
+
+.page-nav a[aria-current="page"] {
+  color: #fff;
+  background: var(--accent);
+}
+
+/* ---------- shared content ---------- */
+
+.content {
+  padding-top: 1.6rem;
+}
+
+.page-title {
+  margin-bottom: 1.4rem;
+  color: var(--ink);
+  font-size: 1.25rem;
+  font-style: italic;
+  font-weight: 450;
+}
+
+.notice {
+  margin: 0 0 1.4rem;
+  padding: 0.8rem 1rem;
+  border-left: 4px solid var(--accent);
+  background: var(--accent-soft);
+  font-size: 0.98rem;
+}
+
+.empty-state {
+  padding: 2.5rem 1rem;
+  color: var(--muted);
+  font-style: italic;
+  text-align: center;
+}
+
+.warn {
+  margin: 1.4rem 0;
+  padding: 0.8rem 1rem;
+  border: 1px dashed var(--accent);
+  background: var(--accent-soft);
+  font-family: var(--sans);
+  font-size: 0.85rem;
+}
+
+.loading {
+  padding: 3rem 1rem;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.error-state {
+  margin: 2rem 0;
+  padding: 1rem;
+  border-left: 4px solid #b91c1c;
+  background: #fef2f2;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+}
+
+/* ---------- date chip ---------- */
+
+.date-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 3.4rem;
+  padding: 0.4rem 0.2rem;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  background: var(--surface);
+  font-family: var(--sans);
+  line-height: 1.15;
+  text-align: center;
+}
+
+.date-chip .dow {
+  color: var(--muted);
+  font-size: 0.62rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.date-chip .dom {
+  color: var(--ink);
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.date-chip .mon {
+  color: var(--muted);
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* ---------- weeks & meetings ---------- */
+
+.week {
+  margin: 0 0 1.9rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--rule);
+  scroll-margin-top: calc(var(--nav-h) + 0.75rem);
+}
+
+.week:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.week-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.9rem;
+  font-family: var(--sans);
+}
+
+.week-head h2 {
+  margin: 0;
+  color: var(--accent);
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.week-head .range {
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.badge-current {
+  margin-left: auto;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.week.is-current {
+  margin: 0 -0.75rem 1.9rem;
+  padding: 1.1rem 0.75rem 0.3rem;
+  border-top-color: var(--accent-glow);
+  border-radius: 0 0 12px 12px;
+  background: linear-gradient(180deg, var(--accent-soft), rgba(244, 230, 234, 0.25) 70%, transparent);
+}
+
+.meeting {
+  display: flex;
+  gap: 0.85rem;
+  margin-bottom: 0.95rem;
+}
+
+.meeting-body {
+  min-width: 0;
+  padding-top: 0.1rem;
+}
+
+.meeting-body h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1.02rem;
+  font-weight: 650;
+}
+
+.meeting-body .notes {
+  margin: 0.15rem 0 0.3rem;
+  color: var(--ink);
+  font-size: 0.95rem;
+}
+
+.meeting-body .notes p {
+  margin: 0 0 0.35rem;
+}
+
+.meeting.is-today .date-chip {
+  border-color: var(--accent);
+  background: var(--accent);
+}
+
+.meeting.is-today .date-chip .dow,
+.meeting.is-today .date-chip .dom,
+.meeting.is-today .date-chip .mon {
+  color: #fff;
+}
+
+.meeting.exam .meeting-body {
+  padding: 0.55rem 0.8rem;
+  border-left: 4px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  background: var(--accent-soft);
+}
+
+.meeting.exam .meeting-body h3 {
+  color: var(--accent-strong);
+}
+
+.meeting.holiday .meeting-body h3 {
+  color: var(--muted);
+  font-style: italic;
+  font-weight: 450;
+}
+
+.meeting.holiday .date-chip {
+  border-style: dashed;
+  background: transparent;
+}
+
+.meeting.holiday .date-chip .dom {
+  color: var(--muted);
+}
+
+.tag {
+  display: inline-block;
+  margin-left: 0.4rem;
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--sans);
+  font-size: 0.64rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  vertical-align: 0.15em;
+}
+
+.link-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.4rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.link-row a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  padding: 0.15rem 0.6rem;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* ---------- due items ---------- */
+
+.week-due {
+  margin: 1.1rem 0 0.4rem;
+  padding: 0.75rem 0.9rem;
+  border-radius: 10px;
+  background: var(--review);
+}
+
+.week.is-current .week-due {
+  background: color-mix(in srgb, var(--surface) 72%, transparent);
+}
+
+.week-due h3,
+.due-section h2 {
+  margin: 0 0 0.55rem;
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.due-item {
+  display: flex;
+  gap: 0.85rem;
+  padding: 0.5rem 0;
+  border-top: 1px solid var(--rule);
+}
+
+.due-item:first-of-type {
+  border-top: 0;
+}
+
+.due-item .due-body {
+  min-width: 0;
+}
+
+.due-item h4 {
+  margin: 0 0 0.15rem;
+  font-size: 0.98rem;
+  font-weight: 650;
+}
+
+.due-item .notes {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.due-item.overdue-ish h4::after {
+  content: " · today";
+  color: var(--accent);
+  font-family: var(--sans);
+  font-size: 0.75em;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+/* ---------- now page ---------- */
+
+.now-today {
+  margin: 0 0 1.6rem;
+  font-family: var(--sans);
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.now-today strong {
+  color: var(--ink);
+  font-size: 1rem;
+}
+
+.due-section {
+  margin-top: 2rem;
+  padding: 0.9rem 1rem;
+  border-left: 4px solid var(--accent);
+  border-radius: 0 10px 10px 0;
+  background: var(--review);
+}
+
+/* ---------- prose (markdown pages) ---------- */
+
+.prose {
+  font-size: 1.04rem;
+}
+
+.prose h1 {
+  font-size: 1.45rem;
+  margin-bottom: 1rem;
+}
+
+.prose h2 {
+  margin: 1.9rem 0 0.5rem;
+  color: var(--accent);
+  font-size: 1.12rem;
+}
+
+.prose h2:first-child {
+  margin-top: 0;
+}
+
+.prose h3 {
+  margin: 1.3rem 0 0.4rem;
+  font-size: 1rem;
+}
+
+.prose p {
+  margin-bottom: 0.7rem;
+}
+
+.prose ul,
+.prose ol {
+  margin: 0 0 0.9rem;
+  padding-left: 1.5rem;
+}
+
+.prose ul {
+  list-style-type: "‣ ";
+}
+
+.prose ul li::marker {
+  color: var(--accent);
+}
+
+.prose li + li {
+  margin-top: 0.25rem;
+}
+
+.prose blockquote {
+  margin: 0 0 0.9rem;
+  padding: 0.5rem 1rem;
+  border-left: 4px solid var(--rule);
+  color: var(--muted);
+}
+
+.prose table {
+  width: 100%;
+  margin-bottom: 1rem;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.prose th,
+.prose td {
+  padding: 0.4rem 0.6rem;
+  border-bottom: 1px solid var(--rule);
+  text-align: left;
+}
+
+.prose th {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ---------- landing page ---------- */
+
+.site-title {
+  margin: 0 0 0.3rem;
+  font-size: 1.8rem;
+  font-weight: 650;
+}
+
+.site-tagline {
+  margin: 0 0 1.5rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.course-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.course-list li + li {
+  margin-top: 0.75rem;
+}
+
+.course-list a {
+  display: block;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  background: var(--surface);
+  text-decoration: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.course-list a:hover,
+.course-list a:focus-visible {
+  border-color: var(--accent);
+  box-shadow: 0 4px 18px var(--accent-glow);
+  outline: none;
+}
+
+.course-list .code {
+  color: var(--accent);
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.course-list .title {
+  display: block;
+  margin: 0.15rem 0;
+  color: var(--ink);
+  font-size: 1.12rem;
+  font-weight: 650;
+}
+
+.course-list .term {
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 0.8rem;
+}
+
+/* ---------- footer ---------- */
+
+.site-footer {
+  margin-top: 3.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 0.75rem;
+}
+
+/* ---------- wider screens ---------- */
+
+@media (min-width: 720px) {
+  .wrap {
+    padding: 0 2.25rem 20svh;
+  }
+
+  .page-nav {
+    margin: 0 -2.25rem;
+    padding: 0.4rem 2.25rem;
+  }
+
+  .site-header {
+    padding-top: 2.2rem;
+  }
+
+  .course-title {
+    font-size: 2rem;
+  }
+
+  .meeting {
+    gap: 1.1rem;
+  }
+
+  .week.is-current {
+    margin-left: -1.1rem;
+    margin-right: -1.1rem;
+    padding-left: 1.1rem;
+    padding-right: 1.1rem;
+  }
+
+  .course-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .course-list li + li {
+    margin-top: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
