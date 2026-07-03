@@ -396,6 +396,44 @@ h1, h2, h3, h4 {
   color: var(--muted);
 }
 
+.meeting.due-only .date-chip {
+  border-style: dashed;
+}
+
+.due-inline {
+  margin-top: 0.6rem;
+  padding: 0.5rem 0.7rem;
+  border-left: 3px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  background: var(--review);
+}
+
+.due-inline:first-child {
+  margin-top: 0;
+}
+
+.due-eyebrow {
+  display: block;
+  margin-bottom: 0.15rem;
+  color: var(--accent);
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.due-inline strong {
+  font-size: 0.98rem;
+  font-weight: 650;
+}
+
+.due-inline .notes {
+  margin: 0.2rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
 .tag {
   display: inline-block;
   margin-left: 0.4rem;
@@ -435,14 +473,6 @@ h1, h2, h3, h4 {
 
 /* ---------- due items ---------- */
 
-.week-due {
-  margin: 1.1rem 0 0.4rem;
-  padding: 0.75rem 0.9rem;
-  border-radius: 10px;
-  background: var(--review);
-}
-
-.week-due h3,
 .due-section h2 {
   margin: 0 0 0.55rem;
   color: var(--ink);

@@ -147,7 +147,10 @@
   }
 
   // Zip ordered topics onto class meetings (holidays don't consume topics),
-  // group into Monday-anchored weeks, attach assignments due within each week.
+  // group into Monday-anchored weeks, and attach each assignment to the row
+  // for its actual due date (creating a due-only row if that date isn't
+  // already a class meeting) so due items stay on their day, not at the
+  // end of the week.
   function buildWeeks(course, schedule) {
     var days = buildCalendar(course);
     var topics = (schedule.topics || []).map(normalizeTopic);
@@ -163,7 +166,7 @@
       var key = ymd(mondayOf(day.date));
       var w = byMon.get(key);
       if (!w) {
-        w = { monday: mondayOf(day.date), days: [], due: [] };
+        w = { monday: mondayOf(day.date), days: [] };
         byMon.set(key, w);
         weeks.push(w);
       }
@@ -174,13 +177,22 @@
     (schedule.assignments || []).forEach(function (a) {
       var due = parseDate(a.due);
       if (!due) return;
-      var key = ymd(mondayOf(due));
-      var w = byMon.get(key);
+      var w = byMon.get(ymd(mondayOf(due)));
+      if (!w) return;
       var item = { title: a.title || "Assignment", due: due, notes: a.notes, link: a.link };
-      if (w) w.due.push(item);
+      var row = w.days.filter(function (d) { return ymd(d.date) === ymd(due); })[0];
+      if (!row) {
+        row = { date: due };
+        w.days.push(row);
+      }
+      (row.due = row.due || []).push(item);
     });
+
     weeks.forEach(function (w) {
-      w.due.sort(function (a, b) { return a.due - b.due; });
+      w.days.sort(function (a, b) { return a.date - b.date; });
+      w.days.forEach(function (d) {
+        if (d.due) d.due.sort(function (a, b) { return a.due - b.due; });
+      });
     });
 
     return { weeks: weeks, extraTopics: extraTopics, days: days };
@@ -247,28 +259,51 @@
 
   /* ---------- meeting / due rendering ---------- */
 
-  function meetingHTML(day) {
-    var cls = "meeting";
-    var isToday = ymd(day.date) === ymd(TODAY);
-    if (isToday) cls += " is-today";
-    if (day.holiday) {
-      return '<div class="' + cls + ' holiday">' + chipHTML(day.date) +
-        '<div class="meeting-body"><h3>No class — ' + esc(day.holiday) + "</h3></div></div>";
-    }
-    var t = day.topic;
-    if (t.exam) cls += " exam";
-    var html = '<div class="' + cls + '">' + chipHTML(day.date) + '<div class="meeting-body">';
-    html += "<h3>" + mdInline(t.title) + (t.exam ? '<span class="tag">Exam</span>' : "") + "</h3>";
-    if (t.notes) html += '<div class="notes">' + md(t.notes) + "</div>";
-    if (t.links && t.links.length) {
-      html += '<ul class="link-row">' + t.links.map(function (l) {
-        return '<li><a href="' + esc(l.url) + '" target="_blank" rel="noopener">' + esc(l.text || l.url) + "</a></li>";
-      }).join("") + "</ul>";
-    }
-    html += "</div></div>";
-    return html;
+  // Compact "Due" block for an assignment shown inline on its own day row —
+  // no date chip of its own, since the row's chip already carries the date.
+  function dueInlineHTML(item) {
+    var title = item.link
+      ? '<a href="' + esc(item.link) + '" target="_blank" rel="noopener">' + esc(item.title) + "</a>"
+      : esc(item.title);
+    return '<div class="due-inline">' +
+      '<span class="due-eyebrow">Due' + (ymd(item.due) === ymd(TODAY) ? " today" : "") + "</span>" +
+      "<strong>" + title + "</strong>" +
+      (item.notes ? '<p class="notes">' + mdInline(item.notes) + "</p>" : "") +
+      "</div>";
   }
 
+  // One row per day: a class meeting, a holiday, a due-only day, or any
+  // combination (e.g. an assignment due on a class day).
+  function rowHTML(row) {
+    var cls = "meeting";
+    var isToday = ymd(row.date) === ymd(TODAY);
+    if (isToday) cls += " is-today";
+    var body = "";
+    if (row.holiday) {
+      body += "<h3>No class — " + esc(row.holiday) + "</h3>";
+      cls += " holiday";
+    } else if (row.topic) {
+      var t = row.topic;
+      if (t.exam) cls += " exam";
+      body += "<h3>" + mdInline(t.title) + (t.exam ? '<span class="tag">Exam</span>' : "") + "</h3>";
+      if (t.notes) body += '<div class="notes">' + md(t.notes) + "</div>";
+      if (t.links && t.links.length) {
+        body += '<ul class="link-row">' + t.links.map(function (l) {
+          return '<li><a href="' + esc(l.url) + '" target="_blank" rel="noopener">' + esc(l.text || l.url) + "</a></li>";
+        }).join("") + "</ul>";
+      }
+    } else {
+      cls += " due-only";
+    }
+    if (row.due && row.due.length) {
+      cls += " has-due";
+      body += row.due.map(dueInlineHTML).join("");
+    }
+    return '<div class="' + cls + '">' + chipHTML(row.date) + '<div class="meeting-body">' + body + "</div></div>";
+  }
+
+  // Flat due item with its own date chip, for lists not tied to a day row
+  // (the Now page's "due in the next two weeks" look-ahead).
   function dueItemHTML(item) {
     var cls = "due-item" + (ymd(item.due) === ymd(TODAY) ? " overdue-ish" : "");
     var title = item.link
@@ -287,10 +322,7 @@
     html += '<div class="week-head"><h2>Week ' + week.num + "</h2>" +
       '<span class="range">' + shortDate(first) + " – " + shortDate(last) + "</span>" +
       (isCurrent ? '<span class="badge-current">This week</span>' : "") + "</div>";
-    html += week.days.map(meetingHTML).join("");
-    if (week.due.length) {
-      html += '<div class="week-due"><h3>Due this week</h3>' + week.due.map(dueItemHTML).join("") + "</div>";
-    }
+    html += week.days.map(rowHTML).join("");
     html += "</section>";
     return html;
   }
@@ -336,17 +368,21 @@
       html += '<section class="week is-current"><div class="week-head"><h2>This week</h2>' +
         '<span class="range">' + shortDate(cur.days[0].date) + " – " +
         shortDate(cur.days[cur.days.length - 1].date) + "</span></div>" +
-        cur.days.map(meetingHTML).join("") + "</section>";
+        cur.days.map(rowHTML).join("") + "</section>";
     } else {
       html += '<div class="empty-state">No class meetings this week.</div>';
     }
 
     if (TODAY <= end) {
+      // Items due within the current week already appear inline above, so
+      // the look-ahead starts right after it (or from today if there's no
+      // current week to show).
+      var afterInline = cur ? cur.days[cur.days.length - 1].date : addDays(TODAY, -1);
       var horizon = addDays(TODAY, 14);
       var upcoming = (schedule.assignments || []).map(function (a) {
         return { title: a.title || "Assignment", due: parseDate(a.due), notes: a.notes, link: a.link };
       }).filter(function (a) {
-        return a.due && a.due >= TODAY && a.due <= horizon;
+        return a.due && a.due > afterInline && a.due <= horizon;
       }).sort(function (a, b) { return a.due - b.due; });
       if (upcoming.length) {
         html += '<section class="due-section"><h2>Due in the next two weeks</h2>' +
