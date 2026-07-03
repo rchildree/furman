@@ -18,7 +18,7 @@
 
 @font-face {
   font-family: "Nebula Sans";
-  src: url("fonts/NebulaSans-Book.otf") format("otf");
+  src: url("fonts/NebulaSans-Book.otf") format("opentype");
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -26,7 +26,7 @@
 
 @font-face {
   font-family: "Nebula Sans";
-  src: url("fonts/NebulaSans-Semibold.otf") format("otf");
+  src: url("fonts/NebulaSans-Semibold.otf") format("opentype");
   font-style: normal;
   font-weight: 600;
   font-display: swap;
@@ -34,7 +34,7 @@
 
 @font-face {
   font-family: "Nebula Sans";
-  src: url("fonts/NebulaSans-Bold.otf") format("otf");
+  src: url("fonts/NebulaSans-Bold.otf") format("opentype");
   font-style: normal;
   font-weight: 700 800;
   font-display: swap;
@@ -47,9 +47,10 @@
   --ink: #202124;
   --muted: #6b7280;
   --rule: #d1d5db;
+  --rule-soft: rgba(209, 213, 219, 0.35);
   --accent: #5d1247;
   --accent-strong: #421033;
-  --accent-soft: #eaf0ea;
+  --accent-soft: #f3f4f6;
   --accent-glow: rgba(93, 18, 71, 0.14);
   --review: #f3f4f6;
   --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
@@ -130,7 +131,6 @@ h1, h2, h3, h4 {
   font-family: var(--sans);
   font-size: 0.9rem;
   font-weight: 800;
-  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
@@ -189,6 +189,10 @@ h1, h2, h3, h4 {
   font-weight: 700;
   text-decoration: none;
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.page-nav a:nth-child(2) {
+  margin-left: auto;
 }
 
 .page-nav a:hover,
@@ -270,10 +274,9 @@ h1, h2, h3, h4 {
 
 .date-chip .dow {
   color: var(--muted);
-  font-size: 0.62rem;
+  font-size: 0.65rem;
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
 }
 
 .date-chip .dom {
@@ -284,7 +287,7 @@ h1, h2, h3, h4 {
 
 .date-chip .mon {
   color: var(--muted);
-  font-size: 0.62rem;
+  font-size: 0.65rem;
   font-weight: 700;
   text-transform: uppercase;
 }
@@ -294,7 +297,7 @@ h1, h2, h3, h4 {
 .week {
   margin: 0 0 1.9rem;
   padding-top: 1.1rem;
-  border-top: 1px solid var(--rule);
+  border-top: 1px solid var(--rule-soft);
   scroll-margin-top: calc(var(--nav-h) + 0.75rem);
 }
 
@@ -503,7 +506,7 @@ h1, h2, h3, h4 {
   display: flex;
   gap: 0.85rem;
   padding: 0.5rem 0;
-  border-top: 1px solid var(--rule);
+  border-top: 1px solid var(--rule-soft);
 }
 
 .due-item:first-of-type {
@@ -680,7 +683,6 @@ h1, h2, h3, h4 {
   font-family: var(--sans);
   font-size: 0.78rem;
   font-weight: 800;
-  letter-spacing: 0.07em;
   text-transform: uppercase;
 }
 

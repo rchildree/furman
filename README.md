@@ -54,7 +54,15 @@ Formatting notes:
         url: https://example.com/guide
 ```
 
-Assignments are dated (not positional) and appear both on the schedule (in their week) and on the Now page when due within two weeks:
+A `links.url` doesn't have to be an external site — you can link to a file you're hosting right in the course folder. Every course comes with a `files/` subfolder for exactly this (a PDF study guide, handout, slide deck, etc.); drop the file in there and point `url` at it relative to the course folder:
+
+```yaml
+    links:
+      - text: Study guide
+        url: files/exam1-guide.pdf
+```
+
+Assignments are dated (not positional) and appear both on the schedule (in their week) and on the Now page when due within two weeks. A due date lands right on its own day — sharing that day's date with the class meeting if there is one, or getting its own row (marked with a dashed date box) if it falls on a day the class doesn't meet:
 
 ```yaml
 assignments:
@@ -68,7 +76,7 @@ If you have more topic entries than class meetings, the schedule page shows a wa
 
 ### `course.yaml` — course facts and the calendar
 
-Code, title, term, instructor, location, meeting time — plus the three fields the calendar is generated from:
+Code, title, term, instructor, email, location, meeting time — plus the three fields the calendar is generated from:
 
 ```yaml
 meeting_days: [Mon, Tue, Wed, Thu]
@@ -88,9 +96,18 @@ Holidays that land on meeting days show up as "No class — …" on the schedule
 
 Plain Markdown. `##` headings become the section heads.
 
-## Archiving a course
+## `courses.yaml` — the landing page
 
-In `courses.yaml` at the repo root, change the course's status:
+This file at the repo root controls what the landing page shows.
+
+`title` and `tagline` are the heading and subheading on the landing page itself:
+
+```yaml
+title: "Courses — Dr. Randall Childree"
+tagline: "Syllabi, schedules, and policies for current courses."
+```
+
+`courses` lists every course and whether it's shown. To **archive** (hide) a course, change its status — no need to touch anything in the course's own folder:
 
 ```yaml
 courses:
@@ -110,8 +127,9 @@ Archived courses disappear from the landing page (their pages still exist at the
 - `assets/app.js` — all rendering. Builds the calendar from `course.yaml`, zips topics onto it, renders each page. The calendar algorithm is duplicated in `scripts/new_course.py` (marked `KEEP IN SYNC` in both).
 - `assets/styles.css` — the design. Colors and type are set as CSS variables at the top.
 - `assets/vendor/` — pinned copies of js-yaml and marked (no CDN dependency).
-- `assets/fonts/` — Source Serif 4 variable fonts, hosted locally.
+- `assets/fonts/` — Source Serif 4 (serif) and Nebula Sans (sans), hosted locally.
 - `courses.yaml` — landing-page manifest: which courses exist and whether they're shown.
+- `courses/<slug>/files/` — attachments for that course (PDFs, handouts); link to them from `schedule.yaml` as described above.
 - `.nojekyll` — tells GitHub Pages to serve files as-is.
 
 ## One-time GitHub Pages setup (already done for this repo)

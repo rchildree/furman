@@ -228,6 +228,17 @@ _Disability services statement._
 _Announcements, email etiquette, response times._
 """
 
+FILES_README = """Drop attachments here (study guides, handouts, slides, etc.) and link
+to them from schedule.yaml with a path relative to this course folder:
+
+    links:
+      - text: Study guide
+        url: files/exam1-guide.pdf
+
+This file itself isn't linked from anywhere — delete it once you've
+added a real attachment, or leave it, it won't show up on the site.
+"""
+
 STUB = """<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -369,6 +380,9 @@ def main():
     (course_dir / "policies.md").write_text(POLICIES_MD)
     for fname, page in PAGES:
         (course_dir / fname).write_text(STUB.format(page=page, title=f"{a.code} — {a.title}"))
+    files_dir = course_dir / "files"
+    files_dir.mkdir()
+    (files_dir / "README.md").write_text(FILES_README)
     register_course(slug)
 
     weeks = len({monday_of(d) for d, _ in days})

@@ -240,8 +240,8 @@
   function navHTML() {
     var items = [
       ["now", "index.html", "Now"],
-      ["schedule", "schedule.html", "Schedule"],
       ["info", "info.html", "Info"],
+      ["schedule", "schedule.html", "Schedule"],
       ["policies", "policies.html", "Policies"]
     ];
     var q = location.search; // keep ?today= override while navigating
