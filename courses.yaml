@@ -5,3 +5,5 @@ tagline: "Syllabi for courses taught at Furman University."
 courses:
   - slug: clas2200
     status: current
+  - slug: ltn110
+    status: current

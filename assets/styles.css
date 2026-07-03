@@ -191,7 +191,7 @@ h1, h2, h3, h4 {
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
-.page-nav a:nth-child(2) {
+.page-nav a:nth-of-type(2) {
   margin-left: auto;
 }
 
@@ -205,6 +205,64 @@ h1, h2, h3, h4 {
 .page-nav a[aria-current="page"] {
   color: #fff;
   background: var(--accent);
+}
+
+/* ---------- EXPERIMENTAL: sticky compact header ----------
+   Rollback: delete this block, plus FEATURE_STICKY_COMPACT_HEADER,
+   the .compact-header markup, and initCompactHeader() in app.js.
+
+   height/top are NOT transitioned: a transitioned height on a sticky
+   element reflows every sibling after it as it animates, which is what
+   caused the jump. app.js snaps both instantly instead and compensates
+   scrollY by the same delta in the same tick, so nothing visible moves —
+   only opacity (compositor-only) fades. */
+
+.compact-header {
+  position: sticky;
+  top: 0;
+  z-index: 11;
+  display: flex;
+  align-items: center;
+  gap: 3em;
+  height: 0;
+  margin: 0 -1rem;
+  padding: 0 1rem;
+  overflow: hidden;
+  opacity: 0;
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid transparent;
+  transition: opacity 0.2s ease, border-color 0.2s ease;
+}
+
+body.header-compact .compact-header {
+  height: var(--nav-h);
+  opacity: 1;
+  border-bottom-color: var(--rule);
+}
+
+.compact-header .compact-code {
+  flex: 0 0 auto;
+  color: var(--accent);
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.compact-header .compact-title {
+  min-width: 0;
+  overflow: hidden;
+  font-size: 1.15rem;
+  font-weight: 650;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+body.header-compact .page-nav {
+  top: var(--nav-h);
 }
 
 /* ---------- shared content ---------- */
@@ -755,6 +813,12 @@ h1, h2, h3, h4 {
   .page-nav {
     margin: 0 -2.25rem;
     padding: 0.4rem 2.25rem;
+  }
+
+  /* EXPERIMENTAL: sticky compact header, see rollback note above. */
+  .compact-header {
+    margin: 0 -2.25rem;
+    padding: 0 2.25rem;
   }
 
   .site-header {

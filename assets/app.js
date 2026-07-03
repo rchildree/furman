@@ -8,6 +8,12 @@
   var PAGE = document.body.dataset.page;
   var APP = document.getElementById("app");
 
+  // EXPERIMENTAL: collapses the course header into a slim sticky bar once it
+  // scrolls out of view. Rollback: set this to false (or delete this flag,
+  // the .compact-header markup below, and initCompactHeader() + its call
+  // sites, plus the "sticky compact header" block in styles.css).
+  var FEATURE_STICKY_COMPACT_HEADER = true;
+
   /* ---------- dates ---------- */
 
   var DOW = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -228,13 +234,44 @@
     if (course.meeting_days && course.meeting_days.length) meta2.push(esc(course.meeting_days.join("/")));
     if (course.meeting_time) meta2.push(esc(course.meeting_time));
     if (course.location) meta2.push(esc(course.location));
-    return '<header class="site-header">' +
+    var compact = FEATURE_STICKY_COMPACT_HEADER
+      ? '<div class="compact-header">' +
+        '<span class="compact-code">' + esc(course.code || "") + "</span>" +
+        '<span class="compact-title">' + esc(course.title || "") + "</span>" +
+        "</div>"
+      : "";
+    return compact + '<header class="site-header">' +
       '<a class="home-link" href="' + rootPrefix() + 'index.html">← All courses</a>' +
       '<p class="course-code">' + esc(course.code || "") + "</p>" +
       '<h1 class="course-title">' + esc(course.title || "") + "</h1>" +
       '<p class="course-meta">' + meta.join('<span class="sep">·</span>') +
       (meta2.length ? "<br>" + meta2.join('<span class="sep">·</span>') : "") + "</p>" +
       "</header>";
+  }
+
+  // EXPERIMENTAL, see FEATURE_STICKY_COMPACT_HEADER above. Watches the full
+  // header; once it scrolls out of view, adds a body class that snaps the
+  // compact bar to its full height and shifts the nav down to sit below it.
+  // The height/top changes are NOT animated: a transitioned height on a
+  // sticky element reflows every sibling after it on every frame of the
+  // transition, which is what caused the jump. Snapping instantly instead
+  // lets the browser's own scroll anchoring compensate scrollY for the
+  // inserted height in the same reflow — confirmed empirically to land
+  // within a fraction of a pixel, so no manual scroll compensation is
+  // needed (a manual window.scrollBy here double-compensates and jumps the
+  // other way). Only the bar's opacity fades, which is compositor-only and
+  // doesn't affect layout at all. Must be re-run after every APP.innerHTML
+  // replacement since that destroys the previously-observed element.
+  var compactHeaderObserver = null;
+  function initCompactHeader() {
+    if (!FEATURE_STICKY_COMPACT_HEADER) return;
+    var header = document.querySelector(".site-header");
+    if (!header) return;
+    if (compactHeaderObserver) compactHeaderObserver.disconnect();
+    compactHeaderObserver = new IntersectionObserver(function (entries) {
+      document.body.classList.toggle("header-compact", !entries[0].isIntersecting);
+    }, { threshold: 0, rootMargin: "-40px 0px 0px 0px" });
+    compactHeaderObserver.observe(header);
   }
 
   function navHTML() {
@@ -342,6 +379,7 @@
     html += built.weeks.map(function (w) { return weekHTML(w, cur === w); }).join("");
     html += "</main>" + footerHTML(course);
     APP.innerHTML = html;
+    initCompactHeader();
     if (cur) {
       var el = document.getElementById("week-" + cur.num);
       if (el) el.scrollIntoView({ block: "start" });
@@ -395,12 +433,14 @@
 
     html += "</main>" + footerHTML(course);
     APP.innerHTML = html;
+    initCompactHeader();
   }
 
   function renderMarkdownPage(course, file) {
     return fetchText(file).then(function (text) {
       APP.innerHTML = headerHTML(course) + navHTML() +
         '<main class="content"><div class="prose">' + md(text) + "</div></main>" + footerHTML(course);
+      initCompactHeader();
     });
   }
 

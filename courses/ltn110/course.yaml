@@ -1,0 +1,19 @@
+code: "LTN 110"
+title: "Introduction to Latin"
+term: "Fall 2026"
+instructor: "Randall Childree"
+email: "randall.childree@furman.edu"
+location: "Furman Hall 110"
+meeting_time: "2:30–3:20PM"
+meeting_days: [Mon, Tue, Thu, Fri]
+start_date: 2026-08-25
+end_date: 2026-12-08
+holidays:
+  - date: 2026-09-07
+    name: "Labor Day"
+  - start: 2026-10-12
+    end: 2026-10-13
+    name: "Fall Break"
+  - start: 2026-11-25
+    end: 2026-11-27
+    name: "Thanksgiving"
