@@ -23,7 +23,7 @@ ROOT = Path(__file__).resolve().parent.parent
 
 DOW = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]  # Python: Monday = 0
 
-TERM_ABBREV = {"spring": "sp", "summer": "su", "fall": "fa", "winter": "wi"}
+SEASONS = {"spring", "summer", "fall", "winter"}
 
 
 # ---------- small helpers ----------
@@ -53,14 +53,26 @@ def slugify(s):
     return re.sub(r"-+", "-", re.sub(r"[^a-z0-9]+", "-", s.lower())).strip("-")
 
 
-def derive_slug(code, term):
-    code_part = re.sub(r"[^a-z0-9]", "", code.lower()) or slugify(code)
+def code_slug(code):
+    return re.sub(r"[^a-z0-9]", "", code.lower()) or slugify(code)
+
+
+def derive_slug(code):
+    # Current courses live at a short, stable URL (just the course code) so
+    # it can be shared/bookmarked once and keep working across offerings.
+    # When a course is archived, archive_course.py renames it to a dated
+    # slug (see term_slug below) and this short slug frees up again.
+    return code_slug(code)
+
+
+def term_slug(term):
+    """'Fall 2026' -> '2026-fall'"""
     words = term.lower().split()
-    season = TERM_ABBREV.get(words[0]) if words else None
-    year = next((w[-2:] for w in words if w.isdigit() and len(w) == 4), "")
-    if season and year:
-        return f"{code_part}-{season}{year}"
-    return f"{code_part}-{slugify(term)}"
+    season = next((w for w in words if w in SEASONS), None)
+    year = next((w for w in words if w.isdigit() and len(w) == 4), None)
+    if not season or not year:
+        raise SystemExit(f"error: can't parse a year and season out of term {term!r}")
+    return f"{year}-{season}"
 
 
 # ---------- calendar ----------
@@ -265,7 +277,8 @@ def register_course(slug):
     entry = f"  - slug: {slug}\n    status: current\n"
     if not manifest.exists():
         manifest.write_text(
-            "# Course manifest. To archive (hide) a course, change its status to: archived\n"
+            "# Course manifest. To archive a finished course, run:\n"
+            "#   python3 scripts/archive_course.py <slug>\n"
             "title: \"Courses\"\n"
             "courses:\n" + entry
         )
@@ -363,10 +376,14 @@ def main():
     if a.end < a.start:
         raise SystemExit("error: end date is before start date")
 
-    slug = a.slug or derive_slug(a.code, a.term)
+    slug = a.slug or derive_slug(a.code)
     course_dir = ROOT / "courses" / slug
     if course_dir.exists():
-        raise SystemExit(f"error: {course_dir.relative_to(ROOT)} already exists (pick --slug or remove it)")
+        raise SystemExit(
+            f"error: {course_dir.relative_to(ROOT)} already exists.\n"
+            f"       If that's a past offering, archive it first: python3 scripts/archive_course.py {slug}\n"
+            f"       Otherwise pick a different --slug."
+        )
 
     days = build_calendar(a.start, a.end, a.days, holidays)
     meetings = [d for d, h in days if not h]

@@ -404,29 +404,43 @@
     });
   }
 
+  function courseListHTML(courses, metas, extraClass) {
+    return '<ul class="course-list' + (extraClass ? " " + extraClass : "") + '">' + courses.map(function (c, i) {
+      var m = metas[i] || {};
+      return '<li><a href="courses/' + esc(c.slug) + '/index.html">' +
+        '<span class="code">' + esc(m.code || c.slug) + "</span>" +
+        '<span class="title">' + esc(m.title || "") + "</span>" +
+        '<span class="term">' + esc(m.term || "") + "</span></a></li>";
+    }).join("") + "</ul>";
+  }
+
   function renderHome(manifest) {
-    var current = (manifest.courses || []).filter(function (c) {
-      return (c.status || "current") === "current";
-    });
+    var all = manifest.courses || [];
+    var current = all.filter(function (c) { return (c.status || "current") === "current"; });
+    var archived = all.filter(function (c) { return c.status === "archived"; });
     var title = manifest.title || "Courses";
     document.title = title;
     var head = '<header class="site-header"><h1 class="site-title">' + esc(title) + "</h1>" +
       (manifest.tagline ? '<p class="site-tagline">' + esc(manifest.tagline) + "</p>" : "") + "</header>";
-    if (!current.length) {
-      APP.innerHTML = head + '<div class="empty-state">No current courses.</div>';
+    if (!all.length) {
+      APP.innerHTML = head + '<div class="empty-state">No courses yet.</div>';
       return;
     }
-    Promise.all(current.map(function (c) {
+    Promise.all(all.map(function (c) {
       return fetchYaml("courses/" + c.slug + "/course.yaml").catch(function () { return null; });
     })).then(function (metas) {
-      var items = current.map(function (c, i) {
-        var m = metas[i] || {};
-        return '<li><a href="courses/' + esc(c.slug) + '/index.html">' +
-          '<span class="code">' + esc(m.code || c.slug) + "</span>" +
-          '<span class="title">' + esc(m.title || "") + "</span>" +
-          '<span class="term">' + esc(m.term || "") + "</span></a></li>";
-      }).join("");
-      APP.innerHTML = head + '<main class="content"><ul class="course-list">' + items + "</ul></main>" +
+      var currentMetas = current.map(function (c) { return metas[all.indexOf(c)]; });
+      var archivedMetas = archived.map(function (c) { return metas[all.indexOf(c)]; });
+      var body = current.length
+        ? courseListHTML(current, currentMetas)
+        : '<div class="empty-state">No current courses.</div>';
+      if (archived.length) {
+        body += '<section class="archived-courses">' +
+          '<h2 class="course-list-heading">Older</h2>' +
+          courseListHTML(archived, archivedMetas, "is-archived") +
+          "</section>";
+      }
+      APP.innerHTML = head + '<main class="content">' + body + "</main>" +
         '<footer class="site-footer">Built with Syllabusser.</footer>';
     }).catch(fail);
   }

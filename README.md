@@ -9,7 +9,7 @@ Each course gets four pages:
 - **Info** — description, background, goals, expectations, materials
 - **Policies** — attendance, makeups, honesty, etc.
 
-The landing page lists all current courses.
+The landing page lists current courses, plus archived ones dimmed further down.
 
 ## Adding a course
 
@@ -18,6 +18,8 @@ python3 scripts/new_course.py
 ```
 
 Answer the prompts (code, title, term, meeting days, first/last day, holidays). The script creates `courses/<slug>/` with everything the course needs and registers it on the landing page. It also works non-interactively — see `python3 scripts/new_course.py --help`.
+
+A current course gets a short, stable slug from just its code — `LTN 110` becomes `courses/ltn110/`, so the URL is `/ltn110` regardless of which term it is. That means the URL keeps working, unchanged, the next time you teach it.
 
 Then fill in three files (see below), commit, push. Done.
 
@@ -107,15 +109,19 @@ title: "Courses — Dr. Randall Childree"
 tagline: "Syllabi, schedules, and policies for current courses."
 ```
 
-`courses` lists every course and whether it's shown. To **archive** (hide) a course, change its status — no need to touch anything in the course's own folder:
+`courses` lists every course and whether it's shown, by slug and `status: current` / `archived`.
 
-```yaml
-courses:
-  - slug: clas2200-su26
-    status: archived      # was: current
+## Archiving a finished course
+
+```
+python3 scripts/archive_course.py ltn110
 ```
 
-Archived courses disappear from the landing page (their pages still exist at their URLs if a student has a direct link). Flip back to `current` to restore.
+This does two things at once: renames `courses/ltn110/` to a dated slug like `courses/2026-fall-ltn110/` (read from that course's `term` in `course.yaml`), and flips its `courses.yaml` entry to `status: archived`. The short URL (`/ltn110`) is freed up for the next time you run `new_course.py` with that same code — the old offering keeps working at its new, dated URL, it just won't be on the landing page or at the short URL anymore.
+
+Don't archive by hand-editing `courses.yaml` alone — the slug and the folder name have to change together, which is exactly what the script does. Commit and push after running it.
+
+Archived courses stay on the landing page, dimmed and listed under an "Older" heading below the current courses, at their new dated URL.
 
 ## Previewing
 
@@ -125,6 +131,7 @@ Archived courses disappear from the landing page (their pages still exist at the
 ## How it works / repo map
 
 - `assets/app.js` — all rendering. Builds the calendar from `course.yaml`, zips topics onto it, renders each page. The calendar algorithm is duplicated in `scripts/new_course.py` (marked `KEEP IN SYNC` in both).
+- `scripts/archive_course.py` — renames a course to its dated slug and marks it archived; see above.
 - `assets/styles.css` — the design. Colors and type are set as CSS variables at the top.
 - `assets/vendor/` — pinned copies of js-yaml and marked (no CDN dependency).
 - `assets/fonts/` — Source Serif 4 (serif) and Nebula Sans (sans), hosted locally.

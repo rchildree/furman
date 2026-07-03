@@ -700,6 +700,40 @@ h1, h2, h3, h4 {
   font-size: 0.8rem;
 }
 
+.archived-courses {
+  margin-top: 2.5rem;
+}
+
+.course-list-heading {
+  margin: 0 0 0.75rem;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.course-list.is-archived a {
+  opacity: 0.6;
+  transition: opacity 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.course-list.is-archived .code {
+  color: var(--muted);
+  transition: color 0.15s ease;
+}
+
+.course-list.is-archived a:hover,
+.course-list.is-archived a:focus-visible {
+  opacity: 1;
+}
+
+.course-list.is-archived a:hover .code,
+.course-list.is-archived a:focus-visible .code {
+  color: var(--accent);
+}
+
 /* ---------- footer ---------- */
 
 .site-footer {
