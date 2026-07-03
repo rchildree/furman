@@ -288,10 +288,10 @@
   }
 
   function footerHTML(course) {
-    var bits = [];
-    if (course && course.code) bits.push(esc(course.code) + (course.term ? " · " + esc(course.term) : ""));
-    bits.push("Schedule may be revised; this site is the current version.");
-    return '<footer class="site-footer">' + bits.join(" — ") + "</footer>";
+    var text = "";
+    var d = course && parseDate(course.revised);
+    if (d) text = "Last revised " + MON_FULL[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear();
+    return '<footer class="site-footer">' + text + "</footer>";
   }
 
   /* ---------- meeting / due rendering ---------- */

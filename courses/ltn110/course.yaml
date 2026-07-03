@@ -17,3 +17,4 @@ holidays:
   - start: 2026-11-25
     end: 2026-11-27
     name: "Thanksgiving"
+revised: 2026-07-03  # shown as "Last revised ..." in the footer

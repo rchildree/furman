@@ -13,3 +13,4 @@ holidays:
   - start: 2026-07-02
     end: 2026-07-03
     name: "Independence Day break"
+revised: 2026-07-03  # shown as "Last revised ..." in the footer

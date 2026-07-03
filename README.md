@@ -92,6 +92,8 @@ holidays:
     name: Independence Day break
 ```
 
+`revised` is a date shown as "Last revised …" in the page footer — the generator sets it to today whenever it creates a course, but it's just a plain field, so update it by hand whenever you substantively edit the syllabus.
+
 Holidays that land on meeting days show up as "No class — …" on the schedule and don't consume a topic entry.
 
 ### `info.md` and `policies.md`

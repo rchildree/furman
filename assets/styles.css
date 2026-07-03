@@ -65,6 +65,7 @@
 
 html {
   scroll-padding-top: calc(var(--nav-h) + 1rem);
+  scrollbar-gutter: stable;
 }
 
 body {
@@ -182,8 +183,8 @@ h1, h2, h3, h4 {
 .page-nav a {
   flex: 0 0 auto;
   padding: 0.5rem 0.85rem;
-  border: 1px solid transparent;
-  border-radius: 999px;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
   color: var(--muted);
   font-size: 0.85rem;
   font-weight: 700;
@@ -205,6 +206,7 @@ h1, h2, h3, h4 {
 .page-nav a[aria-current="page"] {
   color: #fff;
   background: var(--accent);
+  border-color: var(--accent);
 }
 
 /* ---------- EXPERIMENTAL: sticky compact header ----------

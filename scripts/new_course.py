@@ -140,6 +140,7 @@ def course_yaml(a, holidays):
             lines.append(f"    name: {yq(h['name'])}")
     else:
         lines.append("holidays: []")
+    lines.append(f"revised: {dt.date.today().isoformat()}  # shown as \"Last revised ...\" in the footer")
     return "\n".join(lines) + "\n"
 
 
