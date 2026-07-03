@@ -18,7 +18,7 @@
 
 @font-face {
   font-family: "Nebula Sans";
-  src: url("fonts/nebula-sans-book.woff2") format("woff2");
+  src: url("fonts/NebulaSans-Book.otf") format("otf");
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -26,7 +26,7 @@
 
 @font-face {
   font-family: "Nebula Sans";
-  src: url("fonts/nebula-sans-semibold.woff2") format("woff2");
+  src: url("fonts/NebulaSans-Semibold.otf") format("otf");
   font-style: normal;
   font-weight: 600;
   font-display: swap;
@@ -34,7 +34,7 @@
 
 @font-face {
   font-family: "Nebula Sans";
-  src: url("fonts/nebula-sans-bold.woff2") format("woff2");
+  src: url("fonts/NebulaSans-Bold.otf") format("otf");
   font-style: normal;
   font-weight: 700 800;
   font-display: swap;
