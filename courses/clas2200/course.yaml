@@ -4,7 +4,7 @@ term: "Summer 2026"
 instructor: "Dr. Randall Childree"
 location: "Humanities 214"
 meeting_time: "10:00–11:15"
-meeting_days: [Mon, Tue, Wed, Thu]
+meeting_days: MTWR
 start_date: 2026-06-01
 end_date: 2026-08-06
 holidays:

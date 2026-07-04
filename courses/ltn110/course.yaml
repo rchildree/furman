@@ -5,7 +5,7 @@ instructor: "Randall Childree"
 email: "randall.childree@furman.edu"
 location: "Furman Hall 110"
 meeting_time: "2:30–3:20PM"
-meeting_days: [Mon, Tue, Thu, Fri]
+meeting_days: MTRF
 start_date: 2026-08-25
 end_date: 2026-12-08
 holidays:

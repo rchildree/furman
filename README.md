@@ -81,7 +81,7 @@ If you have more topic entries than class meetings, the schedule page shows a wa
 Code, title, term, instructor, email, location, meeting time — plus the three fields the calendar is generated from:
 
 ```yaml
-meeting_days: [Mon, Tue, Wed, Thu]
+meeting_days: MTWR
 start_date: 2026-06-01
 end_date: 2026-08-06
 holidays:
@@ -91,6 +91,8 @@ holidays:
     end: 2026-07-03
     name: Independence Day break
 ```
+
+`meeting_days` is the standard registrar-style single-letter code — a contiguous string with no separators, one letter per meeting day: `M` `T` `W` `R` `F` `S` `U` (Thursday is `R` and Sunday is `U`, to avoid clashing with Tuesday and Saturday). So Mon/Wed/Fri is `MWF`, Tue/Thu is `TR`.
 
 `revised` is a date shown as "Last revised …" in the page footer — the generator sets it to today whenever it creates a course, but it's just a plain field, so update it by hand whenever you substantively edit the syllabus.
 

@@ -3,7 +3,7 @@
 
 Interactive:      python3 scripts/new_course.py
 Non-interactive:  python3 scripts/new_course.py --code "ENGL 101" --title "Intro to Composition" \
-                      --term "Summer 2026" --instructor "Dr. X" --days Mon,Tue,Wed,Thu \
+                      --term "Summer 2026" --instructor "Dr. X" --days MTWR \
                       --start 2026-06-01 --end 2026-08-06 \
                       --holiday "2026-06-19:Juneteenth" \
                       --holiday "2026-07-02..2026-07-03:Independence Day break"
@@ -23,6 +23,11 @@ ROOT = Path(__file__).resolve().parent.parent
 
 DOW = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]  # Python: Monday = 0
 
+# Single-letter weekday codes for course.yaml's meeting_days (e.g. "MWF",
+# "TR"), disambiguated the standard registrar way: R = Thursday (not T),
+# U = Sunday (not S). Index matches date.weekday() (0 = Monday).
+DAY_LETTERS = "MTWRFSU"
+
 SEASONS = {"spring", "summer", "fall", "winter"}
 
 
@@ -35,12 +40,12 @@ def parse_date(s):
         raise SystemExit(f"error: not a valid date (YYYY-MM-DD): {s!r}")
 
 
-def day_index(name):
-    key = str(name).strip()[:3].lower()
-    for i, d in enumerate(DOW):
-        if d.lower() == key:
-            return i
-    raise SystemExit(f"error: unknown meeting day: {name!r} (use Mon, Tue, ...)")
+def day_index(letter):
+    key = str(letter).strip().upper()
+    i = DAY_LETTERS.find(key)
+    if i < 0:
+        raise SystemExit(f"error: unknown meeting day: {letter!r} (use M T W R F S U)")
+    return i
 
 
 def yq(s):
@@ -126,7 +131,7 @@ def course_yaml(a, holidays):
         lines.append(f"location: {yq(a.location)}")
     if a.time:
         lines.append(f"meeting_time: {yq(a.time)}")
-    lines.append("meeting_days: [" + ", ".join(a.days) + "]")
+    lines.append(f"meeting_days: {''.join(a.days)}")
     lines.append(f"start_date: {a.start.isoformat()}")
     lines.append(f"end_date: {a.end.isoformat()}")
     if holidays:
@@ -328,8 +333,7 @@ def interactive(a):
     a.location = a.location or ask("Meeting location", required=False)
     a.time = a.time or ask("Meeting time (e.g. 10:00–11:15)", required=False)
     if not a.days:
-        a.days = [d.strip() for d in
-                  ask("Meeting days, comma-separated (e.g. Mon,Wed,Fri)").replace("/", ",").split(",") if d.strip()]
+        a.days = [c for c in ask("Meeting days (e.g. MWF, or TR for Tue/Thu)") if c.strip()]
     a.start = a.start or parse_date(ask("First day of classes (YYYY-MM-DD)"))
     a.end = a.end or parse_date(ask("Last day of classes (YYYY-MM-DD)"))
     if a.holiday is None:
@@ -353,7 +357,7 @@ def main():
     p.add_argument("--email")
     p.add_argument("--location")
     p.add_argument("--time")
-    p.add_argument("--days", help="comma-separated, e.g. Mon,Wed,Fri")
+    p.add_argument("--days", help="meeting days as contiguous letters, e.g. MWF or TR (M T W R F S U)")
     p.add_argument("--start", type=parse_date, help="first day of classes YYYY-MM-DD")
     p.add_argument("--end", type=parse_date, help="last day of classes YYYY-MM-DD")
     p.add_argument("--holiday", action="append", type=parse_holiday_spec, default=None,
@@ -362,7 +366,7 @@ def main():
     a = p.parse_args()
 
     if a.days:
-        a.days = [d.strip() for d in a.days.split(",") if d.strip()]
+        a.days = [c for c in a.days if c.strip()]
 
     required = [a.code, a.title, a.term, a.days, a.start, a.end]
     if not all(required):
@@ -372,7 +376,7 @@ def main():
             raise SystemExit("error: missing " + ", ".join(missing) + " (and stdin is not a tty)")
         a = interactive(a)
 
-    a.days = [DOW[day_index(d)] for d in a.days]  # normalize to Mon/Tue/...
+    a.days = [DAY_LETTERS[day_index(d)] for d in a.days]  # normalize to M/T/W/R/F/S/U
     holidays = a.holiday or []
     if a.end < a.start:
         raise SystemExit("error: end date is before start date")

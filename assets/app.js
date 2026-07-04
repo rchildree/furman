@@ -10,14 +10,18 @@
 
   // EXPERIMENTAL: collapses the course header into a slim sticky bar once it
   // scrolls out of view. Rollback: set this to false (or delete this flag,
-  // the .compact-header markup below, and initCompactHeader() + its call
-  // sites, plus the "sticky compact header" block in styles.css).
+  // the .compact-header markup, initCompactHeader() + its call sites, and
+  // the "sticky compact header" block in styles.css).
   var FEATURE_STICKY_COMPACT_HEADER = true;
 
   /* ---------- dates ---------- */
 
   var DOW = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   var DOW_FULL = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  // Single-letter weekday codes for course.yaml's meeting_days (e.g. "MWF",
+  // "TR"), disambiguated the standard registrar way: R = Thursday (not T),
+  // U = Sunday (not S). Index matches Date#getDay() (0 = Sunday).
+  var DAY_LETTERS = "UMTWRFS";
   var MON = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   var MON_FULL = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
@@ -102,11 +106,17 @@
    * algorithm so generated schedule.yaml files line up with what renders here.
    */
 
-  function dayIndex(name) {
-    var i = DOW.map(function (d) { return d.toLowerCase(); })
-      .indexOf(String(name).slice(0, 3).toLowerCase());
-    if (i < 0) throw new Error("Unknown meeting day: " + name);
+  function dayIndex(letter) {
+    var i = DAY_LETTERS.indexOf(String(letter).trim().toUpperCase());
+    if (i < 0) throw new Error("Unknown meeting day: " + letter + " (use M T W R F S U)");
     return i;
+  }
+
+  // meeting_days is a compact string like "MWF" or "TR" (also accepts a
+  // YAML list of single letters, e.g. [M, W, F], if written that way).
+  function parseMeetingDays(v) {
+    if (Array.isArray(v)) return v.map(dayIndex);
+    return String(v || "").split("").filter(function (c) { return /\S/.test(c); }).map(dayIndex);
   }
 
   // -> Map of "YYYY-MM-DD" -> holiday name
@@ -129,7 +139,7 @@
     var start = parseDate(course.start_date);
     var end = parseDate(course.end_date);
     if (!start || !end) throw new Error("course.yaml needs start_date and end_date (YYYY-MM-DD)");
-    var meet = new Set((course.meeting_days || []).map(dayIndex));
+    var meet = new Set(parseMeetingDays(course.meeting_days));
     if (!meet.size) throw new Error("course.yaml needs meeting_days");
     var holidays = expandHolidays(course.holidays);
     var days = [];
@@ -229,9 +239,14 @@
     var meta = [];
     if (course.term) meta.push(esc(course.term));
     if (course.instructor) meta.push(esc(course.instructor));
-    if (course.email) meta.push('<a href="mailto:' + esc(course.email) + '">' + esc(course.email) + "</a>");
+    // The <br> forces email onto its own line on narrow screens; CSS hides
+    // that <br> at the wide breakpoint and adds a "·" separator instead, so
+    // email folds back inline with term/instructor — see styles.css.
+    var emailLine = course.email
+      ? '<br class="email-break"><span class="course-email"><a href="mailto:' + esc(course.email) + '">' + esc(course.email) + "</a></span>"
+      : "";
     var meta2 = [];
-    if (course.meeting_days && course.meeting_days.length) meta2.push(esc(course.meeting_days.join("/")));
+    if (course.meeting_days && course.meeting_days.length) meta2.push(esc(String(course.meeting_days)));
     if (course.meeting_time) meta2.push(esc(course.meeting_time));
     if (course.location) meta2.push(esc(course.location));
     var compact = FEATURE_STICKY_COMPACT_HEADER
@@ -244,34 +259,44 @@
       '<a class="home-link" href="' + rootPrefix() + 'index.html">← All courses</a>' +
       '<p class="course-code">' + esc(course.code || "") + "</p>" +
       '<h1 class="course-title">' + esc(course.title || "") + "</h1>" +
-      '<p class="course-meta">' + meta.join('<span class="sep">·</span>') +
+      '<p class="course-meta">' + meta.join('<span class="sep">·</span>') + emailLine +
       (meta2.length ? "<br>" + meta2.join('<span class="sep">·</span>') : "") + "</p>" +
       "</header>";
   }
 
-  // EXPERIMENTAL, see FEATURE_STICKY_COMPACT_HEADER above. Watches the full
-  // header; once it scrolls out of view, adds a body class that snaps the
-  // compact bar to its full height and shifts the nav down to sit below it.
-  // The height/top changes are NOT animated: a transitioned height on a
-  // sticky element reflows every sibling after it on every frame of the
-  // transition, which is what caused the jump. Snapping instantly instead
-  // lets the browser's own scroll anchoring compensate scrollY for the
-  // inserted height in the same reflow — confirmed empirically to land
-  // within a fraction of a pixel, so no manual scroll compensation is
-  // needed (a manual window.scrollBy here double-compensates and jumps the
-  // other way). Only the bar's opacity fades, which is compositor-only and
-  // doesn't affect layout at all. Must be re-run after every APP.innerHTML
-  // replacement since that destroys the previously-observed element.
-  var compactHeaderObserver = null;
+  // EXPERIMENTAL, see FEATURE_STICKY_COMPACT_HEADER above. Adds/removes a body
+  // class as the header scrolls out of / back into view; the CSS reveals the
+  // compact bar (and slides the nav down) purely via transform + opacity.
+  //
+  // Driven by scroll position with WIDE HYSTERESIS, not an
+  // IntersectionObserver. The bar has zero net layout footprint (see CSS), so
+  // toggling never moves anything — an observer would have watched the header
+  // and, on browsers without scroll anchoring, seen it jump and oscillated
+  // ("mobile jitter"). Here the header never moves, and the on/off thresholds
+  // sit ~80px apart so momentum/URL-bar wobble around the trigger can't flap
+  // the state. Thresholds are in document space (scrollY), immune to the
+  // mobile URL-bar show/hide. Must be re-run after every APP.innerHTML.
+  var compactHeaderHandler = null;
   function initCompactHeader() {
     if (!FEATURE_STICKY_COMPACT_HEADER) return;
     var header = document.querySelector(".site-header");
     if (!header) return;
-    if (compactHeaderObserver) compactHeaderObserver.disconnect();
-    compactHeaderObserver = new IntersectionObserver(function (entries) {
-      document.body.classList.toggle("header-compact", !entries[0].isIntersecting);
-    }, { threshold: 0, rootMargin: "-40px 0px 0px 0px" });
-    compactHeaderObserver.observe(header);
+
+    function update() {
+      var compact = document.body.classList.contains("header-compact");
+      var restBottom = header.offsetTop + header.offsetHeight;
+      if (!compact && window.scrollY > restBottom + 90) document.body.classList.add("header-compact");
+      else if (compact && window.scrollY < restBottom + 10) document.body.classList.remove("header-compact");
+    }
+
+    if (compactHeaderHandler) {
+      removeEventListener("scroll", compactHeaderHandler);
+      removeEventListener("resize", compactHeaderHandler);
+    }
+    compactHeaderHandler = update;
+    addEventListener("scroll", update, { passive: true });
+    addEventListener("resize", update);
+    update();
   }
 
   function navHTML() {
