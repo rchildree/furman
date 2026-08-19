@@ -48,10 +48,13 @@
   --muted: #6b7280;
   --rule: #d1d5db;
   --rule-soft: rgba(209, 213, 219, 0.35);
-  --accent: #5d1247;
-  --accent-strong: #421033;
-  --accent-soft: #f3f4f6;
-  --accent-glow: rgba(93, 18, 71, 0.14);
+	--accent: #1f40c4;
+	/* STRONG: Reduces lightness slightly while maintaining visual clarity */
+	--accent-strong: oklch(from var(--accent) calc(l - 0.15) c h);
+	/* SOFT: High lightness (0.96) + low chroma/saturation (0.02) for subtle backgrounds */
+	--accent-soft: oklch(from var(--accent) 0.96 0.02 h);
+	/* GLOW: Preserves perception while applying 15% alpha opacity */
+	--accent-glow: oklch(from var(--accent) l c h / 0.15);
   --review: #f3f4f6;
   --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
   --sans: "Nebula Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -116,7 +119,7 @@ h1, h2, h3, h4 {
   color: var(--muted);
   font-family: var(--sans);
   font-size: 0.78rem;
-  font-weight: 700;
+  font-weight: 600;
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -131,7 +134,7 @@ h1, h2, h3, h4 {
   color: var(--accent);
   font-family: var(--sans);
   font-size: 0.9rem;
-  font-weight: 800;
+  font-weight: 600;
   text-transform: uppercase;
 }
 
@@ -148,11 +151,59 @@ h1, h2, h3, h4 {
   font-family: var(--sans);
   font-size: 0.85rem;
   line-height: 1.6;
+  container-type: inline-size;
 }
 
-.course-meta .sep {
+.course-meta-schedule {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.course-meta-item {
+  white-space: nowrap;
+}
+
+.course-meta-item:not(:last-child)::after {
+  content: "·";
   margin: 0 0.45em;
   color: var(--rule);
+}
+
+.course-meta-instructor {
+  display: block;
+}
+
+.course-email::before {
+  content: " (";
+}
+
+.course-email::after {
+  content: ")";
+}
+
+/* A compact header keeps the schedule and contact details in predictable
+   rows instead of leaving a separator at the end of a wrapped line. */
+@container (max-width: 32rem) {
+  .course-meta-item:nth-child(3) {
+    flex-basis: 100%;
+  }
+
+  .course-meta-item:nth-child(2)::after {
+    content: none;
+  }
+
+  .course-meta-instructor {
+    margin-top: 0.1rem;
+  }
+
+  .course-email {
+    display: block;
+  }
+
+  .course-email::before,
+  .course-email::after {
+    content: none;
+  }
 }
 
 /* ---------- nav ---------- */
@@ -187,7 +238,7 @@ h1, h2, h3, h4 {
   border-radius: 8px;
   color: var(--muted);
   font-size: 0.85rem;
-  font-weight: 700;
+  font-weight: 600;
   text-decoration: none;
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
@@ -253,7 +304,7 @@ body.header-compact .compact-header {
   color: var(--accent);
   font-family: var(--sans);
   font-size: 0.9rem;
-  font-weight: 800;
+  font-weight: 600;
   text-transform: uppercase;
   white-space: nowrap;
 }
@@ -343,20 +394,20 @@ body.header-compact .page-nav {
 .date-chip .dow {
   color: var(--muted);
   font-size: 0.65rem;
-  font-weight: 800;
+  font-weight: 600;
   text-transform: uppercase;
 }
 
 .date-chip .dom {
   color: var(--ink);
   font-size: 1.15rem;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .date-chip .mon {
   color: var(--muted);
   font-size: 0.65rem;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
 }
 
@@ -387,7 +438,7 @@ body.header-compact .page-nav {
   margin: 0;
   color: var(--accent);
   font-size: 0.95rem;
-  font-weight: 800;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
@@ -405,7 +456,7 @@ body.header-compact .page-nav {
   background: var(--accent);
   color: #fff;
   font-size: 0.68rem;
-  font-weight: 800;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
@@ -505,7 +556,7 @@ body.header-compact .page-nav {
   color: var(--accent);
   font-family: var(--sans);
   font-size: 0.68rem;
-  font-weight: 800;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
@@ -565,7 +616,7 @@ body.header-compact .page-nav {
   color: var(--ink);
   font-family: var(--sans);
   font-size: 0.75rem;
-  font-weight: 800;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.07em;
 }
@@ -602,7 +653,7 @@ body.header-compact .page-nav {
   color: var(--accent);
   font-family: var(--sans);
   font-size: 0.75em;
-  font-weight: 800;
+  font-weight: 600;
   text-transform: uppercase;
 }
 
@@ -641,7 +692,7 @@ body.header-compact .page-nav {
 }
 
 .prose h2 {
-  margin: 1.9rem 0 0.5rem;
+  margin: 1.9rem 0 0;
   color: var(--accent);
   font-size: 1.12rem;
 }
@@ -699,10 +750,10 @@ body.header-compact .page-nav {
 }
 
 .prose th {
-  font-family: var(--sans);
-  font-size: 0.78rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  /* font-family: var(--sans); */
+  /* font-size: 0.78rem; */
+  /* text-transform: uppercase;
+  letter-spacing: 0.05em; */
 }
 
 /* ---------- landing page ---------- */
@@ -750,7 +801,7 @@ body.header-compact .page-nav {
   color: var(--accent);
   font-family: var(--sans);
   font-size: 0.78rem;
-  font-weight: 800;
+  font-weight: 600;
   text-transform: uppercase;
 }
 
@@ -777,7 +828,7 @@ body.header-compact .page-nav {
   color: var(--muted);
   font-family: var(--sans);
   font-size: 0.75rem;
-  font-weight: 800;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.07em;
 }
@@ -823,16 +874,6 @@ body.header-compact .page-nav {
   .page-nav {
     margin: 0 -2.25rem;
     padding: 0.4rem 2.25rem;
-  }
-
-  .email-break {
-    display: none;
-  }
-
-  .course-email::before {
-    content: "·";
-    margin: 0 0.45em;
-    color: var(--rule);
   }
 
   /* EXPERIMENTAL: sticky compact header, see rollback note above. */

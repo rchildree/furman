@@ -236,19 +236,28 @@
   }
 
   function headerHTML(course) {
-    var meta = [];
-    if (course.term) meta.push(esc(course.term));
-    if (course.instructor) meta.push(esc(course.instructor));
-    // The <br> forces email onto its own line on narrow screens; CSS hides
-    // that <br> at the wide breakpoint and adds a "·" separator instead, so
-    // email folds back inline with term/instructor — see styles.css.
-    var emailLine = course.email
-      ? '<br class="email-break"><span class="course-email"><a href="mailto:' + esc(course.email) + '">' + esc(course.email) + "</a></span>"
+    // Each schedule item is kept intact when the header wraps. This prevents
+    // the meeting days from separating from their time or a separator from
+    // being left at the beginning of a line.
+    var scheduleMeta = [];
+    if (course.term) scheduleMeta.push(esc(course.term));
+    var meeting = "";
+    if (course.meeting_days && course.meeting_days.length) meeting += esc(String(course.meeting_days));
+    if (course.meeting_time) meeting += (meeting ? " " : "") + esc(course.meeting_time);
+    if (meeting) scheduleMeta.push(meeting);
+    if (course.location) scheduleMeta.push(esc(course.location));
+
+    var instructor = "";
+    if (course.instructor) instructor += '<span class="course-instructor-name">' + esc(course.instructor) + "</span>";
+    if (course.email) instructor += '<span class="course-email"><a href="mailto:' + esc(course.email) + '">' + esc(course.email) + "</a></span>";
+    var scheduleLine = scheduleMeta.length
+      ? '<span class="course-meta-schedule">' + scheduleMeta.map(function (item) {
+        return '<span class="course-meta-item">' + item + "</span>";
+      }).join("") + "</span>"
       : "";
-    var meta2 = [];
-    if (course.meeting_days && course.meeting_days.length) meta2.push(esc(String(course.meeting_days)));
-    if (course.meeting_time) meta2.push(esc(course.meeting_time));
-    if (course.location) meta2.push(esc(course.location));
+    var instructorLine = instructor
+      ? '<span class="course-meta-instructor">' + instructor + "</span>"
+      : "";
     var compact = FEATURE_STICKY_COMPACT_HEADER
       ? '<div class="compact-header">' +
         '<span class="compact-code">' + esc(course.code || "") + "</span>" +
@@ -259,8 +268,7 @@
       '<a class="home-link" href="' + rootPrefix() + 'index.html">← All courses</a>' +
       '<p class="course-code">' + esc(course.code || "") + "</p>" +
       '<h1 class="course-title">' + esc(course.title || "") + "</h1>" +
-      '<p class="course-meta">' + meta.join('<span class="sep">·</span>') + emailLine +
-      (meta2.length ? "<br>" + meta2.join('<span class="sep">·</span>') : "") + "</p>" +
+      '<p class="course-meta">' + scheduleLine + instructorLine + "</p>" +
       "</header>";
   }
 
