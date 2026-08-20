@@ -5,6 +5,7 @@ Interactive:      python3 scripts/new_course.py
 Non-interactive:  python3 scripts/new_course.py --code "ENGL 101" --title "Intro to Composition" \
                       --term "Summer 2026" --instructor "Dr. X" --days MTWR \
                       --start 2026-06-01 --end 2026-08-06 \
+                      --final-exam-date 2026-08-10 --final-exam-time "9:00–11:30 AM" \
                       --holiday "2026-06-19:Juneteenth" \
                       --holiday "2026-07-02..2026-07-03:Independence Day break"
 
@@ -134,6 +135,11 @@ def course_yaml(a, holidays):
     lines.append(f"meeting_days: {''.join(a.days)}")
     lines.append(f"start_date: {a.start.isoformat()}")
     lines.append(f"end_date: {a.end.isoformat()}")
+    if a.final_exam_date:
+        lines.append("final_exam:")
+        lines.append(f"  date: {a.final_exam_date.isoformat()}")
+        if a.final_exam_time:
+            lines.append(f"  time: {yq(a.final_exam_time)}")
     if holidays:
         lines.append("holidays:")
         for h in holidays:
@@ -159,8 +165,13 @@ def schedule_yaml(a, days):
         "# written when this file was generated; they are editing aids, and may go",
         "# stale if you shuffle entries. The rendered site is always correct.",
         "#",
-        "# A plain string is a normal day. For a bigger day (exam, project due in",
-        "# class, etc.) use a block:",
+        "# Each new meeting starts as an empty title + notes block:",
+        "#",
+        "#   - title:",
+        "#     notes:",
+        "#",
+        "# You can also use a plain string for a normal day. For a bigger day",
+        "# (exam, project due in class, etc.) use a block:",
         "#",
         '#   - title: "Exam 1"',
         "#     exam: true",
@@ -182,7 +193,8 @@ def schedule_yaml(a, days):
         if holiday:
             out.append(f"  #   (no class {DOW[d.weekday()]} {d.isoformat()} — {holiday})")
         else:
-            out.append(f"  - TBD".ljust(42) + f"# {DOW[d.weekday()]} {d.isoformat()}")
+            out.append(f"  - title:".ljust(42) + f"# {DOW[d.weekday()]} {d.isoformat()}")
+            out.append("    notes:")
     out += [
         "",
         "# Assignments and other due dates. Each needs a title and a due date;",
@@ -336,6 +348,11 @@ def interactive(a):
         a.days = [c for c in ask("Meeting days (e.g. MWF, or TR for Tue/Thu)") if c.strip()]
     a.start = a.start or parse_date(ask("First day of classes (YYYY-MM-DD)"))
     a.end = a.end or parse_date(ask("Last day of classes (YYYY-MM-DD)"))
+    if not a.final_exam_date:
+        final_exam_date = ask("Final-exam date (YYYY-MM-DD, optional)", required=False)
+        a.final_exam_date = parse_date(final_exam_date) if final_exam_date else None
+    if a.final_exam_date and not a.final_exam_time:
+        a.final_exam_time = ask("Final-exam time (optional)", required=False)
     if a.holiday is None:
         a.holiday = []
         print("Holidays / breaks (blank date to finish):")
@@ -360,6 +377,8 @@ def main():
     p.add_argument("--days", help="meeting days as contiguous letters, e.g. MWF or TR (M T W R F S U)")
     p.add_argument("--start", type=parse_date, help="first day of classes YYYY-MM-DD")
     p.add_argument("--end", type=parse_date, help="last day of classes YYYY-MM-DD")
+    p.add_argument("--final-exam-date", type=parse_date, help="final-exam date YYYY-MM-DD")
+    p.add_argument("--final-exam-time", help="final-exam time, e.g. '9:00–11:30 AM'")
     p.add_argument("--holiday", action="append", type=parse_holiday_spec, default=None,
                    help="DATE:NAME or START..END:NAME (repeatable)")
     p.add_argument("--slug", help="directory name (default: derived from code+term)")
@@ -380,6 +399,8 @@ def main():
     holidays = a.holiday or []
     if a.end < a.start:
         raise SystemExit("error: end date is before start date")
+    if a.final_exam_time and not a.final_exam_date:
+        p.error("--final-exam-time requires --final-exam-date")
 
     slug = a.slug or derive_slug(a.code)
     course_dir = ROOT / "courses" / slug

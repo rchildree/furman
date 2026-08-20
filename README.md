@@ -17,7 +17,7 @@ The landing page lists current courses, plus archived ones dimmed further down.
 python3 scripts/new_course.py
 ```
 
-Answer the prompts (code, title, term, meeting days, first/last day, holidays). The script creates `courses/<slug>/` with everything the course needs and registers it on the landing page. It also works non-interactively — see `python3 scripts/new_course.py --help`.
+Answer the prompts (code, title, term, meeting days, first/last day, final exam, holidays). The script creates `courses/<slug>/` with everything the course needs and registers it on the landing page. It also works non-interactively — see `python3 scripts/new_course.py --help`.
 
 A current course gets a short, stable slug from just its code — `LTN 110` becomes `courses/ltn110/`, so the URL is `/ltn110` regardless of which term it is. That means the URL keeps working, unchanged, the next time you teach it.
 
@@ -29,16 +29,18 @@ All the files you edit live in `courses/<slug>/`:
 
 ### `schedule.yaml` — daily topics and assignments
 
-Topics are **one entry per class meeting, in order**. The generator prepopulates the file with a `TBD` line for every meeting, dated:
+Topics are **one entry per class meeting, in order**. The generator prepopulates every meeting as an empty title-and-notes block, dated:
 
 ```yaml
 topics:
   # ── Week 1 ──────────────────────────────
-  - Introduction                          # Mon 2026-06-01
-  - "*Iliad* 1: the rage of Achilles"     # Tue 2026-06-02
+  - title:                                # Mon 2026-06-01
+    notes:
+  - title:                                # Tue 2026-06-02
+    notes:
 ```
 
-The site assigns dates by position (entry 1 = first meeting, entry 2 = second, …), so you can insert or move entries and the dates reflow automatically. The `# Mon 2026-06-01` comments are editing aids written at generation time — they can go stale if you shuffle entries; the rendered site is always correct.
+Fill in `title` and `notes` as needed. The site assigns dates by position (entry 1 = first meeting, entry 2 = second, …), so you can insert or move entries and the dates reflow automatically. The `# Mon 2026-06-01` comments are editing aids written at generation time — they can go stale if you shuffle entries; the rendered site is always correct.
 
 Formatting notes:
 
@@ -84,6 +86,9 @@ Code, title, term, instructor, email, location, meeting time — plus the three 
 meeting_days: MTWR
 start_date: 2026-06-01
 end_date: 2026-08-06
+final_exam:
+  date: 2026-08-10
+  time: "9:00–11:30 AM"
 holidays:
   - date: 2026-06-19
     name: Juneteenth
@@ -91,6 +96,8 @@ holidays:
     end: 2026-07-03
     name: Independence Day break
 ```
+
+`final_exam` is optional and sits outside the ordered `topics` list, so it can fall after the last day of instruction without creating a class meeting. When supplied, its date and time appear in a highlighted exam card at the end of the Schedule page. Add optional `notes` beneath `time` to include exam instructions there.
 
 `meeting_days` is the standard registrar-style single-letter code — a contiguous string with no separators, one letter per meeting day: `M` `T` `W` `R` `F` `S` `U` (Thursday is `R` and Sunday is `U`, to avoid clashing with Tuesday and Saturday). So Mon/Wed/Fri is `MWF`, Tue/Thu is `TR`.
 

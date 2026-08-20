@@ -54,6 +54,10 @@
     return MON[d.getMonth()] + " " + d.getDate();
   }
 
+  function longDate(d) {
+    return DOW_FULL[d.getDay()] + ", " + MON_FULL[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear();
+  }
+
   function today() {
     var o = new URLSearchParams(location.search).get("today");
     var d = o ? parseDate(o) : new Date();
@@ -159,6 +163,21 @@
       exam: !!t.exam,
       notes: t.notes,
       links: t.links || []
+    };
+  }
+
+  // The final exam belongs to the course rather than the ordered topic list:
+  // it may fall after the last day of instruction and should never consume a
+  // regular class-meeting slot.
+  function normalizeFinalExam(course) {
+    var exam = course && course.final_exam;
+    if (!exam || typeof exam !== "object") return null;
+    var date = parseDate(exam.date);
+    if (!date) return null;
+    return {
+      date: date,
+      time: exam.time ? String(exam.time) : "",
+      notes: exam.notes ? String(exam.notes) : ""
     };
   }
 
@@ -372,6 +391,23 @@
     return '<div class="' + cls + '">' + chipHTML(row.date) + '<div class="meeting-body">' + body + "</div></div>";
   }
 
+  function finalExamWhenHTML(exam) {
+    return '<p class="final-exam-when"><strong>' + esc(longDate(exam.date)) + "</strong>" +
+      (exam.time ? '<span>' + esc(exam.time) + "</span>" : "") + "</p>";
+  }
+
+  function finalExamScheduleHTML(course) {
+    var exam = normalizeFinalExam(course);
+    if (!exam) return "";
+    return '<section class="final-exam" aria-labelledby="final-exam-heading">' +
+      '<div class="final-exam-head"><h2 id="final-exam-heading">Final exam</h2></div>' +
+      '<div class="meeting exam final-exam-row">' + chipHTML(exam.date) +
+      '<div class="meeting-body"><h3>Final exam<span class="tag">Exam</span></h3>' +
+      finalExamWhenHTML(exam) +
+      (exam.notes ? '<div class="notes">' + md(exam.notes) + "</div>" : "") +
+      "</div></div></section>";
+  }
+
   // Flat due item with its own date chip, for lists not tied to a day row
   // (the Now page's "due in the next two weeks" look-ahead).
   function dueItemHTML(item) {
@@ -410,6 +446,7 @@
         " — check schedule.yaml against the calendar.</div>";
     }
     html += built.weeks.map(function (w) { return weekHTML(w, cur === w); }).join("");
+    html += finalExamScheduleHTML(course);
     html += "</main>" + footerHTML(course);
     APP.innerHTML = html;
     initCompactHeader();

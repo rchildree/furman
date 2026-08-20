@@ -19,79 +19,88 @@
 
 topics:
   # ── Week 1 ──────────────────────────────
-  - TBD                                   # Tue 2026-08-25
-  - TBD                                   # Thu 2026-08-27
-  - TBD                                   # Fri 2026-08-28
+  - Hellos. Latin sounds.                                   # Tue 2026-08-25
+  - title: LESSON 1. The textbook. Beginnings.                                  # Thu 2026-08-27
+    notes: Basic sentences. Vocabulary. Introduction to nouns and verbs in Latin.
+  - Metaphrasing.                                   # Fri 2026-08-28
   # ── Week 2 ──────────────────────────────
-  - TBD                                   # Mon 2026-08-31
-  - TBD                                   # Tue 2026-09-01
-  - TBD                                   # Thu 2026-09-03
-  - TBD                                   # Fri 2026-09-04
+  - LESSON 2. Coordinating conjunctions.                                   # Mon 2026-08-31
+  - Gapping.                                   # Tue 2026-09-01
+  - LESSON 3. Infinitives. Complementary infinitives.                                    # Thu 2026-09-03
+  - Question words                                   # Fri 2026-09-04
   # ── Week 3 ──────────────────────────────
   #   (no class Mon 2026-09-07 — Labor Day)
-  - TBD                                   # Tue 2026-09-08
-  - TBD                                   # Thu 2026-09-10
+  - LESSON 4. Adverbs and prepositions.                                  # Tue 2026-09-08
+  - TBD                                    # Thu 2026-09-10
   - TBD                                   # Fri 2026-09-11
   # ── Week 4 ──────────────────────────────
-  - TBD                                   # Mon 2026-09-14
+  - LESSON 5.                                   # Mon 2026-09-14
   - TBD                                   # Tue 2026-09-15
   - TBD                                   # Thu 2026-09-17
-  - TBD                                   # Fri 2026-09-18
+  - REVIEW LESSON 1                                   # Fri 2026-09-18
   # ── Week 5 ──────────────────────────────
-  - TBD                                   # Mon 2026-09-21
-  - TBD                                   # Tue 2026-09-22
+  - title: Exam 1
+    notes: Lessons 1–5. 
+    exam: yes                                   # Mon 2026-09-21
+  - LESSON 6. Passives.                                   # Tue 2026-09-22
   - TBD                                   # Thu 2026-09-24
   - TBD                                   # Fri 2026-09-25
   # ── Week 6 ──────────────────────────────
-  - TBD                                   # Mon 2026-09-28
-  - TBD                                   # Tue 2026-09-29
+  - LESSON 7. Agreement.                                   # Mon 2026-09-28
+  - Pronouns.                                   # Tue 2026-09-29
   - TBD                                   # Thu 2026-10-01
-  - TBD                                   # Fri 2026-10-02
+  - LESSON 8. Number and numbers.                                   # Fri 2026-10-02
   # ── Week 7 ──────────────────────────────
   - TBD                                   # Mon 2026-10-05
-  - TBD                                   # Tue 2026-10-06
-  - TBD                                   # Thu 2026-10-08
+  - LESSON 9. Verb principal parts.                                    # Tue 2026-10-06
+  - Perfects.                                   # Thu 2026-10-08
   - TBD                                   # Fri 2026-10-09
   # ── Week 8 ──────────────────────────────
   #   (no class Mon 2026-10-12 — Fall Break)
   #   (no class Tue 2026-10-13 — Fall Break)
-  - TBD                                   # Thu 2026-10-15
-  - TBD                                   # Fri 2026-10-16
+  - REVIEW LESSON 2.                                   # Thu 2026-10-15
+  - title: Exam 2.
+    exam: yes
+    notes: Lessons 1–9.                                   # Fri 2026-10-16
   # ── Week 9 ──────────────────────────────
-  - TBD                                   # Mon 2026-10-19
-  - TBD                                   # Tue 2026-10-20
+  - LESSON 10. Sentence kernels.                                   # Mon 2026-10-19
+  - Demonstrative pronouns.                                   # Tue 2026-10-20
   - TBD                                   # Thu 2026-10-22
-  - TBD                                   # Fri 2026-10-23
+  - LESSON 11. Subordinate clauses.                                   # Fri 2026-10-23
   # ── Week 10 ──────────────────────────────
   - TBD                                   # Mon 2026-10-26
   - TBD                                   # Tue 2026-10-27
-  - TBD                                   # Thu 2026-10-29
+  - LESSON 12. Uses of the accusative.                                   # Thu 2026-10-29
   - TBD                                   # Fri 2026-10-30
   # ── Week 11 ──────────────────────────────
-  - TBD                                   # Mon 2026-11-02
+  - LESSON 13. Relative pronouns.                                   # Mon 2026-11-02
   - TBD                                   # Tue 2026-11-03
   - TBD                                   # Thu 2026-11-05
-  - TBD                                   # Fri 2026-11-06
+  - REVIEW LESSON 3.                                   # Fri 2026-11-06
   # ── Week 12 ──────────────────────────────
-  - TBD                                   # Mon 2026-11-09
-  - TBD                                   # Tue 2026-11-10
+  - title: Exam 3
+    exam: yes
+    notes: Lessons 1–13.                                   # Mon 2026-11-09
+  - LESSON 14. Participles.      # Tue 2026-11-10
   - TBD                                   # Thu 2026-11-12
   - TBD                                   # Fri 2026-11-13
   # ── Week 13 ──────────────────────────────
-  - TBD                                   # Mon 2026-11-16
+  - LESSON 15. Ablative absolute.                                   # Mon 2026-11-16
   - TBD                                   # Tue 2026-11-17
-  - TBD                                   # Thu 2026-11-19
-  - TBD                                   # Fri 2026-11-20
+  - TBD                                    # Thu 2026-11-19
+  - REVIEW LESSON 4.                                   # Fri 2026-11-20
   # ── Week 14 ──────────────────────────────
-  - TBD                                   # Mon 2026-11-23
+  - title: Exam 4
+    exam: yes
+    notes: Lessons 1–15.                                   # Mon 2026-11-23
   - TBD                                   # Tue 2026-11-24
   #   (no class Thu 2026-11-26 — Thanksgiving)
   #   (no class Fri 2026-11-27 — Thanksgiving)
   # ── Week 15 ──────────────────────────────
-  - TBD                                   # Mon 2026-11-30
+  - LESSON 16. Datives.                                    # Mon 2026-11-30
   - TBD                                   # Tue 2026-12-01
   - TBD                                   # Thu 2026-12-03
-  - TBD                                   # Fri 2026-12-04
+  - LESSON 17. Genitives.                                   # Fri 2026-12-04
   # ── Week 16 ──────────────────────────────
   - TBD                                   # Mon 2026-12-07
   - TBD                                   # Tue 2026-12-08

@@ -8,6 +8,9 @@ meeting_time: "2:30–3:20PM"
 meeting_days: MTRF
 start_date: 2026-08-25
 end_date: 2026-12-08
+final_exam:
+  date: 2026-12-10
+  time: "2:30–3:20 PM"
 holidays:
   - date: 2026-09-07
     name: "Labor Day"
