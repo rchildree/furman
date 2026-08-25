@@ -22,9 +22,11 @@ The course grade will be determined by these percentages:
 
 | Category | Percent of final grade|
 |:--|--:|
-|Participation | 10% |
-|Vocabulary quizzes | 10% |
-|Tests | 4 @ 20% per = 80% |
+|Exam 1 | 5% |
+|Exam 2 | 10% |
+|Exam 3 | 20% |
+|Exam 4 | 30% |
+|Exam 5 | 35% |
 
 ## Textbook
 
