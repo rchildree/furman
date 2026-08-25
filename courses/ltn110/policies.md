@@ -1,6 +1,6 @@
 ## Attendance
 
-Our course depends on contributions from everyone: when any one person is absent, the richness of our conversation is lessened. Likewise, it is impossible to retell or recreate the full thread of a class’s discussion. A great deal of what is important in this class will come from our shared class time; our interaction is vital to full understanding, and so it is also vital to your success. In short: be in class unless a legitimate concern prevents you from doing so.
+Our course depends on contributions from everyone: when any one person is absent, the richness of our conversation is lessened. Likewise, it is impossible to retell or recreate the full thread of a class’s discussion. A great deal of what is important in this class will come from our shared class time; our interaction is vital to full understanding, and so it is also vital to your success. In short: be in class unless a legitimate concern prevents you from doing so. More specifically, note Furman’s [official policy](https://catalog.furman.edu/content.php?catoid=17&navoid=811#Class_Attendance): “Freshman will be withdrawn from a course if absent, for any reason, 15 percent of the class meetings. Sophomores, juniors, and seniors will be withdrawn from a course if absent 25 percent of the class meetings.”
 
 ## Makeups
 

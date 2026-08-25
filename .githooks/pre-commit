@@ -1,0 +1,3 @@
+#!/bin/sh
+# Keep the syllabus footer's revision date in sync with staged course changes.
+exec python3 scripts/update_revised.py

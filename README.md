@@ -101,7 +101,15 @@ holidays:
 
 `meeting_days` is the standard registrar-style single-letter code — a contiguous string with no separators, one letter per meeting day: `M` `T` `W` `R` `F` `S` `U` (Thursday is `R` and Sunday is `U`, to avoid clashing with Tuesday and Saturday). So Mon/Wed/Fri is `MWF`, Tue/Thu is `TR`.
 
-`revised` is a date shown as "Last revised …" in the page footer — the generator sets it to today whenever it creates a course, but it's just a plain field, so update it by hand whenever you substantively edit the syllabus.
+`revised` is a date shown as "Last revised …" in the page footer. The new-course generator sets it to today, and the shared pre-commit hook automatically refreshes it when you commit substantive staged changes to that course's `course.yaml`, `schedule.yaml`, `info.md`, or `policies.md`. It does not refresh the date for a commit that changes only `revised` itself.
+
+To activate the hook once per local clone, run:
+
+```sh
+git config core.hooksPath .githooks
+```
+
+After that, commit normally. The hook updates and stages the relevant `course.yaml` entries for you. If you have unstaged edits in `course.yaml`, it safely leaves those working-copy edits alone and only updates the version being committed.
 
 Holidays that land on meeting days show up as "No class — …" on the schedule and don't consume a topic entry.
 
