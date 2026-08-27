@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 1: charts</title>
+<style>/* Chart rendering styles — shared by the app preview (imported in main.tsx)
+   and the single-page HTML export (imported as ?raw text). Keep self-contained:
+   only chart/document selectors, no app chrome. */
+
+.chart-doc h1,
+.chart-doc h2,
+.chart-doc h3 {
+  color: #344054;
+  margin: 0 0 0.6rem;
+}
+
+.chart-doc h1 {
+  font-size: 1.35rem;
+}
+
+.chart-doc h2 {
+  font-size: 1.15rem;
+}
+
+.chart-doc h3 {
+  font-size: 1rem;
+}
+
+.chart-doc p {
+  color: #344054;
+  margin: 0 0 0.9rem;
+  max-width: 70ch;
+}
+
+.chart-row-group {
+  margin-bottom: 1.75rem;
+}
+
+.chart-section-heading {
+  color: #344054;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 0.6rem;
+}
+
+.chart-row {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.latin-chart {
+  border-collapse: collapse;
+  margin: 0 0 1rem;
+  width: max-content;
+}
+
+.latin-chart caption {
+  caption-side: top;
+  color: #344054;
+  font-weight: 700;
+  padding: 0.55rem;
+  text-align: left;
+}
+
+.latin-chart th,
+.latin-chart td {
+  border: 1px solid #d0d5dd;
+  min-width: 4.75rem;
+  padding: 0.42rem 0.5rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.latin-chart td {
+  white-space: pre-wrap;
+}
+
+.latin-chart .major-left-divider {
+  border-left-width: 2px;
+  border-left-color: #98a2b3;
+}
+
+.latin-chart tr.major-top-divider > th,
+.latin-chart tr.major-top-divider > td {
+  border-top-width: 2px;
+  border-top-color: #98a2b3;
+}
+
+.grammar-label {
+  background: #f2f4f7;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.row-label {
+  min-width: 4.5rem;
+}
+
+.sub-label {
+  min-width: 4rem;
+}
+
+.group-label {
+  text-align: center;
+}
+
+.cell-stem-secondary {
+  background: #e9f6f2;
+}
+
+.cell-stem-secondary:hover {
+  background: #d8efe8;
+}
+
+.cell-stem-tertiary {
+  background: #fff1dc;
+}
+
+.cell-stem-tertiary:hover {
+  background: #ffe6bd;
+}
+
+.segment {
+  white-space: pre-wrap;
+}
+
+
+.segment:not(.segment-stem).segment-tone-secondary {
+  background: #a7f3d0;
+  color: #064e3b;
+  padding-block: 2px
+}
+
+.segment:not(.segment-stem).segment-tone-tertiary {
+  background: #fed7aa;
+  border-radius: 3px;
+  color: #7c2d12;
+}
+
+.segment-stem.segment-tone-secondary {
+  color: #3179ff;
+  font-weight: 600;
+}
+
+.segment-stem.segment-tone-tertiary {
+  color: #c2410c;
+  font-weight: 600;
+}
+
+@media print {
+  .latin-chart,
+  .chart-row-group {
+    break-inside: avoid;
+  }
+}
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  background: #ffffff;
+  color: #101828;
+  font-family: "Source Serif 4", serif;
+  line-height: 1.5;
+  margin: 0 auto;
+  max-width: 60rem;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+.chart-doc > *:first-child {
+  margin-top: 0;
+}
+
+.chart-doc h1 {
+  margin-top: 2rem;
+}
+
+.chart-doc h2,
+.chart-doc h3 {
+  margin-top: 1.5rem;
+}
+
+@page {
+  margin: 1.5cm;
+}
+
+@media print {
+  body {
+    max-width: none;
+    padding: 0;
+  }
+}
+
+.chart-doc .latin-chart .grammar-label {
+	font-weight: normal;
+	font-style: normal;
+	font-variant: all-small-caps;
+}
+
+.chart-doc .latin-chart.case-grid .segment-ending {
+	font-weight: bold;
+	font-style: normal;
+	color: #8c1a12;
+}
+
+.chart-doc .latin-chart:not(.case-grid) .segment-stem:not(.segment-tone-secondary):not(.segment-tone-tertiary) {
+	font-weight: normal;
+	font-style: normal;
+}
+
+.chart-doc .latin-chart:not(.case-grid) .segment-stem.segment-tone-secondary {
+	font-weight: normal;
+	font-style: normal;
+	color: #7d4c89;
+}
+
+.chart-doc .latin-chart:not(.case-grid) .segment-stem.segment-tone-tertiary {
+	font-weight: normal;
+	font-style: normal;
+	color: #8f114c;
+}
+
+.chart-doc .latin-chart:not(.case-grid) .segment-tenseMood {
+	font-weight: normal;
+	font-style: normal;
+	color: #000000;
+	background-color: #cdeeff;
+}
+
+.chart-doc .latin-chart:not(.case-grid) .segment-personal {
+	font-weight: bold;
+	font-style: normal;
+}
+
+.chart-doc .latin-chart .cell-stem-secondary {
+	background: rgb(239,234,241);
+}
+
+.chart-doc .latin-chart .cell-stem-tertiary {
+	background: rgb(242,226,234);
+}
+</style>
+</head>
+<body>
+	<div class="chart-doc">
+		<h1>Lesson 1: charts</h1>
+		<div class="chart-row-group">
+			<div class="chart-row">
+				<div class="chart-block">
+					<table class="latin-chart case-grid">
+						<caption>hōra hōrae f.</caption>
+						<tbody>
+							<tr class="">
+								<th class="grammar-label row-label">nom.sg.</th>
+								<td class="" colSpan="1"><span class="segment segment-ending" title="stem">hōra</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">gen.sg.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">hōrae</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">dat.sg.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">hōrae</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">acc.sg.</th>
+								<td class="" colSpan="1"><span class="segment segment-ending" title="stem">hōram</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">abl.sg.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">hōrā</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">voc.sg.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">hōra</span></td>
+							</tr>
+							<tr class="major-top-divider">
+								<th class="grammar-label row-label">nom.pl.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">hōrae</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">gen.pl.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">hōrārum</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">dat.pl.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">hōrīs</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">acc.pl.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">hōrās</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">abl.pl.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">hōrīs</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">voc.pl.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">hōrae</span></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<h1>Noun paradigms</h1>
+		<div class="chart-row-group">
+			<div class="chart-row">
+				<div class="chart-block">
+					<table class="latin-chart case-grid">
+						<thead>
+							<tr>
+								<th class="grammar-label corner" colSpan="1"></th>
+								<th class="grammar-label group-label" colSpan="5">Declension</th>
+							</tr>							<tr>
+								<th class="grammar-label corner" colSpan="1"></th>
+								<th class="grammar-label group-label" colSpan="1">1</th>
+								<th class="grammar-label group-label" colSpan="1">2</th>
+								<th class="grammar-label group-label" colSpan="1">3</th>
+								<th class="grammar-label group-label" colSpan="1">4</th>
+								<th class="grammar-label group-label" colSpan="1">5</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="">
+								<th class="grammar-label row-label">nom.sg.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">hōra</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">animus</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">fūr</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">manus</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">rēs</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">acc.sg.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">hōram</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">animum</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">fūrem</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">manum</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">rem</span></td>
+							</tr>
+							<tr class="major-top-divider">
+				<th class="grammar-label row-label">nom.sg.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">īra</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">populus</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">occāsiō</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">successus</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">spēs</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">acc.sg.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">īram</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">populum</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">occāsiōnem</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">successum</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">spem</span></td>
+							</tr>
+							<tr class="major-top-divider">
+				<th class="grammar-label row-label">nom.sg.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">fēmina</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">vir</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">vēritās</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">senātus</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">diēs</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">acc.sg.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">fēminam</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">virum</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">vēritātem</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">senātum</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">diem</span></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="chart-row-group">
+			<div class="chart-row">
+				<div class="chart-block">
+					<table class="latin-chart case-grid">
+						<thead>
+													<tr>
+								<th class="grammar-label corner" colSpan="1"></th>
+								<th class="grammar-label group-label" colSpan="5">Declension</th>
+							</tr>
+							<tr>
+								<th class="grammar-label corner" colSpan="1"></th>
+								<th class="grammar-label group-label" colSpan="1">1</th>
+								<th class="grammar-label group-label" colSpan="1">2</th>
+								<th class="grammar-label group-label" colSpan="1">3</th>
+								<th class="grammar-label group-label" colSpan="1">4</th>
+								<th class="grammar-label group-label" colSpan="1">5</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="">
+								<th class="grammar-label row-label">nom.sg.</th>
+								<td class="" colSpan="1"><span class="segment segment-ending" title="stem">hōra</span></td>
+								<td class="" colSpan="1"><span class="segment segment-ending" title="stem">animus</span></td>
+								<td class="" colSpan="1"><span class="segment segment-ending" title="stem">fūr</span></td>
+								<td class="" colSpan="1"><span class="segment segment-ending" title="stem">manus</span></td>
+								<td class="" colSpan="1"><span class="segment segment-ending" title="stem">rēs</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">gen.sg.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">hōr</span><span class='segment segment-ending'>ae</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">anim</span><span class='segment segment-ending'>ī</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">fūr</span><span class='segment segment-ending'>is</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">man</span><span class='segment segment-ending'>ūs</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">r</span><span class='segment segment-ending'>eī</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">dat.sg.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">hōrae</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">animō</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">fūrī</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">manuī</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">reī</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">acc.sg.</th>
+								<td class="" colSpan="1"><span class="segment segment-ending" title="stem">hōram</span></td>
+								<td class="" colSpan="1"><span class="segment segment-ending" title="stem">animum</span></td>
+								<td class="" colSpan="1"><span class="segment segment-ending" title="stem">fūrem</span></td>
+								<td class="" colSpan="1"><span class="segment segment-ending" title="stem">manum</span></td>
+								<td class="" colSpan="1"><span class="segment segment-ending" title="stem">rem</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">abl.sg.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">hōrā</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">animō</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">fūre</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">manū</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">rē</span></td>
+							</tr>
+							<tr class="major-top-divider">
+								<th class="grammar-label row-label">nom.pl.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">hōrae</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">animī</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">fūrēs</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">manūs</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">rēs</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">gen.pl.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">hōrārum</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">animōrum</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">fūrum</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">manuum</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">rērum</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">dat.pl.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">hōrīs</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">animīs</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">fūribus</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">manibus</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">rēbus</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">acc.pl.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">hōrās</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">animōs</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">fūrēs</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">manūs</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">rēs</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">abl.pl.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">hōrīs</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">animīs</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">fūribus</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">manibus</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">rēbus</span></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<h1>Verb paradigm</h1>
+		<div class="chart-row-group">
+			<div class="chart-row">
+				<div class="chart-block">
+					<table class="latin-chart finite-verb">
+						<caption>alō alere aluī al(i)tum</caption>
+						<thead>
+							<tr>
+								<th class="grammar-label corner">tense</th>
+								<th class="grammar-label corner">person</th>
+								<th class="grammar-label"></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="">
+								<th class="grammar-label row-label" rowSpan="6">pres.</th>
+								<th class="grammar-label row-label sub-label">1sg.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="verb stem">alō</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label sub-label">2sg.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="verb stem">alis</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label sub-label">3sg.</th>
+								<td class="" colSpan="1"><span class="segment segment-personal" title="verb personal">alit</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label sub-label">1pl.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="verb stem">alimus</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label sub-label">2pl.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="verb stem">alitis</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label sub-label">3pl.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="verb stem">alunt</span></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
