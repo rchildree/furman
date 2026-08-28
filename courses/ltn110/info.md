@@ -34,3 +34,6 @@ The course grade will be determined by these percentages:
 
 [*Latin for Reading*](https://www.amazon.com/Glenn-Knudsvig-Beginners-Exercises-1986-04-30/dp/B001E6MDIG), by Knudsvig, Seligson, and Craig. 
 
+## Study aides
+
+[Flashcards and Drills](https://rchildree.github.io/llm/), keyed to the textbook
