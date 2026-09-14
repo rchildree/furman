@@ -66,7 +66,7 @@ A `links.url` doesn't have to be an external site — you can link to a file you
         url: files/exam1-guide.pdf
 ```
 
-Assignments are dated (not positional) and appear both on the schedule (in their week) and on the Now page when due within two weeks. A due date lands right on its own day — sharing that day's date with the class meeting if there is one, or getting its own row (marked with a dashed date box) if it falls on a day the class doesn't meet:
+Assignments are dated (not positional) and appear both on the schedule (in their week) and on the Now page when due within two weeks. Topic entries marked `exam: true` and a separately configured `final_exam` also appear in that Now-page look-ahead. A due date lands right on its own day — sharing that day's date with the class meeting if there is one, or getting its own row (marked with a dashed date box) if it falls on a day the class doesn't meet:
 
 ```yaml
 assignments:

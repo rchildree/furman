@@ -681,7 +681,16 @@ body.header-compact .page-nav {
   font-weight: 650;
 }
 
-.due-item .notes {
+.due-item h4 .tag {
+  margin-left: 0.45rem;
+}
+
+.due-item.exam h4 {
+  color: var(--accent-strong);
+}
+
+.due-item .notes,
+.due-item .due-time {
   margin: 0;
   color: var(--muted);
   font-size: 0.9rem;

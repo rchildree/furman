@@ -411,14 +411,53 @@
   // Flat due item with its own date chip, for lists not tied to a day row
   // (the Now page's "due in the next two weeks" look-ahead).
   function dueItemHTML(item) {
-    var cls = "due-item" + (ymd(item.due) === ymd(TODAY) ? " overdue-ish" : "");
+    var cls = "due-item" + (item.exam ? " exam" : "") +
+      (ymd(item.due) === ymd(TODAY) ? " overdue-ish" : "");
     var title = item.link
       ? '<a href="' + esc(item.link) + '" target="_blank" rel="noopener">' + esc(item.title) + "</a>"
       : esc(item.title);
     return '<div class="' + cls + '">' + chipHTML(item.due) +
-      '<div class="due-body"><h4>' + title + "</h4>" +
+      '<div class="due-body"><h4>' + title + (item.exam ? '<span class="tag">Exam</span>' : "") + "</h4>" +
+      (item.time ? '<p class="due-time">' + esc(item.time) + "</p>" : "") +
       (item.notes ? '<p class="notes">' + mdInline(item.notes) + "</p>" : "") +
+      (item.links && item.links.length ? '<ul class="link-row">' + item.links.map(function (l) {
+        return '<li><a href="' + esc(l.url) + '" target="_blank" rel="noopener">' + esc(l.text || l.url) + "</a></li>";
+      }).join("") + "</ul>" : "") +
       "</div></div>";
+  }
+
+  function upcomingDueItems(course, schedule, built, afterInline, horizon) {
+    var items = (schedule.assignments || []).map(function (a) {
+      return { title: a.title || "Assignment", due: parseDate(a.due), notes: a.notes, link: a.link };
+    });
+
+    // Exams are dated by the meeting rows their topics are assigned to, so
+    // include those rows in the same look-ahead as explicitly dated work.
+    built.days.forEach(function (day) {
+      if (!day.topic || !day.topic.exam) return;
+      items.push({
+        title: day.topic.title,
+        due: day.date,
+        notes: day.topic.notes,
+        links: day.topic.links,
+        exam: true
+      });
+    });
+
+    var finalExam = normalizeFinalExam(course);
+    if (finalExam) {
+      items.push({
+        title: "Final exam",
+        due: finalExam.date,
+        time: finalExam.time,
+        notes: finalExam.notes,
+        exam: true
+      });
+    }
+
+    return items.filter(function (item) {
+      return item.due && item.due > afterInline && item.due <= horizon;
+    }).sort(function (a, b) { return a.due - b.due; });
   }
 
   function weekHTML(week, isCurrent) {
@@ -487,11 +526,7 @@
       // current week to show).
       var afterInline = cur ? cur.days[cur.days.length - 1].date : addDays(TODAY, -1);
       var horizon = addDays(TODAY, 14);
-      var upcoming = (schedule.assignments || []).map(function (a) {
-        return { title: a.title || "Assignment", due: parseDate(a.due), notes: a.notes, link: a.link };
-      }).filter(function (a) {
-        return a.due && a.due > afterInline && a.due <= horizon;
-      }).sort(function (a, b) { return a.due - b.due; });
+      var upcoming = upcomingDueItems(course, schedule, built, afterInline, horizon);
       if (upcoming.length) {
         html += '<section class="due-section"><h2>Due in the next two weeks</h2>' +
           upcoming.map(dueItemHTML).join("") + "</section>";
