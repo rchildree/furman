@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neuter nouns</title>
+<style>/* Chart rendering styles — shared by the app preview (imported in main.tsx)
+   and the single-page HTML export (imported as ?raw text). Keep self-contained:
+   only chart/document selectors, no app chrome. */
+
+.chart-doc {
+  font-family: "Source Serif 4", serif;
+}
+
+.chart-doc h1,
+.chart-doc h2,
+.chart-doc h3 {
+  color: #344054;
+  margin: 0 0 0.6rem;
+}
+
+.chart-doc h1 {
+  font-size: 1.35rem;
+}
+
+.chart-doc h2 {
+  font-size: 1.15rem;
+}
+
+.chart-doc h3 {
+  font-size: 1rem;
+}
+
+.chart-doc p {
+  color: #344054;
+  margin: 0 0 0.9rem;
+  max-width: 70ch;
+}
+
+.chart-row-group {
+  margin-bottom: 1.75rem;
+}
+
+.chart-section-heading {
+  color: #344054;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 0.6rem;
+}
+
+.chart-row {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.latin-chart {
+  border-collapse: collapse;
+  margin: 0 0 1rem;
+  width: max-content;
+}
+
+.latin-chart caption {
+  caption-side: top;
+  color: #344054;
+  font-weight: 700;
+  padding: 0.55rem;
+  text-align: left;
+}
+
+.latin-chart th,
+.latin-chart td {
+  border: 1px solid #d0d5dd;
+  min-width: 4.75rem;
+  padding: 0.42rem 0.5rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.latin-chart td {
+  white-space: pre-wrap;
+}
+
+.latin-chart .major-left-divider {
+  border-left-width: 2px;
+  border-left-color: #98a2b3;
+}
+
+.latin-chart tr.major-top-divider > th,
+.latin-chart tr.major-top-divider > td {
+  border-top-width: 2px;
+  border-top-color: #98a2b3;
+}
+
+.grammar-label {
+  background: #f2f4f7;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.row-label {
+  min-width: 4.5rem;
+}
+
+.sub-label {
+  min-width: 4rem;
+}
+
+.group-label {
+  text-align: center;
+}
+
+.cell-stem-secondary {
+  background: #e9f6f2;
+}
+
+.cell-stem-secondary:hover {
+  background: #d8efe8;
+}
+
+.cell-stem-tertiary {
+  background: #fff1dc;
+}
+
+.cell-stem-tertiary:hover {
+  background: #ffe6bd;
+}
+
+.segment {
+  white-space: pre-wrap;
+}
+
+
+.segment:not(.segment-stem).segment-tone-secondary {
+  background: #a7f3d0;
+  color: #064e3b;
+  padding-block: 2px
+}
+
+.segment:not(.segment-stem).segment-tone-tertiary {
+  background: #fed7aa;
+  border-radius: 3px;
+  color: #7c2d12;
+}
+
+.segment-stem.segment-tone-secondary {
+  color: #3179ff;
+  font-weight: 600;
+}
+
+.segment-stem.segment-tone-tertiary {
+  color: #c2410c;
+  font-weight: 600;
+}
+
+@media print {
+  .latin-chart,
+  .chart-row-group {
+    break-inside: avoid;
+  }
+}
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  background: #ffffff;
+  color: #101828;
+  font-family: "Source Serif 4", serif;
+  line-height: 1.5;
+  margin: 0 auto;
+  max-width: 60rem;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+.chart-doc > *:first-child {
+  margin-top: 0;
+}
+
+.chart-doc h1 {
+  margin-top: 2rem;
+}
+
+.chart-doc h2,
+.chart-doc h3 {
+  margin-top: 1.5rem;
+}
+
+@page {
+  margin: 1.5cm;
+}
+
+@media print {
+  body {
+    max-width: none;
+    padding: 0;
+  }
+}
+
+.chart-doc .latin-chart .grammar-label {
+	font-weight: normal;
+	font-style: normal;
+	font-variant: all-small-caps;
+}
+
+.chart-doc .latin-chart.case-grid .segment-ending {
+	font-weight: bold;
+	font-style: normal;
+	color: #8c1a12;
+}
+
+.chart-doc .latin-chart.case-grid .segment-stem {
+	font-weight: normal;
+	font-style: normal;
+}
+
+.chart-doc .latin-chart:not(.case-grid) .segment-stem:not(.segment-tone-secondary):not(.segment-tone-tertiary) {
+	font-weight: normal;
+	font-style: normal;
+}
+
+.chart-doc .latin-chart:not(.case-grid) .segment-stem.segment-tone-secondary {
+	font-weight: bold;
+	font-style: normal;
+	color: #5370b4;
+}
+
+.chart-doc .latin-chart:not(.case-grid) .segment-stem.segment-tone-tertiary {
+	font-weight: bold;
+	font-style: normal;
+	color: #b41d5b;
+}
+
+.chart-doc .latin-chart:not(.case-grid) .segment-tenseMood {
+	font-weight: normal;
+	font-style: normal;
+	color: #000000;
+	background-color: #eec675;
+}
+
+.chart-doc .latin-chart:not(.case-grid) .segment-personal {
+	font-weight: bold;
+	font-style: normal;
+}
+
+.chart-doc .latin-chart .cell-stem-secondary {
+	background: rgb(234,238,246);
+}
+
+.chart-doc .latin-chart .cell-stem-tertiary {
+	background: rgb(246,228,235);
+}
+</style>
+</head>
+<body>
+	<div class="chart-doc">
+		<h1>Neuter nouns</h1>
+		<div class="chart-row-group">
+			<div class="chart-row">
+				<div class="chart-block">
+					<table class="latin-chart case-grid">
+						<caption>2 (O) declension</caption>
+						<tbody>
+							<tr class="">
+								<th class="grammar-label row-label">nom.sg.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">vīnum</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">cōnsilium</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">gen.sg.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">vīn</span><span class="segment segment-ending" title="gen. sg. ending">ī</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">cōnsili</span><span class="segment segment-ending" title="gen. sg. ending">ī</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">dat.sg.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">vīn</span><span class="segment segmefnt-ending" title="dat. sg. ending">ō</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">cōnsili</span><span class="segment segmfent-ending" title="dat. sg. ending">ō</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">acc.sg.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">vīn</span><span class="segment segment-ending" title="acc. sg. ending">um</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">cōnsili</span><span class="segment segment-ending" title="acc. sg. ending">um</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">abl.sg.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">vīn</span><span class="segment segment-ending" title="abl. sg. ending">ō</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">cōnsili</span><span class="segment segment-ending" title="abl. sg. ending">ō</span></td>
+							</tr>
+							<tr class="major-top-divider">
+								<th class="grammar-label row-label">nom.pl.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">vīn</span><span class="segment segmfent-ending" title="nom. pl. ending">a</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">cōnsili</span><span class="segment sfegment-ending" title="nom. pl. ending">a</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">gen.pl.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">vīn</span><span class="segment segmenft-ending" title="gen. pl. ending">ōrum</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">cōnsili</span><span class="segment segfment-ending" title="gen. pl. ending">ōrum</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">dat.pl.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">vīn</span><span class="segment segment-fending" title="dat. pl. ending">īs</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">cōnsili</span><span class="segment segmefnt-ending" title="dat. pl. ending">īs</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">acc.pl.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">vīn</span><span class="segment segment-enfding" title="acc. pl. ending">a</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">cōnsili</span><span class="segment segmentf-ending" title="acc. pl. ending">a</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">abl.pl.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">vīn</span><span class="segment segment-endifng" title="abl. pl. ending">īs</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">cōnsili</span><span class="segment segment-fending" title="abl. pl. ending">īs</span></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="chart-block">
+					<table class="latin-chart case-grid">
+						<caption>3 (C/I) declension</caption>
+						<tbody>
+							<tr class="">
+								<th class="grammar-label row-label">nom.sg.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">opus</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">culmen</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">gen.sg.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">oper</span><span class="segment segment-ending" title="gen. sg. ending">is</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">culmin</span><span class="segment segment-ending" title="gen. sg. ending">is</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">dat.sg.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">oper</span><span class="sefgment segment-ending" title="dat. sg. ending">ī</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">culmin</span><span class="sfegment segment-ending" title="dat. sg. ending">ī</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">acc.sg.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">opus</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">culmen</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">abl.sg.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">oper</span><span class="segment segment-ending" title="abl. sg. ending">e</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">culmin</span><span class="segment segment-ending" title="abl. sg. ending">e</span></td>
+							</tr>
+							<tr class="major-top-divider">
+								<th class="grammar-label row-label">nom.pl.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">oper</span><span class="segment segfment-ending" title="nom. pl. ending">a</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">culmin</span><span class="segment sefgment-ending" title="nom. pl. ending">a</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">gen.pl.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">oper</span><span class="segment segmefnt-ending" title="gen. pl. ending">um</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">culmin</span><span class="segment segmfent-ending" title="gen. pl. ending">um</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">dat.pl.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">oper</span><span class="segment segmentf-ending" title="dat. pl. ending">ibus</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">culmin</span><span class="segment segmenft-ending" title="dat. pl. ending">ibus</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">acc.pl.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">oper</span><span class="segment segment-efnding" title="acc. pl. ending">a</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">culmin</span><span class="segment segment-fending" title="acc. pl. ending">a</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">abl.pl.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">oper</span><span class="segment segment-endfing" title="abl. pl. ending">ibus</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">culmin</span><span class="segment segment-enfding" title="abl. pl. ending">ibus</span></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<h1>1/2 (A/O) adjectives</h1>
+		<div class="chart-row-group">
+			<div class="chart-row">
+				<div class="chart-block">
+					<table class="latin-chart case-grid">
+						<caption>novus –a –um</caption>
+						<thead>
+							<tr>
+								<th class="grammar-label corner"></th>
+								<th class="grammar-label">M.</th>
+								<th class="grammar-label">F.</th>
+								<th class="grammar-label">N.</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="">
+								<th class="grammar-label row-label">nom.sg.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">novus</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">nova</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">novum</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">gen.sg.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">nov</span><span class="segment segment-ending" title="positive gen. sg. ending">ī</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">nov</span><span class="segment segment-ending" title="positive gen. sg. ending">ae</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">nov</span><span class="segment segment-ending" title="positive gen. sg. ending">ī</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">dat.sg.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">nov</span><span class="segment segfment-ending" title="positive dat. sg. ending">ō</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">nov</span><span class="segment segmfent-ending" title="positive dat. sg. ending">ae</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">nov</span><span class="segment segmefnt-ending" title="positive dat. sg. ending">ō</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">acc.sg.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">nov</span><span class="segment segment-ending" title="positive acc. sg. ending">um</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">nov</span><span class="segment segment-ending" title="positive acc. sg. ending">am</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">nov</span><span class="segment segment-ending" title="positive acc. sg. ending">um</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">abl.sg.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">nov</span><span class="segment segment-ending" title="positive abl. sg. ending">ō</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">nov</span><span class="segment segment-ending" title="positive abl. sg. ending">ā</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">nov</span><span class="segment segment-ending" title="positive abl. sg. ending">ō</span></td>
+							</tr>
+							<tr class="major-top-divider">
+								<th class="grammar-label row-label">nom.pl.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">nov</span><span class="segment sfegment-ending" title="positive nom. pl. ending">ī</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">nov</span><span class="segment sefgment-ending" title="positive nom. pl. ending">ae</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">nov</span><span class="segment segfment-ending" title="positive nom. pl. ending">a</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">gen.pl.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">nov</span><span class="segment sfegment-ending" title="positive gen. pl. ending">ōrum</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">nov</span><span class="segment segment-ending" title="positive gen. pl. ending">ārum</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">nov</span><span class="segment sefgment-ending" title="positive gen. pl. ending">ōrum</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">dat.pl.</th>
+								<td class="" colSpan="3"><span class="segment segment-stem" title="stem">nov</span><span class="segment sefgment-ending" title="positive dat. pl. ending">īs</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">acc.pl.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">nov</span><span class="segment segfment-ending" title="positive acc. pl. ending">ōs</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">nov</span><span class="segment segmfent-ending" title="positive acc. pl. ending">ās</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">nov</span><span class="segment segmefnt-ending" title="positive acc. pl. ending">a</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">abl.pl.</th>
+								<td class="" colSpan="3"><span class="segment segment-stem" title="stem">nov</span><span class="segment segmfent-ending" title="positive abl. pl. ending">īs</span></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<h1>3 (C) adjectives</h1>
+		<div class="chart-row-group">
+			<div class="chart-row">
+				<div class="chart-block">
+					<table class="latin-chart case-grid">
+						<caption>omnis –e</caption>
+						<thead>
+							<tr>
+								<th class="grammar-label corner"></th>
+								<th class="grammar-label">M./F.</th>
+								<th class="grammar-label">N.</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="">
+								<th class="grammar-label row-label">nom.sg.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">omnis</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">omn</span><span class="segment segment-ending" title="positive nom. sg. ending">e</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">gen.sg.</th>
+								<td class="" colSpan="2"><span class="segment segment-stem" title="stem">omn</span><span class="segment segment-ending" title="positive gen. sg. ending">is</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">dat.sg.</th>
+								<td class="" colSpan="2"><span class="segment segment-stem" title="stem">omn</span><span class="segment sfegment-ending" title="positive dat. sg. ending">ī</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">acc.sg.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">omn</span><span class="segment segment-ending" title="positive acc. sg. ending">em</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">omn</span><span class="segment segment-ending" title="positive acc. sg. ending">e</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">abl.sg.</th>
+								<td class="" colSpan="2"><span class="segment segment-stem" title="stem">omn</span><span class="segment segment-ending" title="positive abl. sg. ending">ī</span></td>
+							</tr>
+							<tr class="major-top-divider">
+								<th class="grammar-label row-label">nom.pl.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">omn</span><span class="segment sfegment-ending" title="positive nom. pl. ending">ēs</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">omn</span><span class="segment sefgment-ending" title="positive nom. pl. ending">ia</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">gen.pl.</th>
+								<td class="" colSpan="2"><span class="segment segment-stem" title="stem">omn</span><span class="segment sefgment-ending" title="positive gen. pl. ending">ium</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">dat.pl.</th>
+								<td class="" colSpan="2"><span class="segment segment-stem" title="stem">omn</span><span class="segment segfment-ending" title="positive dat. pl. ending">ibus</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">acc.pl.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">omn</span><span class="segment sefgment-ending" title="positive acc. pl. ending">ēs</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">omn</span><span class="segment sefgment-ending" title="positive acc. pl. ending">ia</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">abl.pl.</th>
+								<td class="" colSpan="2"><span class="segment segment-stem" title="stem">omn</span><span class="segment sefgment-ending" title="positive abl. pl. ending">ibus</span></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="chart-block">
+					<table class="latin-chart case-grid">
+						<caption>absēns (absentis)</caption>
+						<thead>
+							<tr>
+								<th class="grammar-label corner"></th>
+								<th class="grammar-label">M./F.</th>
+								<th class="grammar-label">N.</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="">
+								<th class="grammar-label row-label">nom.sg.</th>
+								<td class="" colSpan="2"><span class="segment segment-stem" title="stem">absēns</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">gen.sg.</th>
+								<td class="" colSpan="2"><span class="segment segment-stem" title="stem">absent</span><span class="segment segment-ending" title="positive gen. sg. ending">is</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">dat.sg.</th>
+								<td class="" colSpan="2"><span class="segment segment-stem" title="stem">absent</span><span class="segment sfegment-ending" title="positive dat. sg. ending">ī</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">acc.sg.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">absent</span><span class="segment segment-ending" title="positive acc. sg. ending">em</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">absēns</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">abl.sg.</th>
+								<td class="" colSpan="2"><span class="segment segment-stem" title="stem">absent</span><span class="segment segment-ending" title="positive abl. sg. ending">ī</span></td>
+							</tr>
+							<tr class="major-top-divider">
+								<th class="grammar-label row-label">nom.pl.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">absent</span><span class="segment sefgment-ending" title="positive nom. pl. ending">ēs</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">absent</span><span class="segment segfment-ending" title="positive nom. pl. ending">ia</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">gen.pl.</th>
+								<td class="" colSpan="2"><span class="segment segment-stem" title="stem">absent</span><span class="segment segmfent-ending" title="positive gen. pl. ending">ium</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">dat.pl.</th>
+								<td class="" colSpan="2"><span class="segment segment-stem" title="stem">absent</span><span class="segment segmefnt-ending" title="positive dat. pl. ending">ibus</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">acc.pl.</th>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">absent</span><span class="segment segfment-ending" title="positive acc. pl. ending">ēs</span></td>
+								<td class="" colSpan="1"><span class="segment segment-stem" title="stem">absent</span><span class="segment segmfent-ending" title="positive acc. pl. ending">ia</span></td>
+							</tr>
+							<tr class="">
+								<th class="grammar-label row-label">abl.pl.</th>
+								<td class="" colSpan="2"><span class="segment segment-stem" title="stem">absent</span><span class="segment segmefnt-ending" title="positive abl. pl. ending">ibus</span></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
