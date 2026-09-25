@@ -48,6 +48,9 @@ topics:
   - title: Exam 1
     notes: Lessons 1–5. 
     exam: yes                                   # Mon 2026-09-21
+    links: 
+    - text: Exam 1 key
+      url: files/exam1.pdf
   - LESSON 6. The passive voice.                                   # Tue 2026-09-22
   - The ablative case.                                   # Thu 2026-09-24
   - Exercise.                                   # Fri 2026-09-25
