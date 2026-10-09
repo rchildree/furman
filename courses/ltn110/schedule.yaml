@@ -66,17 +66,20 @@ topics:
   - Practice.                                   # Thu 2026-10-01
   - LESSON 8. Number and numbers.                                   # Fri 2026-10-02
   # ── Week 7 ──────────────────────────────
-  - TBD                                   # Mon 2026-10-05
+  - Practice.                                   # Mon 2026-10-05
   - LESSON 9. Verb principal parts.                                    # Tue 2026-10-06
   - Perfects.                                   # Thu 2026-10-08
-  - TBD                                   # Fri 2026-10-09
+  - Practice.                                   # Fri 2026-10-09
   # ── Week 8 ──────────────────────────────
   #   (no class Mon 2026-10-12 — Fall Break)
   #   (no class Tue 2026-10-13 — Fall Break)
-  - REVIEW LESSON 2.                                   # Thu 2026-10-15
+  - Practice and review.                                   # Thu 2026-10-15
   - title: Exam 2.
     exam: yes
     notes: Lessons 1–9.                                   # Fri 2026-10-16
+    links: 
+    - text: Exam 2 format
+      url: files/pexam6-9.pdf
   # ── Week 9 ──────────────────────────────
   - LESSON 10. Sentence kernels.                                   # Mon 2026-10-19
   - Demonstrative pronouns.                                   # Tue 2026-10-20
