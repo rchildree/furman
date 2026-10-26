@@ -92,8 +92,6 @@ topics:
   # ── Week 10 ──────────────────────────────
   - title: Practice passage 1.                                   # Mon 2026-10-26
   - title: Practice passage 2.                                   # Tue 2026-10-27
-    exam: no
-    # notes: Lessons 1–9.
     links: 
     - text: PROCESS
       url: http://rchildree.github.io/PROCESS
