@@ -4,13 +4,14 @@ Edit this repo's course schedules inside VS Code, without starting a server.
 
 ## Install once
 
-In VS Code, run **Extensions: Install from VSIX…** from the Command Palette and select `syllabusser-schedule-editor-0.1.1.vsix` from this folder. Then open a `schedule.yaml` file. If it opens as text, right-click its tab and choose **Reopen Editor With… → Schedule Editor**.
+In VS Code, run **Extensions: Install from VSIX…** from the Command Palette and select `syllabusser-schedule-editor-0.1.4.vsix` from this folder. Then open a `schedule.yaml` file. If it opens as text, right-click its tab and choose **Reopen Editor With… → Schedule Editor**.
 
 **Syllabusser: Open Schedule** lists schedules in the current workspace.
 
 ## Edit a schedule
 
 - Click anywhere in a meeting card to edit its topic, notes, exam flag, links, or date lock. Weeks use fixed weekday columns, including empty spaces at the start and end of term. Meeting numbers count class meetings, excluding holidays.
+- Selecting a meeting places the cursor in **Topic**. Press **Return** in Topic to apply the edit.
 - **Apply** updates the open YAML document. **Save** or **Cmd+S / Ctrl+S** applies the form and saves both the schedule and its holiday changes.
 - Drag an unlocked topic to another meeting to reorder it. Other unlocked topics shift; locked topics stay on their dates.
 - Under **More**, **Clear topic** leaves an empty slot. **Delete & shift** shifts later unlocked topics forward. Unlock a topic before deleting it.

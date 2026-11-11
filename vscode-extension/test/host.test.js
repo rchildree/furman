@@ -36,7 +36,7 @@ async function host() {
       openTextDocument: async u => docs.get(u.toString()),
       onDidChangeTextDocument: fn => { changed = fn; return disposable(); },
       onDidSaveTextDocument: fn => { saved = fn; return disposable(); },
-      applyEdit: async edit => { for (const e of edit.edits) { const doc = docs.get(e.uri.toString()); doc.text = e.text; doc.version++; doc.isDirty = true; changed?.({ document: doc }); } return true; },
+      applyEdit: async edit => { if (!edit.edits.length) return false; for (const e of edit.edits) { const doc = docs.get(e.uri.toString()); doc.text = e.text; doc.version++; doc.isDirty = true; changed?.({ document: doc }); } return true; },
       fs: {
         createDirectory: async () => {},
         stat: async u => { if (!files.has(u.path)) throw Object.assign(new Error('Missing'), { code: 'FileNotFound' }); return {}; },
@@ -88,6 +88,26 @@ test('stale edits are rejected without overwriting the current documents', async
   await h.send({ ...h.last(), type: 'edit', version: 0 });
   assert.match(h.errors[0], /another editor/);
   assert.equal(h.docs.get('/course/schedule.yaml').text, before);
+});
+test('unchanged Apply succeeds and Save after Apply persists the dirty schedule', async () => {
+  const h = await host();
+  const originalVersion = h.docs.get('/course/schedule.yaml').version;
+  await h.send({ ...h.last(), type: 'edit' });
+  assert.equal(h.errors.length, 0);
+  assert.equal(h.docs.get('/course/schedule.yaml').version, originalVersion);
+  const next = structuredClone(h.last());
+  next.schedule.topics[0].title = 'Applied, then saved';
+  await h.send({ ...next, type: 'edit' });
+  const appliedVersion = h.docs.get('/course/schedule.yaml').version;
+  assert.equal(h.docs.get('/course/schedule.yaml').isDirty, true);
+  await h.send({ ...h.last(), type: 'edit', save: true });
+  assert.equal(h.errors.length, 0);
+  assert.equal(h.docs.get('/course/schedule.yaml').saves, 1);
+  assert.equal(h.docs.get('/course/schedule.yaml').isDirty, false);
+  assert.equal(h.docs.get('/course/schedule.yaml').version, appliedVersion);
+  await h.send({ ...h.last(), type: 'edit', save: true });
+  assert.equal(h.errors.length, 0);
+  assert.equal(h.docs.get('/course/schedule.yaml').version, appliedVersion);
 });
 test('file picker copies attachments, percent-encodes URLs, and reuses existing files', async () => {
   const h = await host();

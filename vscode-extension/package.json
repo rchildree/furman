@@ -2,7 +2,7 @@
   "name": "syllabusser-schedule-editor",
   "displayName": "Syllabusser Schedule Editor",
   "description": "Edit course schedules, date locks, holidays and attachments inside VS Code.",
-  "version": "0.1.1",
+  "version": "0.1.4",
   "publisher": "syllabusser",
   "engines": {
     "vscode": "^1.85.0"

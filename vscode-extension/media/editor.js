@@ -75,6 +75,9 @@
   }
   function render() {
     if (!state) return;
+    const calendarScroll = document.querySelector('main')?.scrollTop || 0;
+    const detailsScroll = document.querySelector('aside')?.scrollTop || 0;
+    const topicFocused = document.activeElement?.id === 'topic-title';
     const built = core.resolve(state.course, state.schedule);
     const topic = currentTopic();
     const selected = built.days.find(d => d.date === selectedDate);
@@ -86,7 +89,17 @@
       ${state.course.final_exam ? `<section class="section final-exam"><h2>Final exam · ${escape(state.course.final_exam.date)}</h2><p>${escape(state.course.final_exam.time || '')}</p><p class="muted">Configured separately in course.yaml.</p></section>` : ''}
       ${!preview ? holidayList() : ''}</main>
       ${preview ? '' : `<aside>${assignmentKey ? assignmentForm() : selected?.holiday ? `<h2>${label(selected.date)}</h2><p>No class — ${escape(selected.holiday)}</p>${button('holiday', 'Manage holidays')}` : selectedDate || selectedExtra ? topicForm(topic, selected) : `<h2>Meeting details</h2><p class="muted">Select a topic to edit it. Drag topics between meetings to reorder them.</p><p class="muted">Lock an exam to keep its date while other topics move.</p>`}</aside>`}</div>`;
+    document.querySelector('main').scrollTop = calendarScroll;
+    const aside = document.querySelector('aside');
+    if (aside) aside.scrollTop = detailsScroll;
+    if (topicFocused) focusTopic();
     remember();
+  }
+  function focusTopic() {
+    const input = document.getElementById('topic-title');
+    if (!input) return;
+    input.focus({ preventScroll: true });
+    input.setSelectionRange(input.value.length, input.value.length);
   }
   function remember() {
     vscode.setState({ selectedDate, selectedExtra, assignmentKey, draft: formDirty ? { base: baseSnapshot, next: pending() } : undefined });
@@ -199,7 +212,11 @@
         selectedDate = target.dataset.select;
         selectedExtra = target.dataset.extra;
         assignmentKey = target.dataset.assignment;
-        error = ''; render(); return;
+        error = ''; render();
+        const aside = document.querySelector('aside');
+        if (aside) aside.scrollTop = 0;
+        focusTopic();
+        return;
       }
       const action = target.dataset.action;
       if (action === 'discard') { formDirty = false; error = ''; vscode.postMessage({ type: 'ready' }); return; }
@@ -288,6 +305,11 @@
     } catch (err) { showError(err.message); }
   });
   window.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && e.target.id === 'topic-title' && !e.isComposing) {
+      e.preventDefault();
+      submit(pending());
+      return;
+    }
     if ((e.key === 'Enter' || e.key === ' ') && e.target.matches('[role=button]')) { e.preventDefault(); e.target.click(); }
     if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 's') { e.preventDefault(); submit(pending(), true); }
   });

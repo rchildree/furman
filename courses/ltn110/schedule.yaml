@@ -18,119 +18,154 @@
 #         url: https://example.com/guide
 
 topics:
-  # ── Week 1 ──────────────────────────────
-  - Hellos. Latin sounds.                                   # Tue 2026-08-25
-  - title: LESSON 1. The textbook. Beginnings.                                  # Thu 2026-08-27
+  # Meeting: 2026-08-25
+  - Hellos. Latin sounds.
+  # Meeting: 2026-08-27
+  - title: LESSON 1. The textbook. Beginnings.
     notes: Basic sentences. Vocabulary. Introduction to nouns and verbs in Latin.
-    links: 
+    links:
       - text: Charts for Lesson 1
         url: files/L1.html
-  - Metaphrasing.                                   # Fri 2026-08-28
-  # ── Week 2 ──────────────────────────────
-  - LESSON 2. Coordinating conjunctions.                                   # Mon 2026-08-31
-  - Gapping.                                   # Tue 2026-09-01
-  - LESSON 3. Infinitives. Complementary infinitives.                                    # Thu 2026-09-03
-  - Question words                                   # Fri 2026-09-04
-  # ── Week 3 ──────────────────────────────
-  #   (no class Mon 2026-09-07 — Labor Day)
-  - LESSON 4. Adverbs and prepositions.                                  # Tue 2026-09-08
-  - More question words/phrases                                    # Thu 2026-09-10
-  - Practice                                   # Fri 2026-09-11
-  # ── Week 4 ──────────────────────────────
-  - title: LESSON 5. Adjectives and adjective agreement/gender                                   # Mon 2026-09-14
-    links: 
+  # Meeting: 2026-08-28
+  - Metaphrasing.
+  # Meeting: 2026-08-31
+  - LESSON 2. Coordinating conjunctions.
+  # Meeting: 2026-09-01
+  - Gapping.
+  # Meeting: 2026-09-03
+  - LESSON 3. Infinitives. Complementary infinitives.
+  # Meeting: 2026-09-04
+  - Question words
+  # Meeting: 2026-09-08
+  - LESSON 4. Adverbs and prepositions.
+  # Meeting: 2026-09-10
+  - More question words/phrases
+  # Meeting: 2026-09-11
+  - Practice
+  # Meeting: 2026-09-14
+  - title: LESSON 5. Adjectives and adjective agreement/gender
+    links:
       - text: Charts for Lesson 5
         url: files/L5.html
-  - Adjectives 1/2 (A/O)                                   # Tue 2026-09-15
-  - Adjectives 3 (I)                                   # Thu 2026-09-17
-  - REVIEW LESSON 1                                   # Fri 2026-09-18
-  # ── Week 5 ──────────────────────────────
+  # Meeting: 2026-09-15
+  - Adjectives 1/2 (A/O)
+  # Meeting: 2026-09-17
+  - Adjectives 3 (I)
+  # Meeting: 2026-09-18
+  - REVIEW LESSON 1
+  # Meeting: 2026-09-21
   - title: Exam 1
-    notes: Lessons 1–5. 
-    exam: yes                                   # Mon 2026-09-21
-    links: 
-    - text: Exam 1 key
-      url: files/exam1.pdf
-  - LESSON 6. The passive voice.                                   # Tue 2026-09-22
-  - The ablative case.                                   # Thu 2026-09-24
-  - Exercise.                                   # Fri 2026-09-25
-  # ── Week 6 ──────────────────────────────
-  - LESSON 7. Agreement.                                   # Mon 2026-09-28
+    notes: Lessons 1–5.
+    exam: yes
+    links:
+      - text: Exam 1 key
+        url: files/exam1.pdf
+  # Meeting: 2026-09-22
+  - LESSON 6. The passive voice.
+  # Meeting: 2026-09-24
+  - The ablative case.
+  # Meeting: 2026-09-25
+  - Exercise.
+  # Meeting: 2026-09-28
+  - LESSON 7. Agreement.
+  # Meeting: 2026-09-29
   - title: Plurals and pronouns
-    notes: Updated charts. 
-    links: 
-    - text: Updated charts
-      url: files/l7-charts.pdf                                   # Tue 2026-09-29
-    - text: Blank charts
-      url: files/l7-charts-blanko.pdf                                   # Tue 2026-09-29
-  - Practice.                                   # Thu 2026-10-01
-  - LESSON 8. Number and numbers.                                   # Fri 2026-10-02
-  # ── Week 7 ──────────────────────────────
-  - Practice.                                   # Mon 2026-10-05
-  - LESSON 9. Verb principal parts.                                    # Tue 2026-10-06
-  - Perfects.                                   # Thu 2026-10-08
-  - Practice.                                   # Fri 2026-10-09
-  # ── Week 8 ──────────────────────────────
-  #   (no class Mon 2026-10-12 — Fall Break)
-  #   (no class Tue 2026-10-13 — Fall Break)
-  - Practice and review.                                   # Thu 2026-10-15
+    notes: Updated charts.
+    links:
+      - text: Updated charts
+        url: files/l7-charts.pdf
+      - text: Blank charts
+        url: files/l7-charts-blanko.pdf
+  # Meeting: 2026-10-01
+  - Practice.
+  # Meeting: 2026-10-02
+  - LESSON 8. Number and numbers.
+  # Meeting: 2026-10-05
+  - Practice.
+  # Meeting: 2026-10-06
+  - LESSON 9. Verb principal parts.
+  # Meeting: 2026-10-08
+  - Perfects.
+  # Meeting: 2026-10-09
+  - Practice.
+  # Meeting: 2026-10-15
+  - Practice and review.
+  # Meeting: 2026-10-16
   - title: Exam 2.
     exam: yes
-    notes: Lessons 1–9.                                   # Fri 2026-10-16
-    links: 
-    - text: Exam 2 format
-      url: files/pexam6-9.pdf
-    - text: Exam 2 format key
-      url: files/pexam6-9key.pdf
-    - text: Practice sentences from 10/15
-      url: files/pexam22-6-9.pdf
-    - text: Exam 2 blank copy
-      url: files/exam-2.pdf
-  # ── Week 9 ──────────────────────────────
-  - LESSON 10. Sentence kernels.                                   # Mon 2026-10-19
-  - Demonstrative pronouns.                                   # Tue 2026-10-20
-  - Review.                                   # Thu 2026-10-22
-  - LESSON 11. Subordinate clauses.                                   # Fri 2026-10-23
-  # ── Week 10 ──────────────────────────────
-  - title: Practice passage 1.                                   # Mon 2026-10-26
-  - title: Practice passage 2.                                   # Tue 2026-10-27
-    links: 
-    - text: PROCESS
-      url: http://rchildree.github.io/PROCESS
-  - LESSON 12. Uses of the accusative.                                   # Thu 2026-10-29
-  - TBD                                   # Fri 2026-10-30
-  # ── Week 11 ──────────────────────────────
-  - LESSON 13. Relative pronouns.                                   # Mon 2026-11-02
-  - TBD                                   # Tue 2026-11-03
-  - TBD                                   # Thu 2026-11-05
-  - REVIEW LESSON 3.                                   # Fri 2026-11-06
-  # ── Week 12 ──────────────────────────────
+    notes: Lessons 1–9.
+    links:
+      - text: Exam 2 format
+        url: files/pexam6-9.pdf
+      - text: Exam 2 format key
+        url: files/pexam6-9key.pdf
+      - text: Practice sentences from 10/15
+        url: files/pexam22-6-9.pdf
+      - text: Exam 2 blank copy
+        url: files/exam-2.pdf
+  # Meeting: 2026-10-19
+  - LESSON 10. Sentence kernels.
+  # Meeting: 2026-10-20
+  - Demonstrative pronouns.
+  # Meeting: 2026-10-22
+  - Review.
+  # Meeting: 2026-10-23
+  - LESSON 11. Subordinate clauses.
+  # Meeting: 2026-10-26
+  - title: Practice passage 1.
+  # Meeting: 2026-10-27
+  - title: Practice passage 2.
+    links:
+      - text: PROCESS
+        url: http://rchildree.github.io/PROCESS
+  # Meeting: 2026-10-29
+  - LESSON 12. Uses of the accusative.
+  # Meeting: 2026-10-30
+  - TBD
+  # Meeting: 2026-11-02
+  - LESSON 13. Relative pronouns.
+  # Meeting: 2026-11-03
+  - TBD
+  # Meeting: 2026-11-05
+  - TBD
+  # Meeting: 2026-11-06
+  - REVIEW LESSON 3.
+  # Meeting: 2026-11-09
+  - Review
+  # Meeting: 2026-11-10
   - title: Exam 3
-    exam: yes
-    notes: Lessons 1–13.                                   # Mon 2026-11-09
-  - LESSON 14. Participles.      # Tue 2026-11-10
-  - TBD                                   # Thu 2026-11-12
-  - TBD                                   # Fri 2026-11-13
-  # ── Week 13 ──────────────────────────────
-  - LESSON 15. Ablative absolute.                                   # Mon 2026-11-16
-  - TBD                                   # Tue 2026-11-17
-  - TBD                                    # Thu 2026-11-19
-  - REVIEW LESSON 4.                                   # Fri 2026-11-20
-  # ── Week 14 ──────────────────────────────
+    exam: true
+    notes: Lessons 1–13.
+  # Meeting: 2026-11-12
+  - Lesson 14. Participles.
+  # Meeting: 2026-11-13
+  - Perfect passive participles
+  # Meeting: 2026-11-16
+  - Present active participles
+  # Meeting: 2026-11-17
+  - Forms of participles
+  # Meeting: 2026-11-19
+  - "Using participles"
+  # Meeting: 2026-11-20
+  - LESSON 15. Ablative absolute.
+  # Meeting: 2026-11-23
+  - Practice
+  # Meeting: 2026-11-24
+  - Practice
+  # Meeting: 2026-11-30
+  - Practice
+  # Meeting: 2026-12-01
+  - Practice
+  # Meeting: 2026-12-03
   - title: Exam 4
-    exam: yes
-    notes: Lessons 1–15.                                   # Mon 2026-11-23
-  - TBD                                   # Tue 2026-11-24
-  #   (no class Thu 2026-11-26 — Thanksgiving)
-  #   (no class Fri 2026-11-27 — Thanksgiving)
-  # ── Week 15 ──────────────────────────────
-  - LESSON 16. Datives.                                    # Mon 2026-11-30
-  - TBD                                   # Tue 2026-12-01
-  - TBD                                   # Thu 2026-12-03
-  - LESSON 17. Genitives.                                   # Fri 2026-12-04
-  # ── Week 16 ──────────────────────────────
-  - TBD                                   # Mon 2026-12-07
-  - TBD                                   # Tue 2026-12-08
+    exam: true
+    notes: Lessons 1–15.
+  # Meeting: 2026-12-04
+  - LESSON 16. Datives.
+  # Meeting: 2026-12-07
+  - LESSON 17. Genitives.
+  # Meeting: 2026-12-08
+  - TBD
 
 # Assignments and other due dates. Each needs a title and a due date;
 # notes and link are optional. Example:
@@ -139,4 +174,4 @@ topics:
 #     due: 2026-06-18
 #     notes: Submit on Canvas by 11:59pm.
 #     link: https://example.com/essay1
-assignments:
+assignments: []

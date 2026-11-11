@@ -46,9 +46,16 @@ function activate(context) {
         current(message);
         const out = model.serialize(document.getText(), course.getText(), message);
         const edit = new vscode.WorkspaceEdit();
+        let hasChanges = false;
         for (const [doc, text] of [[document, out.scheduleText], [course, out.courseText]]) {
-          if (text !== doc.getText()) edit.replace(doc.uri, new vscode.Range(doc.positionAt(0), doc.positionAt(doc.getText().length)), text);
+          if (text !== doc.getText()) {
+            edit.replace(doc.uri, new vscode.Range(doc.positionAt(0), doc.positionAt(doc.getText().length)), text);
+            hasChanges = true;
+          }
         }
+        // VS Code returns false for an empty WorkspaceEdit. Nothing to change is
+        // a successful Apply; the caller must still be allowed to save dirty files.
+        if (!hasChanges) return;
         applying = true;
         try { if (!(await vscode.workspace.applyEdit(edit))) throw new Error('VS Code could not apply the edit.'); }
         finally { applying = false; }

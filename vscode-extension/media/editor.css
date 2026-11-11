@@ -1,6 +1,8 @@
 :root { color-scheme: light dark; }
 * { box-sizing: border-box; }
 body { margin: 0; font-family: var(--vscode-font-family, system-ui); color: var(--vscode-editor-foreground); background: var(--vscode-editor-background); font-size: 13px; }
+#app { height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
+#app > header, #app > .message { flex-shrink: 0; }
 button, input, textarea, select { font: inherit; }
 button { border: 1px solid var(--vscode-button-border, var(--vscode-panel-border)); background: var(--vscode-button-secondaryBackground); color: var(--vscode-button-secondaryForeground); border-radius: 4px; padding: 7px 10px; cursor: pointer; }
 button:hover { background: var(--vscode-button-secondaryHoverBackground); }
@@ -17,9 +19,9 @@ p { line-height: 1.5; }
 .muted, .subtitle { color: var(--vscode-descriptionForeground); }
 .subtitle { font-size: 12px; }
 .status { padding-top: 12px; font-size: 12px; }
-.layout { display: grid; grid-template-columns: minmax(350px, 1fr) 310px; align-items: start; }
-main { padding: 20px 24px 80px; min-width: 0; }
-aside { position: sticky; top: 110px; max-height: calc(100vh - 120px); overflow: auto; border-left: 1px solid var(--vscode-panel-border); padding: 22px 18px; background: color-mix(in srgb, var(--vscode-sideBar-background, var(--vscode-editor-background)) 92%, var(--vscode-focusBorder, #547eac)); border-radius: 0 0 0 8px; }
+.layout { display: grid; grid-template-columns: minmax(350px, 1fr) 310px; flex: 1; min-height: 0; overflow: hidden; }
+main { padding: 20px 24px 80px; min-width: 0; height: 100%; overflow: auto; }
+aside { height: 100%; min-height: 0; overflow: auto; border-left: 1px solid var(--vscode-panel-border); padding: 22px 18px; background: color-mix(in srgb, var(--vscode-sideBar-background, var(--vscode-editor-background)) 92%, var(--vscode-focusBorder, #547eac)); border-radius: 0; }
 .week { margin-bottom: 24px; }
 .week-label { margin-bottom: 9px; color: var(--vscode-descriptionForeground); font-size: 12px; }
 .days { display: grid; grid-template-columns: repeat(var(--columns, 4), minmax(0, 1fr)); gap: 8px; }
@@ -28,11 +30,10 @@ aside { position: sticky; top: 110px; max-height: calc(100vh - 120px); overflow:
 .day { border: 1px solid var(--vscode-panel-border); border-radius: 6px; min-height: 122px; padding: 10px; overflow-wrap: anywhere; }
 .day[role=button] { cursor: pointer; }
 .day[role=button]:hover { box-shadow: 0 0 0 1px var(--vscode-panel-border); }
-.day.selected { outline: 2px solid var(--vscode-focusBorder); outline-offset: -1px; }
-.day.selected:not(.holiday):not(.exam) { background: var(--vscode-list-inactiveSelectionBackground); }
 .day.over { outline: 2px solid var(--vscode-focusBorder); }
-.day.holiday { background: color-mix(in srgb, #dc5d65 10%, var(--vscode-editor-background)); border-color: color-mix(in srgb, #dc5d65 48%, var(--vscode-panel-border)); }
+.day.holiday { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M-3 3L3-3M0 12L12 0M9 15L15 9' fill='none' stroke='%23b8bec4' stroke-opacity='.35' stroke-width='1'/%3E%3C/svg%3E"); }
 .day.exam, .final-exam { background: color-mix(in srgb, #a371d1 12%, var(--vscode-editor-background)); border-color: color-mix(in srgb, #a371d1 55%, var(--vscode-panel-border)); }
+.day.selected { border: 2px solid #388bfd; padding: 9px; }
 .day.placeholder { visibility: hidden; pointer-events: none; }
 .date { display: flex; justify-content: space-between; align-items: baseline; gap: 6px; flex-wrap: wrap; color: var(--vscode-descriptionForeground); font-size: 11px; margin-bottom: 10px; }
 .meeting-number { margin-left: auto; font-variant-numeric: tabular-nums; white-space: nowrap; }
@@ -73,4 +74,4 @@ dialog::backdrop { background: #0008; }
 .full { grid-column: 1 / -1; }
 .message { margin: 0 24px; }
 @media(max-width: 850px) { .layout { grid-template-columns: minmax(0, 1fr) 250px; } main { padding: 16px 12px; } header { padding: 16px 12px; } aside { padding: 18px 12px; } }
-@media(max-width: 600px) { .layout { display: block; } aside { position: static; max-height: none; border-left: 0; border-top: 1px solid var(--vscode-panel-border); } }
+@media(max-width: 600px) { .layout { display: block; overflow: auto; } main { height: auto; overflow: visible; } aside { height: auto; min-height: 100%; border-left: 0; border-top: 1px solid var(--vscode-panel-border); } }

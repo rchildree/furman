@@ -58,8 +58,9 @@ test('edit, lock, drag, clear, undo and preview', async ({ page }) => {
   await expect(page.locator('[data-select="2026-09-21"]')).toContainText('Exam 1');
   await page.getByLabel('Topic', { exact: true }).fill('Review: "quoted" *Latin*');
   await page.getByLabel('Notes · Markdown supported').fill('Line one\nLine two: details.');
-  await page.getByRole('button', { name: 'Save', exact: true }).click();
+  await page.getByLabel('Topic', { exact: true }).press('Enter');
   await expect(page.locator('[data-select="2026-09-22"]')).toContainText('Review: "quoted"');
+  await expect(page.getByLabel('Topic', { exact: true })).toBeFocused();
   expect(host.read().schedule.topics.some(t => t.notes === 'Line one\nLine two: details.')).toBeTruthy();
   await page.locator('.topic-options summary').click();
   await page.getByRole('button', { name: 'Clear topic', exact: true }).click();
@@ -72,6 +73,9 @@ test('edit, lock, drag, clear, undo and preview', async ({ page }) => {
 });
 test('holiday preview, lock conflict, overflow and undo', async ({ page }) => {
   const host = await setup(page);
+  const lockedTitle = await page.locator('[data-select="2026-11-23"] .topic').textContent();
+  const restoredTitle = await page.locator('[data-select="2026-11-16"] .topic').textContent();
+  const holidayCount = host.read().course.holidays.length;
   await page.locator('[data-select="2026-11-23"]').click();
   await page.getByLabel('Lock to a date', { exact: true }).check();
   await page.getByRole('button', { name: 'Apply', exact: true }).click();
@@ -84,11 +88,11 @@ test('holiday preview, lock conflict, overflow and undo', async ({ page }) => {
   await expect(page.locator('#holiday-impact')).toContainText('2 meetings removed');
   await page.getByRole('button', { name: 'Apply holiday', exact: true }).click();
   await expect(page.locator('[data-date="2026-11-16"]')).toContainText('Extra break');
-  await expect(page.locator('[data-date="2026-11-23"]')).toContainText('Exam 4');
+  await expect(page.locator('[data-date="2026-11-23"] .topic')).toHaveText(lockedTitle);
   await expect(page.getByRole('heading', { name: 'Unscheduled · 2' })).toBeVisible();
   await page.getByRole('button', { name: 'Undo', exact: true }).click();
-  await expect(page.locator('[data-date="2026-11-16"]')).toContainText('LESSON 15');
-  expect(host.read().course.holidays.length).toBe(3);
+  await expect(page.locator('[data-date="2026-11-16"] .topic')).toHaveText(restoredTitle);
+  expect(host.read().course.holidays.length).toBe(holidayCount);
   expect(host.errors).toEqual([]);
 });
 test('assignment edits and external changes protect unsubmitted forms', async ({ page }) => {
@@ -109,9 +113,20 @@ test('assignment edits and external changes protect unsubmitted forms', async ({
 });
 test('calendar layout at desktop and narrow widths', async ({ page }) => {
   await setup(page);
+  const sidebar = () => page.locator('aside').evaluate(el => ({ top: el.getBoundingClientRect().top, bottom: el.getBoundingClientRect().bottom, viewport: innerHeight, headerBottom: document.querySelector('header').getBoundingClientRect().bottom, radius: getComputedStyle(el).borderRadius }));
+  const initialSidebar = await sidebar();
+  expect(initialSidebar.radius).toBe('0px');
+  expect(Math.abs(initialSidebar.bottom - initialSidebar.viewport)).toBeLessThan(1);
+  expect(Math.abs(initialSidebar.top - initialSidebar.headerBottom)).toBeLessThan(1);
   // Padding and the date label are part of the edit target, not just the title.
   await page.locator('[data-select="2026-08-27"]').click({ position: { x: 5, y: 5 } });
   await expect(page.getByLabel('Topic', { exact: true })).toHaveValue('LESSON 1. The textbook. Beginnings.');
+  await expect(page.getByLabel('Topic', { exact: true })).toBeFocused();
+  await page.locator('[data-select="2026-08-28"]').click();
+  await expect(page.getByLabel('Topic', { exact: true })).toBeFocused();
+  await page.locator('[data-select="2026-08-27"]').click();
+  const selectedSidebar = await sidebar();
+  expect(Math.abs(selectedSidebar.bottom - selectedSidebar.viewport)).toBeLessThan(1);
   await expect(page.locator('.week-label')).toHaveText(Array.from({ length: 16 }, (_, i) => 'Week ' + (i + 1)));
   await expect(page.locator('.days').first().locator('.placeholder')).toHaveCount(1);
   await expect(page.locator('.days').last().locator('.placeholder')).toHaveCount(2);
