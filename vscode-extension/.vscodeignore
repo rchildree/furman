@@ -1,0 +1,9 @@
+test/**
+test-results/**
+node_modules/yaml/browser/**
+node_modules/yaml/dist/**/*.d.ts
+node_modules/@playwright/**
+node_modules/playwright*/**
+build.js
+*.vsix
+package-lock.json

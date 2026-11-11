@@ -82,7 +82,7 @@ def term_slug(term):
 
 
 # ---------- calendar ----------
-# KEEP IN SYNC: assets/app.js (buildCalendar) implements this same algorithm so
+# KEEP IN SYNC: assets/schedule-core.js (calendar) implements this same algorithm so
 # the dates written into schedule.yaml match what the site renders.
 
 def expand_holidays(holidays):
@@ -291,6 +291,7 @@ STUB = """<!DOCTYPE html>
 <div class="wrap" id="app"><div class="loading">Loading…</div></div>
 <script src="../../assets/vendor/js-yaml.min.js"></script>
 <script src="../../assets/vendor/marked.min.js"></script>
+<script src="../../assets/schedule-core.js"></script>
 <script src="../../assets/app.js"></script>
 </body>
 </html>

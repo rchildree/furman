@@ -27,6 +27,10 @@ Then fill in three files (see below), commit, push. Done.
 
 All the files you edit live in `courses/<slug>/`:
 
+### Visual editing in VS Code
+
+The [Schedule Editor extension](vscode-extension/README.md) provides a calendar for dragging topics, locking dates, attaching files, editing assignments, and adding holidays. Install the VSIX once, then open `schedule.yaml` in VS Code. No server is needed. To run the extension from source, choose **Run and Debug → Schedule Editor** and press **F5**; the launch task prepares it automatically.
+
 ### `schedule.yaml` — daily topics and assignments
 
 Topics are **one entry per class meeting, in order**. The generator prepopulates every meeting as an empty title-and-notes block, dated:
@@ -43,6 +47,8 @@ topics:
 Fill in `title` and `notes` as needed. The site assigns dates by position (entry 1 = first meeting, entry 2 = second, …), so you can insert or move entries and the dates reflow automatically. The `# Mon 2026-06-01` comments are editing aids written at generation time — they can go stale if you shuffle entries; the rendered site is always correct.
 
 Formatting notes:
+
+- An optional `fixed_date: "2026-09-21"` on a topic locks it to a class meeting. Locked topics reserve their dates first; other topics fill the remaining meetings in list order. The editor and published pages use the same scheduling rules. A lock on a holiday, non-meeting day, or already locked date is an error.
 
 - Markdown works in titles and notes: `*Iliad*` renders italic, `[text](url)` renders as a link.
 - If a title contains a colon or starts with `*`, wrap it in double quotes (as above).
@@ -149,7 +155,9 @@ Archived courses stay on the landing page, dimmed and listed under an "Older" he
 
 ## How it works / repo map
 
-- `assets/app.js` — all rendering. Builds the calendar from `course.yaml`, zips topics onto it, renders each page. The calendar algorithm is duplicated in `scripts/new_course.py` (marked `KEEP IN SYNC` in both).
+- `assets/app.js` — page rendering, using the shared calendar and topic placement from `assets/schedule-core.js`.
+- `assets/schedule-core.js` — calendar and date locks, shared with the VS Code editor. The calendar algorithm also appears in `scripts/new_course.py`; parity tests cover both example courses.
+- `vscode-extension/` — visual schedule editor, packaging, and tests. See its README for installation and the F5 development workflow.
 - `scripts/archive_course.py` — renames a course to its dated slug and marks it archived; see above.
 - `assets/styles.css` — the design. Colors and type are set as CSS variables at the top.
 - `assets/vendor/` — pinned copies of js-yaml and marked (no CDN dependency).

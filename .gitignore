@@ -1,1 +1,6 @@
 __pycache__/
+node_modules/
+*.vsix
+vscode-extension/media/schedule-core.js
+vscode-extension/media/marked.min.js
+vscode-extension/test-results/

@@ -106,54 +106,8 @@
   }
 
   /* ---------- calendar ----------
-   * KEEP IN SYNC: scripts/new_course.py (build_calendar) implements this same
-   * algorithm so generated schedule.yaml files line up with what renders here.
+   * schedule-core.js is shared with the VS Code schedule editor.
    */
-
-  function dayIndex(letter) {
-    var i = DAY_LETTERS.indexOf(String(letter).trim().toUpperCase());
-    if (i < 0) throw new Error("Unknown meeting day: " + letter + " (use M T W R F S U)");
-    return i;
-  }
-
-  // meeting_days is a compact string like "MWF" or "TR" (also accepts a
-  // YAML list of single letters, e.g. [M, W, F], if written that way).
-  function parseMeetingDays(v) {
-    if (Array.isArray(v)) return v.map(dayIndex);
-    return String(v || "").split("").filter(function (c) { return /\S/.test(c); }).map(dayIndex);
-  }
-
-  // -> Map of "YYYY-MM-DD" -> holiday name
-  function expandHolidays(list) {
-    var map = new Map();
-    (list || []).forEach(function (h) {
-      if (h.date) {
-        map.set(ymd(parseDate(h.date)), h.name || "Holiday");
-      } else if (h.start && h.end) {
-        for (var d = parseDate(h.start), e = parseDate(h.end); d <= e; d = addDays(d, 1)) {
-          map.set(ymd(d), h.name || "Holiday");
-        }
-      }
-    });
-    return map;
-  }
-
-  // -> [{date, holiday?}] one entry per scheduled meeting day (incl. holidays)
-  function buildCalendar(course) {
-    var start = parseDate(course.start_date);
-    var end = parseDate(course.end_date);
-    if (!start || !end) throw new Error("course.yaml needs start_date and end_date (YYYY-MM-DD)");
-    var meet = new Set(parseMeetingDays(course.meeting_days));
-    if (!meet.size) throw new Error("course.yaml needs meeting_days");
-    var holidays = expandHolidays(course.holidays);
-    var days = [];
-    for (var d = new Date(start); d <= end; d = addDays(d, 1)) {
-      if (!meet.has(d.getDay())) continue;
-      var h = holidays.get(ymd(d));
-      days.push(h ? { date: d, holiday: h } : { date: d });
-    }
-    return days;
-  }
 
   function normalizeTopic(t) {
     if (t == null) return { title: "TBD" };
@@ -187,13 +141,16 @@
   // already a class meeting) so due items stay on their day, not at the
   // end of the week.
   function buildWeeks(course, schedule) {
-    var days = buildCalendar(course);
-    var topics = (schedule.topics || []).map(normalizeTopic);
-    var ti = 0;
-    days.forEach(function (day) {
-      if (!day.holiday) day.topic = topics[ti++] || { title: "TBD", tbd: true };
+    var resolved = ScheduleCore.resolve(course, schedule);
+    if (resolved.errors.length) throw new Error(resolved.errors.join(" "));
+    var days = resolved.days.map(function (day) {
+      return {
+        date: parseDate(day.date),
+        holiday: day.holiday,
+        topic: day.holiday ? undefined : (day.topic ? normalizeTopic(day.topic) : { title: "TBD", tbd: true })
+      };
     });
-    var extraTopics = topics.slice(ti);
+    var extraTopics = resolved.extras.map(function (entry) { return normalizeTopic(entry.topic); });
 
     var weeks = [];
     var byMon = new Map();

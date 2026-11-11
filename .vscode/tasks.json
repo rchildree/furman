@@ -1,0 +1,13 @@
+{
+  "version": "2.0.0",
+  "tasks": [{
+    "label": "Install Schedule Editor dependencies",
+    "type": "shell", "command": "npm", "args": ["ci"],
+    "options": { "cwd": "${workspaceFolder}/vscode-extension" }, "problemMatcher": []
+  }, {
+    "label": "Prepare Schedule Editor",
+    "type": "shell", "command": "npm", "args": ["run", "build"],
+    "options": { "cwd": "${workspaceFolder}/vscode-extension" },
+    "dependsOn": "Install Schedule Editor dependencies", "problemMatcher": []
+  }]
+}
