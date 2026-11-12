@@ -171,3 +171,12 @@ Archived courses stay on the landing page, dimmed and listed under an "Older" he
 1. Push the repo to GitHub.
 2. Repo → Settings → Pages → deploy from the `main` branch, `/ (root)` folder.
 3. The site appears at `https://<user>.github.io/<repo>/`.
+
+## Desktop app
+
+The Tauri desktop app adds a course library, the visual schedule editor, Markdown
+editing, native attachments, website appearance controls with a live preview,
+and a GitHub review/publish flow. Open `desktop/Syllabusser.app` after building,
+or use **Tasks: Run Task → Open Syllabusser desktop** in VS Code. No server needs
+to be started. See [desktop/README.md](desktop/README.md) for setup, publishing,
+and the current release’s limits.

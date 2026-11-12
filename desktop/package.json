@@ -1,0 +1,23 @@
+{
+  "name": "syllabusser-desktop",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "tauri dev",
+    "app": "tauri build --bundles app && node link-app.mjs",
+    "test": "node --test test/*.test.mjs",
+    "test:ui": "playwright test",
+    "tauri": "tauri"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^2.10.1",
+    "yaml": "^2.8.1"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.10.1",
+    "esbuild": "^0.25.0",
+    "@playwright/test": "^1.56.0"
+  }
+}

@@ -1,0 +1,42 @@
+:root {
+  color-scheme: light;
+  --vscode-editor-foreground: #243047;
+  --vscode-editor-background: #fff;
+  --vscode-font-family:
+    -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --vscode-panel-border: #dce2ea;
+  --vscode-button-secondaryBackground: #f3f5f8;
+  --vscode-button-secondaryForeground: #35435a;
+  --vscode-button-secondaryHoverBackground: #e5eaf2;
+  --vscode-button-background: #275dd7;
+  --vscode-button-foreground: white;
+  --vscode-focusBorder: #388bfd;
+  --vscode-descriptionForeground: #6a7588;
+  --vscode-sideBar-background: #f0f3f9;
+  --vscode-badge-background: #e6ebf2;
+  --vscode-badge-foreground: #4a5670;
+  --vscode-input-foreground: #243047;
+  --vscode-input-background: #fff;
+  --vscode-inputValidation-warningBorder: #d89b38;
+  --vscode-inputValidation-errorBorder: #bb4444;
+  --vscode-textLink-foreground: #275dd7;
+}
+header {
+  padding: 16px 22px 12px;
+}
+.identity h1 {
+  font-size: 16px;
+}
+.layout {
+  grid-template-columns: minmax(350px, 1fr) 300px;
+}
+main {
+  padding: 22px 22px 60px;
+}
+.day {
+  background-color: white;
+}
+dialog {
+  color: #243047;
+  background: white;
+}

@@ -1,0 +1,22 @@
+{
+  "identifier": "main",
+  "description": "Main desktop window",
+  "windows": [
+    "main"
+  ],
+  "permissions": [
+    "core:default",
+    "allow-choose-folder",
+    "allow-open-library",
+    "allow-read-files",
+    "allow-save-files",
+    "allow-list-files",
+    "allow-import-files",
+    "allow-upload-files",
+    "allow-git-review",
+    "allow-git-publish",
+    "allow-git-push",
+    "allow-deployment",
+    "allow-open-url"
+  ]
+}

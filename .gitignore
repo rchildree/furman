@@ -4,3 +4,10 @@ node_modules/
 vscode-extension/media/schedule-core.js
 vscode-extension/media/marked.min.js
 vscode-extension/test-results/
+desktop/dist/
+desktop/src-tauri/target/
+desktop/test-results/
+desktop/playwright-report/
+desktop/Syllabusser.app
+desktop/src-tauri/gen/
+.syllabusser-recovery/

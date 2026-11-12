@@ -1,10 +1,22 @@
 {
   "version": "0.2.0",
-  "configurations": [{
-    "name": "Schedule Editor",
-    "type": "extensionHost",
-    "request": "launch",
-    "args": ["--extensionDevelopmentPath=${workspaceFolder}/vscode-extension", "${workspaceFolder}"],
-    "preLaunchTask": "Prepare Schedule Editor"
-  }]
+  "configurations": [
+    {
+      "name": "Schedule Editor",
+      "type": "extensionHost",
+      "request": "launch",
+      "args": [
+        "--extensionDevelopmentPath=${workspaceFolder}/vscode-extension",
+        "${workspaceFolder}"
+      ],
+      "preLaunchTask": "Prepare Schedule Editor"
+    },
+    {
+      "name": "Syllabusser desktop",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "npm run dev",
+      "cwd": "${workspaceFolder}/desktop"
+    }
+  ]
 }

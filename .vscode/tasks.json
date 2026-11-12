@@ -1,13 +1,53 @@
 {
   "version": "2.0.0",
-  "tasks": [{
-    "label": "Install Schedule Editor dependencies",
-    "type": "shell", "command": "npm", "args": ["ci"],
-    "options": { "cwd": "${workspaceFolder}/vscode-extension" }, "problemMatcher": []
-  }, {
-    "label": "Prepare Schedule Editor",
-    "type": "shell", "command": "npm", "args": ["run", "build"],
-    "options": { "cwd": "${workspaceFolder}/vscode-extension" },
-    "dependsOn": "Install Schedule Editor dependencies", "problemMatcher": []
-  }]
+  "tasks": [
+    {
+      "label": "Install Schedule Editor dependencies",
+      "type": "shell",
+      "command": "npm",
+      "args": [
+        "ci"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/vscode-extension"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Prepare Schedule Editor",
+      "type": "shell",
+      "command": "npm",
+      "args": [
+        "run",
+        "build"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/vscode-extension"
+      },
+      "dependsOn": "Install Schedule Editor dependencies",
+      "problemMatcher": []
+    },
+    {
+      "label": "Build Syllabusser desktop",
+      "type": "shell",
+      "command": "npm",
+      "args": [
+        "run",
+        "app"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/desktop"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Open Syllabusser desktop",
+      "type": "shell",
+      "command": "open",
+      "args": [
+        "${workspaceFolder}/desktop/src-tauri/target/release/bundle/macos/Syllabusser.app"
+      ],
+      "problemMatcher": []
+    }
+  ]
 }
