@@ -8,6 +8,24 @@
   var PAGE = document.body.dataset.page;
   var APP = document.getElementById("app");
 
+  // Optional site and course overrides, in a predictable cascade. Keeping them
+  // separate lets the desktop editor update controls without rewriting custom CSS.
+  var assetRoot = new URL(".", document.currentScript.src);
+  var themePaths = [new URL("theme.css", assetRoot), new URL("custom.css", assetRoot)];
+  if (PAGE !== "home") themePaths.push(new URL("theme.css", location.href), new URL("custom.css", location.href));
+  Promise.all(themePaths.map(function (url) {
+    return fetch(url, { cache: "no-cache" }).then(function (r) { return r.ok ? r.text() : ""; }).catch(function () { return ""; });
+  })).then(function (styles) {
+    styles.forEach(function (css, i) {
+      var el = document.createElement("style");
+      el.dataset.themeLayer = i < 2 ? "global" : "course";
+      el.textContent = css;
+      document.head.appendChild(el);
+    });
+    // The desktop preview can reapply unsaved overrides after the saved layers load.
+    if (window.parent !== window) window.parent.postMessage({ type: "preview-ready" }, "*");
+  });
+
   // EXPERIMENTAL: collapses the course header into a slim sticky bar once it
   // scrolls out of view. Rollback: set this to false (or delete this flag,
   // the .compact-header markup, initCompactHeader() + its call sites, and
